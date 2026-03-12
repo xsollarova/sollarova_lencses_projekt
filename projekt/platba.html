@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Kristína Sollárová, David Lencsés">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platba</title>
 </head>
+
 <body>
-    
+
+    <header class="hlavicka">
+        <div class="hlavicka-obsah">
+
+            <div class="logo" id="logo">
+                <a href="index.html">LOGO</a>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="hľadať...">
+            </div>
+
+            <div class="icons">
+                <a href="kosik.html">košík</a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section class="content">
+
+            <section class="steps">
+                <section class="checkout-steps">
+                    <div class="step active">zhrnutie</div>
+                    <span class="step-arrow">=></span>
+                    <div class="step">dodacie údaje</div>
+                    <span class="step-arrow">=></span>
+                    <div class="step">doprava a platba</div>
+                </section>
+            </section>
+
+        </section>
+
+        <div class="checkout-layout">
+
+        <section class="payment-options">
+
+            <section class="shipping-method">
+                <h2>Zvoľte spôsob dopravy:</h2>
+
+                <label class="option">
+                    <input type="radio" name="shipping">
+                    <span>na predajňu</span>
+                    <span class="price">€€</span>
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="shipping">
+                    <span>kuriér</span>
+                    <span class="price">€€</span>
+                </label>
+            </section>
+
+
+            <section class="payment-method">
+                <h2>Zvoľte spôsob platby:</h2>
+
+                <label class="option">
+                    <input type="radio" name="payment">
+                    <span>dobierku pri vyzdvihnutí</span>
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="payment">
+                    <span>kartou online</span>
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="payment">
+                    <span>prevodom na účet</span>
+                </label>
+            </section>
+
+        </section>
+
+
+        <section class="order-summary">
+            <h2>SUMMARY</h2>
+
+            <div class="summary-items">
+                <div class="summary-item">
+                    <span>názov</span>
+                    <span>€€</span>
+                </div>
+                <div class="summary-item">
+                    <span>názov</span>
+                    <span>€€</span>
+                </div>
+                <div class="summary-item">
+                    <span>názov</span>
+                    <span>€€</span>
+                </div>
+            </div>
+
+            <div class="summary-total">
+                <span>total</span>
+                <span>€€€</span>
+            </div>
+
+            <a href="udaje.html" class="continue-btn">pokračovať</a>
+        </section>
+
+        <section class="back-to-top">
+            <a href="#">späť hore ↑</a>
+        </section>
+
+        </section>
+
+    </main>
+
+
+    <footer class="pata">
+        <div class="container">
+            kontakt | obchodné podmienky | info
+        </div>
+        <div class="footer-logo">
+            LOGO
+        </div>
+    </footer>
+
 </body>
+
 </html>
