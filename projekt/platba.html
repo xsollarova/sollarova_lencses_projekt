@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="author" content="Kristína Sollárová, David Lencsés">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Platba</title>
 </head>
 
@@ -14,15 +15,21 @@
         <div class="hlavicka-obsah">
 
             <div class="logo" id="logo">
-                <a href="index.html">LOGO</a>
+                <a href="index.html"><img src="../obrazky/logo.png" alt="Logo"></a>
             </div>
 
-            <div class="search-bar">
-                <input type="text" placeholder="hľadať...">
-            </div>
+            <div class="prava-strana">
+                <div class="icons">
+                    <a href="profil.html">
+                        <img src="../obrazky/profil.png" alt="Profil">
+                    </a>
+                </div>
 
-            <div class="icons">
-                <a href="kosik.html">košík</a>
+                <div class="icons">
+                    <a href="kosik.html">
+                        <img src="../obrazky/kosik.png" alt="Košík">
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -30,18 +37,15 @@
 
     <main>
 
-        <section class="content">
 
-            <section class="steps">
-                <section class="checkout-steps">
-                    <div class="step active">zhrnutie</div>
-                    <span class="step-arrow">=></span>
-                    <div class="step">dodacie údaje</div>
-                    <span class="step-arrow">=></span>
-                    <div class="step">doprava a platba</div>
-                </section>
+        <section class="steps">
+            <section class="checkout-steps">
+                <div class="step active">zhrnutie</div>
+                <span class="step-arrow">=></span>
+                <div class="step">dodacie údaje</div>
+                <span class="step-arrow">=></span>
+                <div class="step">doprava a platba</div>
             </section>
-
         </section>
 
         <div class="checkout-layout">
@@ -111,23 +115,60 @@
                 </div>
 
                 <a href="placeholder.html" class="continue-btn">pokračovať s povinnostou platby</a>
-            </section>
 
-            <section class="back-to-top">
-                <a href="#">späť hore ↑</a>
-            </section>
-
+                <section class="back-to-top">
+                    <a href="#top"><button class="btn-fill">späť hore ↑</button></a>
+                </section>
             </section>
 
     </main>
 
 
-    <footer class="pata">
-        <div class="container">
-            kontakt | obchodné podmienky | info
-        </div>
-        <div class="footer-logo">
-            LOGO
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <h4>Nakupovanie</h4>
+                    <a href="#">Ako nakúpiť</a>
+                    <a href="#">Doručenie</a>
+                    <a href="#">Platba</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>O nás</h4>
+                    <a href="#">Kontakt</a>
+                    <a href="#">O projekte</a>
+                    <a href="#">Obchodné podmienky</a>
+                    <a href="#">Ochrana súkromia</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Pomoc</h4>
+                    <a href="#">FAQ</a>
+                    <a href="#">Podpora</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Sledujte nás</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">ig</a>
+                        <a href="#" aria-label="YouTube">yt</a>
+                    </div>
+                    <div class="footer-note">SecondChance • secondhand e-shop</div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copy">
+                    © 2026 SecondChance
+                </div>
+                <div class="footer-logo">
+                    <img src="../obrazky/logo.png" alt="Logo">
+                </div>
+            </div>
         </div>
     </footer>
 
