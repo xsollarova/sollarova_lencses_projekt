@@ -1,6 +1,6 @@
 .brands,
 .products {
-  background: #fff;
+  background: #efece9b1;
   border: 1px solid rgba(15, 23, 42, 0.10);
   border-radius: 14px;
   padding: 18px;
@@ -42,5 +42,70 @@
   display: block;
   object-fit: cover;
   background: #f0f0f0;
+  margin: 16px auto 0 auto;
+}
+
+.brand-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: auto;
+  border: 1px solid black;
+  border-radius: 14px;
+  text-decoration: none;
+}
+
+.product-card {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 14px;
+  height: 100%;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.product-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.product-title {
+  font-size: 16px;
+  margin: 0px;
+  font-weight: bold;
+}
+
+.product-meta {
+  margin: 0;
+  font-size: 14px;
+  color: grey;
+}
+
+.product-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.product-price {
+  font-weight: bold;
+}
+
+.product-btn {
+  text-decoration: none;
+  padding: 8px 8px;
+  border-radius: 20px;
+  border: 1px solid black;
+  background: #f1f0eeb1;
+  color: #0f172a;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
 }
 

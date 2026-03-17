@@ -21,13 +21,13 @@
             <div class="prava-strana">
                 <div class="icons">
                     <a href="profil.html">
-                        <img src="../obrazky/profil.png" alt="Profil">
+                        <img src="../obrazky/user_logo.png" alt="Profil">
                     </a>
                 </div>
 
                 <div class="icons">
                     <a href="kosik.html">
-                        <img src="../obrazky/kosik.png" alt="Košík">
+                        <img src="../obrazky/cart_logo.png" alt="Košík">
                     </a>
                 </div>
             </div>
@@ -39,80 +39,83 @@
 
         <section class="steps">
             <section class="checkout-steps">
-                <div class="step active">zhrnutie</div>
-                <span class="step-arrow">=></span>
-                <div class="step">dodacie údaje</div>
-                <span class="step-arrow">=></span>
-                <div class="step">doprava a platba</div>
+                <a href="kosik.html" class="step done"> zhrnutie </a>
+                <span class="step-arrow">→</span>
+                <a href ="udaje.html" class="step active" > dodacie údaje </a>
+                <span class="step-arrow">→</span>
+                <a href="platba.html" class="step not-active"> doprava a platba </a>
             </section>
         </section>
 
-        <section class="customer-info">
-            <form class="customer-form">
+        <section class="udaje-layout">
+            <section class="customer-info">
+                <form class="customer-form">
 
-                <div class="form-group">
-                    <input type="text" name="meno" placeholder="meno">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" name="priezvisko" placeholder="priezvisko">
-                </div>
-
-                <div class="form-group">
-                    <input type="tel" name="telefon" placeholder="telefónne číslo">
-                </div>
-
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="email">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" name="mesto" placeholder="mesto">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group small">
-                        <input type="text" name="psc" placeholder="psč">
+                    <div class="form-group">
+                        <input type="text" name="meno" placeholder="meno">
                     </div>
 
-                    <div class="form-group small">
-                        <input type="text" name="cislo_domu" placeholder="číslo domu">
+                    <div class="form-group">
+                        <input type="text" name="priezvisko" placeholder="priezvisko">
                     </div>
-                </div>
 
-            </form>
-        </section>
+                    <div class="form-group">
+                        <input type="tel" name="telefon" placeholder="telefónne číslo">
+                    </div>
 
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="email">
+                    </div>
 
-        <section class="order-summary">
-            <h2>SUMMARY</h2>
+                    <div class="form-group mesto-group">
+                        <input type="text" name="mesto" placeholder="mesto">
+                    </div>
 
-            <div class="summary-items">
-                <div class="summary-item">
-                    <span>názov</span>
-                    <span>€€</span>
-                </div>
-                <div class="summary-item">
-                    <span>názov</span>
-                    <span>€€</span>
-                </div>
-                <div class="summary-item">
-                    <span>názov</span>
-                    <span>€€</span>
-                </div>
-            </div>
+                    <div class="form-row">
+                        <div class="form-group small">
+                            <input type="text" name="psc" placeholder="psč">
+                        </div>
 
-            <div class="summary-total">
-                <span>total</span>
-                <span>€€€</span>
-            </div>
+                        <div class="form-group small">
+                            <input type="text" name="cislo_domu" placeholder="číslo domu">
+                        </div>
+                    </div>
 
-            <a href="platba.html" class="continue-btn">pokračovať</a>
+                </form>
 
-
-            <section class="back-to-top">
-                <a href="#top"><button class="btn-fill">späť hore ↑</button></a>
+                <section class="back-to-top-kosik">
+                    <a href="#top"><button class="btn-fill">späť hore ↑</button></a>
+                </section>
             </section>
+
+
+            <section class="order-summary">
+                <h2>SUMMARY</h2>
+
+                <div class="summary-items">
+                    <div class="summary-item">
+                        <span>názov</span>
+                        <span>€€</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>názov</span>
+                        <span>€€</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>názov</span>
+                        <span>€€</span>
+                    </div>
+                </div>
+
+                <div class="summary-total">
+                    <span>total</span>
+                    <span>€€€</span>
+                </div>
+
+                <a href="platba.html" class="continue-btn">pokračovať</a>
+
+            </section>
+
         </section>
 
     </main>
@@ -146,9 +149,9 @@
                 <div class="footer-col">
                     <h4>Sledujte nás</h4>
                     <div class="footer-social">
-                        <a href="#" aria-label="Facebook">f</a>
-                        <a href="#" aria-label="Instagram">ig</a>
-                        <a href="#" aria-label="YouTube">yt</a>
+                        <a href="#" aria-label="Facebook"> <img src="../obrazky/facebook_logo.png"> </a>
+                        <a href="#" aria-label="Instagram"> <img src="../obrazky/instagram_logo.png" > </a>
+                        <a href="#" aria-label="YouTube"> <img src="../obrazky/youtube_logo.png" ></a>
                     </div>
                     <div class="footer-note">SecondChance • secondhand e-shop</div>
                 </div>
