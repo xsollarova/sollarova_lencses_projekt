@@ -1,3 +1,4 @@
+@import 'style.css';
 .checkout-layout {
   display: flex;
   justify-content: space-between;
