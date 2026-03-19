@@ -45,6 +45,10 @@
   padding: 12px;
 }
 
+.brand-card:hover {
+    transform: translateY(-3px);
+}
+
 .brand-img {
   width: 100%;
   max-width: 80px;
@@ -65,13 +69,17 @@
   overflow: hidden;
 }
 
+.product-card:hover {
+    transform: translateY(-3px);
+}
+
 .product-img {
   width: 100%;
   max-width: 150px;
   height: auto;
   display: block;
   object-fit: contain;
-  background: #f0f0f0;
+  background: transparent;
   margin: 16px auto 0 auto;
   padding: 0 10px;
 }
