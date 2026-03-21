@@ -1,0 +1,77 @@
+@import "style.css";
+
+.confirm-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.confirm-box {
+    width: 100%;
+    max-width: 500px;
+    background: #efece9b1;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.confirm-box h1 {
+    margin-bottom: 20px;
+}
+
+.summary {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.summary p {
+    margin: 8px 0;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    flex: 1;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.primary {
+    background: #5f4037;
+    color: white;
+}
+
+.primary:hover {
+    background: black;
+}
+
+.secondary {
+    background: #cfc9c3b1;
+    color: black;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .confirm-box {
+        padding: 20px;
+    }
+
+    .confirm-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
