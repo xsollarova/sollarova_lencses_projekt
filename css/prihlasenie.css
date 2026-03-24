@@ -129,7 +129,7 @@
   color: #111;
 }
 
-/* ─── TABLET ─── */
+/* TABLET */
 @media (max-width: 992px) {
   .popup {
     max-width: 680px;
@@ -141,7 +141,7 @@
   }
 }
 
-/* ─── MOBILE ─── */
+/* MOBILE */
 @media (max-width: 640px) {
   .popup-box {
     flex-direction: column;
