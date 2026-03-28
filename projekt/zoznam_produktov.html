@@ -13,36 +13,36 @@
 </head>
 
 <body id = "top">
-  
+
     <header class="hlavicka">
-      <div class="hlavicka-obsah">
+        <div class="hlavicka-obsah">
 
-        <div class="logo" id="logo">
-          <a href="index.html"><img src="../obrazky/logo_obrazky/logo.png" alt="Logo"></a>
+            <div class="logo" id="logo">
+                <a href="index.html"><img src="../obrazky/logo_obrazky/logo.png" alt="Logo"></a>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Čo hľadáte?">
+                <button type="submit">HĽADAŤ</button>
+            </div>
+
+            <div class="prava-strana">
+                <div class="icons">
+                    <img src="../obrazky/logo_obrazky/user_logo.png" alt="Profil" id="profileBtn">
+                </div>
+
+                <div id="popup-container"></div>
+
+                <div class="icons">
+                    <a href="kosik.html">
+                        <img src="../obrazky/logo_obrazky/cart_logo.png" alt="Košík">
+                    </a>
+                </div>
+            </div>
+
         </div>
 
-        <div class="search-bar">
-          <input type="text" placeholder="Čo hľadáte?">
-          <button type="submit">HĽADAŤ</button>
         </div>
-
-        <div class="prava-strana">
-          <div class="icons">
-            <img src="../obrazky/logo_obrazky/user_logo.png" alt="Profil" id="profileBtn">
-          </div>
-
-          <div id="popup-container"></div>
-
-          <div class="icons">
-            <a href="kosik.html">
-              <img src="../obrazky/logo_obrazky/cart_logo.png" alt="Košík">
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      </div>
     </header>
 
 
@@ -51,493 +51,550 @@
         <div class="container-fluid">
             <div class="row">
 
-            <!-- sidebar -->
-            <aside class="col-12 col-md-3 col-lg-2 sidebar-wrap">
-                <div class="sidebar">
+                <!-- sidebar -->
+                <aside class="col-12 col-md-3 col-lg-2 sidebar-wrap">
+                    <div class="sidebar">
 
-                <div class="category-group">
-                    <h2>žena</h2>
-                    <ul>
-                    <li><a href="#">topy</a></li>
-                    <li><a href="#" class="active-category">nohavice</a></li>
-                    <li><a href="#">šaty</a></li>
-                    <li><a href="#">mikiny</a></li>
-                    <li><a href="#">topánky</a></li>
-                    </ul>
-                </div>
+                        <div class="category-group">
+                            <h2>žena</h2>
+                            <ul>
+                                <li><a href="#">topy</a></li>
+                                <li><a href="#" class="active-category">nohavice</a></li>
+                                <li><a href="#">šaty</a></li>
+                                <li><a href="#">mikiny</a></li>
+                                <li><a href="#">topánky</a></li>
+                            </ul>
+                        </div>
 
-                <div class="category-group">
-                    <h2>muž</h2>
-                    <ul>
-                    <li><a href="#">tričká</a></li>
-                    <li><a href="#">košele</a></li>
-                    <li><a href="#">nohavice</a></li>
-                    <li><a href="#">mikiny</a></li>
-                    <li><a href="#">topánky</a></li>
-                    </ul>
-                </div>
+                        <div class="category-group">
+                            <h2>muž</h2>
+                            <ul>
+                                <li><a href="#">tričká</a></li>
+                                <li><a href="#">košele</a></li>
+                                <li><a href="#">nohavice</a></li>
+                                <li><a href="#">mikiny</a></li>
+                                <li><a href="#">topánky</a></li>
+                            </ul>
+                        </div>
 
-                </div>
-            </aside>
+                    </div>
+                </aside>
 
-            
-            <section class="col-12 col-md-9 col-lg-10 products-section">
 
-                <!-- filter + radenie -->
-                <div class="products-top">
-                <h1 class="category-title">Zoznam produktov</h1>
-                <div class="products-controls">
-                    <select class="form-select custom-select">
-                    <option selected>Radenie</option>
-                    <option>Od najlacnejších</option>
-                    <option>Od najdrahších</option>
-                    <option>Najnovšie</option>
-                    </select>
-                    <select class="form-select custom-select">
-                    <option selected>Filter</option>
-                    <option>Veľkosť S</option>
-                    <option>Veľkosť M</option>
-                    <option>Veľkosť L</option>
-                    <option>Ako nové</option>
-                    </select>
-                </div>
-                </div>
+                <section class="col-12 col-md-9 col-lg-10 products-section">
 
-                <!-- čísla stránok -->
-                <div class="pagination-top">
-                <a href="#" class="page-number active">1</a>
-                <a href="#" class="page-number">2</a>
-                <a href="#" class="page-number">3</a>
-                <a href="#" class="page-number">4</a>
-                </div>
+                    <!-- filter + radenie -->
+                    <div class="products-top">
+                        <h1 class="category-title">Zoznam produktov</h1>
 
-                <div class="row g-4 products-grid">
-                
-                <!-- Produkt 1 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
-                        </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
+                        <div class="products-controls">
+                            <!-- RADENIE -->
+                            <div class="filter-dropdown sort-dropdown">
+                                <button type="button" class="filter-btn">Radenie</button>
 
-                <!-- Produkt 2 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
-                        </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
+                                <div class="filter-menu">
+                                    <div class="filter-options">
+                                        <label>Od najlacnejších</label>
+                                        <label>Od najdrahších</label>
+                                        <label>Najnovšie</label>
+                                    </div>
+                                </div>
+                            </div>
 
-                <!-- Produkt 3 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
-                        </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
+                            <!-- FILTER -->
+                            <div class="filter-dropdown">
+                                <button type="button" class="filter-btn">Filter</button>
 
-                <!-- Produkt 4 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
-                        </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
+                                <div class="filter-menu">
+                                    <div class="filter-group">
+                                        <span class="filter-title">Podľa veľkosti</span>
+                                        <div class="filter-options">
+                                            <label><input type="checkbox"> XS</label>
+                                            <label><input type="checkbox"> S</label>
+                                            <label><input type="checkbox"> M</label>
+                                            <label><input type="checkbox"> L</label>
+                                            <label><input type="checkbox"> XL</label>
+                                            <label><input type="checkbox"> EU 38</label>
+                                            <label><input type="checkbox"> EU 39</label>
+                                            <label><input type="checkbox"> EU 40</label>
+                                            <label><input type="checkbox"> EU 41</label>
+                                            <label><input type="checkbox"> EU 42</label>
+                                            <label><input type="checkbox"> EU 43</label>
+                                            <label><input type="checkbox"> EU 44</label>
+                                        </div>
+                                    </div>
 
-                <!-- Produkt 5 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
-                        </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
+                                    <div class="filter-group">
+                                        <span class="filter-title">Podľa ceny</span>
+                                        <div class="filter-options">
+                                            <label><input type="checkbox"> do 5 €</label>
+                                            <label><input type="checkbox"> 5 € - 10 €</label>
+                                            <label><input type="checkbox"> 10 € - 15 €</label>
+                                            <label><input type="checkbox"> 15 € - 20 €</label>
+                                            <label><input type="checkbox"> 20 €+</label>
+                                        </div>
+                                    </div>
 
-                <!-- Produkt 6 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                    <div class="filter-group">
+                                        <span class="filter-title">Podľa farby</span>
+                                        <div class="filter-options">
+                                            <label><input type="checkbox"> čierna</label>
+                                            <label><input type="checkbox"> biela</label>
+                                            <label><input type="checkbox"> béžová</label>
+                                            <label><input type="checkbox"> hnedá</label>
+                                            <label><input type="checkbox"> červená</label>
+                                            <label><input type="checkbox"> fialová</label>
+                                            <label><input type="checkbox"> ružová</label>
+                                            <label><input type="checkbox"> modrá</label>
+                                            <label><input type="checkbox"> žltá</label>
+                                            <label><input type="checkbox"> oranžová</label>
+                                            <label><input type="checkbox"> zelená</label>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
+                    </div>
 
-                <!-- Produkt 7 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
-                        </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
+                    <!-- čísla stránok -->
+                    <div class="pagination-top">
+                        <a href="#" class="page-number active">1</a>
+                        <a href="#" class="page-number">2</a>
+                        <a href="#" class="page-number">3</a>
+                        <a href="#" class="page-number">4</a>
+                    </div>
 
-                <!-- Produkt 8 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
-                        </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
+                    <div class="row g-4 products-grid">
 
-                <!-- Produkt 9 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 1 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 10 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 2 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/tricko_nike.jpg" alt="Tricko Nike">
+                                </div>
+                                <h3>Tricko Nike</h3>
+                                <p>Veľkosť L • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>9,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 11 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 3 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/saty_H&M.jpg" alt="Sáty H&M">
+                                </div>
+                                <h3>Sáty H&M</h3>
+                                <p>Veľkosť S • nové</p>
+                                <div class="product-bottom">
+                                    <span>12,00 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 12 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 4 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/mikina_adidas.png" alt="Mikina Adidas">
+                                </div>
+                                <h3>Mikina Adidas</h3>
+                                <p>Veľkosť M • veľmi dobré</p>
+                                <div class="product-bottom">
+                                    <span>18,50 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 13 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 5 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/rifle_levis.jpg" alt="Rifle Levis">
+                                </div>
+                                <h3>Rifle Levis</h3>
+                                <p>Veľkosť L • dobré</p>
+                                <div class="product-bottom">
+                                    <span>22,00 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 14 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 6 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/topanky_vans.jpg" alt="Topanky Vans">
+                                </div>
+                                <h3>Topanky Vans</h3>
+                                <p>Veľkosť 42 • OK</p>
+                                <div class="product-bottom">
+                                    <span>15,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 15 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 7 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 16 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 8 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 17 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 9 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 18 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 10 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 19 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 11 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 20 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 12 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 21 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 13 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 22 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 14 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 23 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 15 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
+
+                        <!-- Produkt 16 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                    </article>
-                </div>
 
-                <!-- Produkt 24 -->
-                <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                        <!-- Produkt 17 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="produkt.html">Detail</a>
+
+                        <!-- Produkt 18 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
                         </div>
-                    </article>
-                </div>
 
-                </div>
+                        <!-- Produkt 19 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
+                        </div>
 
-                <!-- späť hore + čísla stránok -->
-                <div class="products-bottom-bar">
-                <a href="#top" class="btn-fill">späť hore ↑</a>
-                <div class="pagination-bottom">
-                    <a href="#" class="page-number active">1</a>
-                    <a href="#" class="page-number">2</a>
-                    <a href="#" class="page-number">3</a>
-                    <a href="#" class="page-number">4</a>
-                </div>
-                </div>
+                        <!-- Produkt 20 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
+                        </div>
 
-            </section>
+                        <!-- Produkt 21 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Produkt 22 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Produkt 23 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Produkt 24 -->
+                        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <article class="product-card">
+                                <div class="product-image">
+                                    <img src="../obrazky/oblecenie_obrazky/bunda_zara.png" alt="Bunda Zara">
+                                </div>
+                                <h3>Bunda Zara</h3>
+                                <p>Veľkosť M • ako nové</p>
+                                <div class="product-bottom">
+                                    <span>14,90 €</span>
+                                    <a href="produkt.html">Detail</a>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+
+                    <!-- späť hore + čísla stránok -->
+                    <div class="products-bottom-bar">
+                        <a href="#top" class="btn-fill">späť hore ↑</a>
+                        <div class="pagination-bottom">
+                            <a href="#" class="page-number active">1</a>
+                            <a href="#" class="page-number">2</a>
+                            <a href="#" class="page-number">3</a>
+                            <a href="#" class="page-number">4</a>
+                        </div>
+                    </div>
+
+                </section>
             </div>
         </div>
-        </main>
+    </main>
 
 
     <footer class="footer">
-      <div class="footer-inner">
-        <div class="footer-grid">
+        <div class="footer-inner">
+            <div class="footer-grid">
 
-          <div class="footer-col">
-            <h4>Nakupovanie</h4>
-            <a href="#">Ako nakúpiť</a>
-            <a href="#">Doručenie</a>
-            <a href="#">Platba</a>
-          </div>
+                <div class="footer-col">
+                    <h4>Nakupovanie</h4>
+                    <a href="#">Ako nakúpiť</a>
+                    <a href="#">Doručenie</a>
+                    <a href="#">Platba</a>
+                </div>
 
-          <div class="footer-col">
-            <h4>O nás</h4>
-            <a href="#">Kontakt</a>
-            <a href="#">O projekte</a>
-            <a href="#">Obchodné podmienky</a>
-            <a href="#">Ochrana súkromia</a>
-          </div>
+                <div class="footer-col">
+                    <h4>O nás</h4>
+                    <a href="#">Kontakt</a>
+                    <a href="#">O projekte</a>
+                    <a href="#">Obchodné podmienky</a>
+                    <a href="#">Ochrana súkromia</a>
+                </div>
 
-          <div class="footer-col">
-            <h4>Pomoc</h4>
-            <a href="#">FAQ</a>
-            <a href="#">Podpora</a>
-          </div>
+                <div class="footer-col">
+                    <h4>Pomoc</h4>
+                    <a href="#">FAQ</a>
+                    <a href="#">Podpora</a>
+                </div>
 
-          <div class="footer-col">
-            <h4>Sledujte nás</h4>
-            <div class="footer-social">
-              <a href="#" aria-label="Facebook"> <img src="../obrazky/logo_obrazky/facebook_logo.png" alt="facebook"> </a>
-              <a href="#" aria-label="Instagram"> <img src="../obrazky/logo_obrazky/instagram_logo.png" alt="instagram"> </a>
-              <a href="#" aria-label="YouTube"> <img src="../obrazky/logo_obrazky/youtube_logo.png" alt="youtube"></a>
+                <div class="footer-col">
+                    <h4>Sledujte nás</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"> <img src="../obrazky/logo_obrazky/facebook_logo.png"
+                                alt="facebook"> </a>
+                        <a href="#" aria-label="Instagram"> <img src="../obrazky/logo_obrazky/instagram_logo.png"
+                                alt="instagram"> </a>
+                        <a href="#" aria-label="YouTube"> <img src="../obrazky/logo_obrazky/youtube_logo.png"
+                                alt="youtube"></a>
+                    </div>
+                    <div class="footer-note">SecondChance • secondhand e-shop</div>
+                </div>
+
             </div>
-            <div class="footer-note">SecondChance • secondhand e-shop</div>
-          </div>
 
+            <div class="footer-bottom">
+                <div class="footer-copy">
+                    © 2026 SecondChance
+                </div>
+                <div class="footer-logo">
+                    <img src="../obrazky/logo_obrazky/logo.png" alt="Logo">
+                </div>
+            </div>
         </div>
-
-        <div class="footer-bottom">
-          <div class="footer-copy">
-            © 2026 SecondChance
-          </div>
-          <div class="footer-logo">
-            <img src="../obrazky/logo_obrazky/logo.png" alt="Logo">
-          </div>
-        </div>
-      </div>
     </footer>
 
 
