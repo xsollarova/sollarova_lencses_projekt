@@ -405,6 +405,27 @@ body {
   display: flex;
 }
 
+/* cart badge */
+.cart-icon-wrapper {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  background: #5f4037;
+  color: white;
+  font-size: 17px;
+  font-weight: 350;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* TABLET */
 @media (max-width: 992px) {
   .hlavicka-obsah {

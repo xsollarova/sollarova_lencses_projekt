@@ -47,12 +47,18 @@
   color: white !important;
 }
 
+.category-page .sidebar {
+  width: 100%;
+  max-width: 100%;
+}
+
 .pagination-top,
 .pagination-bottom {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-bottom: 25px;
+  margin-right: 10px;
 }
 
 .page-number {
@@ -73,6 +79,16 @@
 .page-number.active {
   background: #5f4037;
   color: white;
+}
+
+.page-dots {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 18px;
 }
 
 .products-grid {
@@ -183,6 +199,15 @@
 @media (max-width: 992px) {
   .products-section {
     padding-left: 0;
+  }
+
+
+  .category-page {
+    flex-direction: column;
+  }
+
+  .sidebar-wrap {
+    width: 100%;
   }
 }
 

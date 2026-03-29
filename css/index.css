@@ -147,9 +147,27 @@
 }
 
 /* TABLET */
-@media (max-width: 992px) {
+@media (max-width: 1400px) {
   .promo {
     min-height: auto;
+  }
+
+  .product-card {
+    min-height: auto;
+  }
+
+  .product-bottom {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .product-bottom a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .product-bottom span {
+    font-size: 14px;
   }
 }
 
