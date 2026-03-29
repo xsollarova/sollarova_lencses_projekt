@@ -1,5 +1,5 @@
-const hlavnyObrazok = document.querySelector('.hlavny-obrazok img');
-const miniatury = document.querySelectorAll('.miniatura img');
+const hlavnyObrazok = document.querySelector('.primary-picture img');
+const miniatures = document.querySelectorAll('.miniature img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
@@ -12,7 +12,7 @@ hlavnyObrazok.addEventListener('click', () => {
     openLightbox(hlavnyObrazok.src);
 });
 
-miniatury.forEach(img => {
+miniatures.forEach(img => {
     img.addEventListener('click', () => {
         openLightbox(img.src);
     });

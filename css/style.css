@@ -14,7 +14,7 @@ body {
   padding: 0;
 }
 
-.hlavicka {
+.header {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -27,7 +27,7 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.hlavicka-obsah {
+.header-content {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -95,13 +95,13 @@ body {
 
 
 /* PRAVÁ STRANA */
-.prava-strana {
+.right-side {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.prava-strana-bez-search {
+.right-side-without-search {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -430,7 +430,7 @@ body {
 
 /* TABLET */
 @media (max-width: 992px) {
-  .hlavicka-obsah {
+  .header-content {
     padding: 10px 20px;
     gap: 16px;
   }
@@ -469,7 +469,7 @@ body {
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .hlavicka-obsah {
+  .header-content {
     flex-direction: column;
     align-items: stretch;
     padding: 12px 16px;

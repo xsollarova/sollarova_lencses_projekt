@@ -36,7 +36,7 @@ main {
 }
 
 /* HLAVNÝ PRODUKT */
-.produkt-detail {
+.product-detail {
     display: flex;
     gap: 60px;
     justify-content: flex-start;
@@ -44,13 +44,13 @@ main {
 }
 
 /* GALÉRIA */
-.produkt-galeria {
+.product-gallery {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.hlavny-obrazok {
+.primary-picture {
     width: 500px;
     height: 500px;
     border: 2px solid black;
@@ -60,24 +60,24 @@ main {
     background-color: white;
 }
 
-.hlavny-obrazok img {
+.primary-picture img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.hlavny-obrazok:hover {
+.primary-picture:hover {
     transform: translateY(-3px);
 }
 
 /* MINIATÚRY */
-.miniatury {
+.miniatures {
     display: flex;
     gap: 10px;
 }
 
-.miniatura {
+.miniature {
     width: 117.5px;
     height: 117.5px;
     border: 2px solid black;
@@ -86,11 +86,11 @@ main {
     justify-content: center;
 }
 
-.miniatura:hover {
+.miniature:hover {
     transform: translateY(-3px);
 }
 
-.miniatura img {
+.miniature img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -98,14 +98,14 @@ main {
 }
 
 /* INFO */
-.produkt-info {
+.product-info {
     flex: 1;
     max-width: 700px;
     margin-left: 150px;
     color: black;
 }
 
-.produkt-info h1 {
+.product-info h1 {
     font-size: 40px;
     margin-bottom: 30px;
     margin-top: 0px;
@@ -113,12 +113,12 @@ main {
 }
 
 /* VLASTNOSTI */
-.produkt-vlastnosti {
+.product-features {
     margin-bottom: 50px;
     overflow: hidden;
 }
 
-.vlastnost {
+.feature {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,14 +127,14 @@ main {
     margin-bottom: 10px;
 }
 
-.vlastnost .nazov{
+.feature .nazov{
     font-weight: 500;
     text-transform: uppercase;
     font-size: 16px;
     letter-spacing: 0.8px;
 }
 
-.vlasnost .hodnota{
+.feature .hodnota{
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.8px;
@@ -151,7 +151,7 @@ main {
 }
 
 /* BUTTON */
-.btn-kosik {
+.btn-cart {
     display: inline-block;
     padding: 15px 25px;
     background: #5f4037;
@@ -165,7 +165,7 @@ main {
     font-weight: 600;
 }
 
-.btn-kosik:hover {
+.btn-cart:hover {
     background: #2c1d18;
     color: white;
     transform: translate(+2px);
@@ -185,11 +185,11 @@ main {
 }
 
 /* PODOBNÉ PRODUKTY */
-.podobne-produkty {
+.similar-products {
     margin-top: 70px;
 }
 
-.podobne-produkty h2 {
+.similar-products h2 {
     font-size: 30px;
     margin-bottom: 30px;
     color: #2c1d18;
@@ -347,21 +347,21 @@ main {
         align-items: center;
     }
 
-    .hlavny-obrazok {
+    .primary-picture {
         width: 100%;
         max-width: 420px;
         height: auto;
         aspect-ratio: 1 / 1;
     }
 
-    .miniatury {
+    .miniatures {
         width: 100%;
         max-width: 420px;
         justify-content: space-between;
         gap: 12px;
     }
 
-    .miniatura {
+    .miniature {
         flex: 1;
         max-width: 90px;
         height: auto;
@@ -377,11 +377,11 @@ main {
         margin-bottom: 24px;
     }
 
-    .produkt-vlastnosti {
+    .product-features {
         margin-bottom: 24px;
     }
 
-    .vlastnost {
+    .feature {
         font-size: 18px;
     }
 
@@ -390,7 +390,7 @@ main {
         margin: 24px 0;
     }
 
-    .btn-kosik {
+    .btn-cart {
         padding: 13px 22px;
         font-size: 16px;
     }
@@ -400,11 +400,11 @@ main {
         font-size: 15px;
     }
 
-    .podobne-produkty {
+    .similar-products {
         margin-top: 50px;
     }
 
-    .podobne-produkty h2 {
+    .similar-products h2 {
         font-size: 26px;
         margin-bottom: 24px;
     }
@@ -479,17 +479,17 @@ main {
         align-items: stretch;
     }
 
-    .hlavny-obrazok {
+    .primary-picture {
         width: 100%;
         max-width: 100%;
     }
 
-    .miniatury {
+    .miniatures {
         max-width: 100%;
         gap: 10px;
     }
 
-    .miniatura {
+    .miniature {
         max-width: none;
     }
 
@@ -498,7 +498,7 @@ main {
         margin-bottom: 20px;
     }
 
-    .vlastnost {
+    .feature {
         font-size: 16px;
         gap: 16px;
     }
@@ -508,7 +508,7 @@ main {
         margin: 20px 0;
     }
 
-    .btn-kosik {
+    .btn-cart {
         display: flex;
         justify-content: center;
         width: 100%;
@@ -522,11 +522,11 @@ main {
         line-height: 1.6;
     }
 
-    .podobne-produkty {
+    .similar-products {
         margin-top: 40px;
     }
 
-    .podobne-produkty h2 {
+    .similar-products h2 {
         font-size: 22px;
         margin-bottom: 20px;
     }
