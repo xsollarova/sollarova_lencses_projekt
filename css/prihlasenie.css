@@ -6,15 +6,15 @@
 .popup {
   display: none;
   position: fixed;
-  top: 400%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 950px;
+  inset: 0;
+  padding: 40px 20px;
+  z-index: 9999;
 }
 
 .popup.active {
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .popup-box {
@@ -25,6 +25,10 @@
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  width: 100%;
+  max-width: 950px;
+  max-height: 90vh;
+  overflow-y: scroll;
 }
 
 .popup-close {
