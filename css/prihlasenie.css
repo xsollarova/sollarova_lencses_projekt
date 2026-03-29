@@ -1,3 +1,4 @@
+@import 'udaje.css';
 #profileBtn {
   cursor: pointer;
 }
@@ -5,7 +6,7 @@
 .popup {
   display: none;
   position: fixed;
-  top: 450%;
+  top: 400%;
   left: 55%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -69,32 +70,27 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%
 }
 
-.form-group {
-  width: 100%;
+.form-group label {
+  font-size: 16px;
+  color: black;
+  font-weight: 500;
 }
 
 .form-group input {
   width: 100%;
-  min-height: 46px;
-  min-width: 0px;
-  border: 2px solid black;
-  font-size: 16px;
-  background-color: #cfc9c3b1;
-  font-weight: bold;
-  padding: 10px 14px;
-  border-radius: 10px;
-}
-
-.form-group input:focus {
-  background-color: #e8e3dc;
-  border-color: #555;
-}
-
-.form-group input::placeholder {
-  color: #888;
-  font-weight: 500;
+  height: 40px;
+  min-height: 36px;
+  border: 1.5px solid #c8d0d3;
+  font-size: 18px;
+  padding: 5px 14px;
+  border-radius: 8px;
+  outline: none;
+  background-color: white !important; 
+  color: #1a1a1a;
+  transition: border-color 0.2s;
 }
 
 .popup-btn {

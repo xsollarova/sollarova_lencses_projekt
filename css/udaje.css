@@ -21,27 +21,41 @@
   max-width: 660px;
   width: 100%;
   margin-left: 170px;
+  background-color: #efece9b1;
+  padding: 32px;
+  border-radius: 12px;
 }
 
 .form-group {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  background-color: white;
-  border-radius: 10px;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 18px;
+  color: black;
+  font-weight: 500;
 }
 
 .form-group input {
   width: 100%;
-  height: 60px;
+  height: 46px;
   min-height: 40px;
-  border: 2px solid black;
-  font-size: 20px;
+  border: 1.5px solid #c8d0d3;
+  font-size: 18px;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 8px;
   outline: none;
+  background-color: white !important; 
+  color: #1a1a1a;
+  transition: border-color 0.2s;
 }
 
-.form-group input::placeholder {
-  font-size: 20px;
+.form-group input:focus {
+  border: 3.5px solid #5a3326 !important;
+  outline: none;
 }
 
 .mesto-group {
