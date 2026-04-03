@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Kristína Sollárová, David Lencsés">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  @vite(['resources/css/index.css', 'resources/css/prihlasenie.css', 'resources/js/prihlasenie.js', 'resources/js/znacky.js'])
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <title>SecondChance</title>
+</head>
+
+<body id = "top">
+  
+    <header class="header">
+      <div class="header-content">
+
+        <div class="logo" id="logo">
+          <a href="{{ url('/') }}"><img src="{{ asset('obrazky/logo_obrazky/logo.png') }}" alt="Logo"></a>
+        </div>
+
+        <div class="search-bar">
+          <input type="text" placeholder="Čo hľadáte?">
+          <button type="submit">HĽADAŤ</button>
+        </div>
+
+        <div class="right-side">
+          <div class="icons">
+            <img src="{{ asset('obrazky/logo_obrazky/user_logo.png')}}" alt="Profil" id="profileBtn">
+          </div>
+
+          <div id="popup-container"></div>
+
+          <div class="icons">
+            <a href="{{ url('/kosik') }}">
+              <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png')}}" alt="Košík">
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+    </header>
+
+    <main class="category">
+      <aside class="sidebar">
+        <div class="category-group">
+          <h2>žena</h2>
+          <ul>
+            <li><a href="{{ url('/zoznam_produktov') }}">topy</a></li>
+            <li><a href="{{ url('/zoznam_produktov') }}">nohavice</a></li>
+            <li><a href="{{ url('/zoznam_produktov') }}">šaty</a></li>
+            <li><a href="{{ url('/zoznam_produktov') }}">mikiny</a></li>
+            <li><a href="{{ url('/zoznam_produktov') }}">topánky</a></li>
+          </ul>
+        </div>
+
+        <div class="category-group">
+          <h2>muž</h2>
+          <ul>
+            <li><a href="{{ url('/zoznam_produktov') }}">tričká</a></li>
+            <li><a href="{{ url('/zoznam_produktov') }}">košele</a></li>
+            <li><a href="{{ url('/zoznam_produktov') }}">nohavice</a></li>
+            <li><a href="{{ url('/zoznam_produktov') }}">mikiny</a></li>
+            <li><a href="{{ url('/zoznam_produktov') }}">topánky</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="content">
+
+        <section class="promo">
+          <img src="{{ asset('obrazky/reklamny_banner_1.png')}}" alt="Promo">
+        </section>
+
+        <section class="brands">
+          <div class="brands-header">
+            <h3>Značky</h3>
+            <button class="brands-toggle" id="brandsToggle">zobraziť viac</button>
+          </div>
+          <div class="row g-3" id="brandsGrid">
+            <!-- viditeľné -->
+            <div class="col-6 col-md-4 col-lg-2">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/zara_logo.jpg')}}" alt="Zara" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/tommy_hilfiger_logo.jpg')}}" alt="Tommy Hilfiger" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/vans_logo.jpg')}}" alt="Vans" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/under_armour_logo.jpg')}}" alt="Under Armour" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/nike_logo.jpg')}}" alt="Nike" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/H&M_logo.jpg')}}" alt="H&M" class="brand-img"></a>
+            </div>
+
+            
+            <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/adidas_logo.jpg')}}" alt="Adidas" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/levis_logo.jpg')}}" alt="Levi's" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/mango_logo.jpg')}}" alt="Mango" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/reserved_logo.jpg')}}" alt="Reserved" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/puma_logo.jpg')}}" alt="Puma" class="brand-img"></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
+              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/new_balance_logo.jpg')}}" alt="New Balance" class="brand-img"></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="products">
+          <div class="row g-3">
+            <h3>Novinky</h3>
+            <!-- Produkt 1 -->
+            <div class="col-6 col-md-4 col-lg-2">
+              <article class="product-card">
+                <div class="product-image">
+                  <a href="{{ url('/produkt') }}">
+                    <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
+                  </a>
+                </div>
+                <h3>Bunda Zara</h3>
+                <p>Veľkosť M • ako nové</p>
+                <div class="product-bottom">
+                    <span>14,90 €</span>
+                    <a href="{{ url('/produkt') }}">Detail</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Produkt 2 -->
+            <div class="col-6 col-md-4 col-lg-2">
+              <article class="product-card">
+                <div class="product-image">
+                  <a href="{{ url('/produkt') }}">
+                    <img src="{{ asset('obrazky/oblecenie_obrazky/tricko_nike.jpg')}}" alt="Nike tričko">
+                  </a>
+                </div>
+                <h3>Nike tričko</h3>
+                <p>Veľkosť L • ako nové</p>
+                <div class="product-bottom">
+                    <span>9,90 €</span>
+                    <a href="{{ url('/produkt') }}">Detail</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Produkt 3 -->
+            <div class="col-6 col-md-4 col-lg-2">
+              <article class="product-card">
+                <div class="product-image">
+                  <a href="{{ url('/produkt') }}">
+                    <img src="{{ asset('obrazky/oblecenie_obrazky/saty_H&M.jpg')}}" alt="H&M šaty">
+                  </a>
+                </div>
+                <h3>Šaty H&M</h3>
+                <p>Veľkosť S • nové</p>
+                <div class="product-bottom">
+                    <span>12,00 €</span>
+                    <a href="{{ url('/produkt') }}">Detail</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Produkt 4 -->
+            <div class="col-6 col-md-4 col-lg-2">
+              <article class="product-card">
+                <div class="product-image">
+                  <a href="{{ url('/produkt') }}">
+                    <img src="{{ asset('obrazky/oblecenie_obrazky/mikina_adidas.png')}}" alt="Adidas mikina">
+                  </a>
+                </div>
+                <h3>Mikina Adidas</h3>
+                <p>Veľkosť M • veľmi dobré</p>
+                <div class="product-bottom">
+                    <span>18,50 €</span>
+                    <a href="{{ url('/produkt') }}">Detail</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Produkt 5 -->
+            <div class="col-6 col-md-4 col-lg-2">
+              <article class="product-card">
+                <div class="product-image">
+                  <a href="{{ url('/produkt') }}">
+                    <img src="{{ asset('obrazky/oblecenie_obrazky/rifle_levis.jpg')}}" alt="Levi's rifle">
+                  </a>
+                </div>
+                <h3>Levi’s džínsy</h3>
+                <p>Veľkosť L • dobré</p>
+                <div class="product-bottom">
+                    <span>22,00 €</span>
+                    <a href="{{ url('/produkt') }}">Detail</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Produkt 6 -->
+            <div class="col-6 col-md-4 col-lg-2">
+              <article class="product-card">
+                <div class="product-image">
+                  <a href="{{ url('/produkt') }}">
+                    <img src="{{ asset('obrazky/oblecenie_obrazky/topanky_vans.jpg')}}" alt="Vans topánky">
+                  </a>
+                </div>
+                <h3>Topánky Vans</h3>
+                <p>EU 42 • OK </p>
+                <div class="product-bottom">
+                    <span>15,90 €</span>
+                    <a href="{{ url('/produkt') }}">Detail</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="promo">
+          <img src="{{ asset('obrazky/reklamny_banner_2.png')}}" alt="Promo">
+        </section>
+
+
+
+        <section class="back-to-top">
+          <a href="#top" class="btn-fill">späť hore ↑</a>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+
+          <div class="footer-col">
+            <h4>Nakupovanie</h4>
+            <a href="#">Ako nakúpiť</a>
+            <a href="#">Doručenie</a>
+            <a href="#">Platba</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>O nás</h4>
+            <a href="#">Kontakt</a>
+            <a href="#">O projekte</a>
+            <a href="#">Obchodné podmienky</a>
+            <a href="#">Ochrana súkromia</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Pomoc</h4>
+            <a href="#">FAQ</a>
+            <a href="#">Podpora</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Sledujte nás</h4>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook"> <img src="{{ asset('obrazky/logo_obrazky/facebook_logo.png')}}" alt="facebook"> </a>
+              <a href="#" aria-label="Instagram"> <img src="{{ asset('obrazky/logo_obrazky/instagram_logo.png')}}" alt="instagram"> </a>
+              <a href="#" aria-label="YouTube"> <img src="{{ asset('obrazky/logo_obrazky/youtube_logo.png')}}" alt="youtube"></a>
+            </div>
+            <div class="footer-note">SecondChance • secondhand e-shop</div>
+          </div>
+
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-copy">
+            © 2026 SecondChance
+          </div>
+          <div class="footer-logo">
+            <img src="{{ asset('obrazky/logo_obrazky/logo.png')}}" alt="Logo">
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+</body>
+
+</html>
