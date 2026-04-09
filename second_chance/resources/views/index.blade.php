@@ -13,34 +13,52 @@
 <body id = "top">
   
     <header class="header">
-      <div class="header-content">
+        <div class="header-content">
 
-        <div class="logo" id="logo">
-          <a href="{{ url('/') }}"><img src="{{ asset('obrazky/logo_obrazky/logo.png') }}" alt="Logo"></a>
+            <div class="logo" id="logo">
+                <a href="{{ url('/') }}">
+                    <img src="{{ asset('obrazky/logo_obrazky/logo.png') }}" alt="Logo">
+                </a>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Čo hľadáte?">
+                <button type="submit">HĽADAŤ</button>
+            </div>
+
+            <div class="right-side">
+                <div class="icons">
+                    @auth
+                        <div class="user-menu" id="userMenu">
+                            <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                                alt="Profil" id="profileBtn">
+                            <div class="user-dropdown" id="userDropdown">
+                                <span class="user-name">{{ Auth::user()->meno }}</span>
+                                <span class="user-since">Člen od: {{ Auth::user()->created_at->format('d.m.Y') }}</span>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="logout-btn">Odhlásiť sa</button>
+                                </form>
+                            </div>
+                        </div>
+                    @else
+                        <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                            alt="Profil" id="profileBtn">
+                    @endauth
+                </div>
+
+                @guest
+                    @include('components.auth-popup')
+                @endguest
+
+                <div class="icons">
+                    <a href="{{ url('/kosik') }}">
+                        <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png') }}" alt="Košík">
+                    </a>
+                </div>
+            </div>
+
         </div>
-
-        <div class="search-bar">
-          <input type="text" placeholder="Čo hľadáte?">
-          <button type="submit">HĽADAŤ</button>
-        </div>
-
-        <div class="right-side">
-          <div class="icons">
-            <img src="{{ asset('obrazky/logo_obrazky/user_logo.png')}}" alt="Profil" id="profileBtn">
-          </div>
-
-          <div id="popup-container"></div>
-
-          <div class="icons">
-            <a href="{{ url('/kosik') }}">
-              <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png')}}" alt="Košík">
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      </div>
     </header>
 
     <main class="category">
