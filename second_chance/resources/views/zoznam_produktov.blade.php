@@ -19,22 +19,53 @@
                 <a href="{{ url('/') }}"><img src="{{ asset('obrazky/logo_obrazky/logo.png')}}" alt="Logo"></a>
             </div>
 
-            <div class="search-bar">
-                <input type="text" placeholder="Čo hľadáte?">
+            <form method="GET" action="{{ route('produkty.hladat') }}" class="search-bar">
+                <input type="text" name="search" 
+                      placeholder="Čo hľadáte?" 
+                      value="{{ request('search') }}">
                 <button type="submit">HĽADAŤ</button>
-            </div>
+            </form>
 
             <div class="right-side">
                 <div class="icons">
-                    <img src="{{ asset('obrazky/logo_obrazky/user_logo.png')}}" alt="Profil" id="profileBtn">
+                    @auth
+                        <div class="user-menu" id="userMenu">
+                            <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                                alt="Profil" id="profileBtn">
+                            <div class="user-dropdown" id="userDropdown">
+                                <span class="user-name">{{ Auth::user()->meno }}</span>
+                                <span class="user-since">Člen od: {{ Auth::user()->created_at->format('d.m.Y') }}</span>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="logout-btn">Odhlásiť sa</button>
+                                </form>
+                            </div>
+                        </div>
+                    @else
+                        <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                            alt="Profil" id="profileBtn">
+                    @endauth
                 </div>
 
-                <div id="popup-container"></div>
+                @guest
+                    @include('components.auth-popup')
+                @endguest
 
-                <div class="icons">
-                    <a href="{{ url('/kosik') }}">
-                        <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png')}}" alt="Košík">
+                <div class="icons cart-icon-wrapper">
+                    <a href="{{ route('kosik.index') }}">
+                        <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png') }}" alt="Košík">
                     </a>
+                    @php
+                        if (auth()->check()) {
+                            $kosikModel = \App\Models\Kosik::where('user_id', auth()->id())->first();
+                            $pocetVKosiku = $kosikModel ? $kosikModel->polozky->sum('mnozstvo') : 0;
+                        } else {
+                            $pocetVKosiku = array_sum(array_column(session()->get('kosik', []), 'mnozstvo'));
+                        }
+                    @endphp
+                    @if($pocetVKosiku > 0)
+                        <span class="cart-badge">{{ $pocetVKosiku }}</span>
+                    @endif
                 </div>
             </div>
 
@@ -53,27 +84,21 @@
                 <aside class="col-12 col-md-3 col-lg-2 sidebar-wrap">
                     <div class="sidebar">
 
+                        @foreach(['žena', 'muž'] as $pohlavie)
                         <div class="category-group">
-                            <h2>žena</h2>
+                            <h2>{{ $pohlavie }}</h2>
                             <ul>
-                                <li><a href="#">topy</a></li>
-                                <li><a href="#" class="active-category">nohavice</a></li>
-                                <li><a href="#">šaty</a></li>
-                                <li><a href="#">mikiny</a></li>
-                                <li><a href="#">topánky</a></li>
+                                @foreach($kategorie->where('pohlavie', $pohlavie) as $kat)
+                                <li>
+                                    <a href="{{ route('produkty.index', ['kategoria' => $kat->id]) }}"
+                                    class="{{ request('kategoria') == $kat->id ? 'active-category' : '' }}">
+                                        {{ $kat->nazov }}
+                                    </a>
+                                </li>
+                                @endforeach
                             </ul>
                         </div>
-
-                        <div class="category-group">
-                            <h2>muž</h2>
-                            <ul>
-                                <li><a href="#">tričká</a></li>
-                                <li><a href="#">košele</a></li>
-                                <li><a href="#">nohavice</a></li>
-                                <li><a href="#">mikiny</a></li>
-                                <li><a href="#">topánky</a></li>
-                            </ul>
-                        </div>
+                        @endforeach
 
                     </div>
                 </aside>
@@ -81,496 +106,124 @@
 
                 <section class="col-12 col-md-9 col-lg-10 products-section">
 
-                    <!-- filter + radenie -->
                     <div class="products-top">
                         <h1 class="category-title">Zoznam produktov</h1>
 
                         <div class="products-controls">
-                            <!-- RADENIE -->
+                            <!-- radenie -->
                             <div class="filter-dropdown sort-dropdown">
                                 <button type="button" class="filter-btn">Radenie</button>
 
                                 <div class="filter-menu">
                                     <div class="filter-options">
-                                        <label>Od najlacnejších</label>
-                                        <label>Od najdrahších</label>
-                                        <label>Najnovšie</label>
+                                        <a href="{{ request()->fullUrlWithQuery(['sort' => 'cena_asc']) }}" 
+                                        class="{{ request('sort') == 'cena_asc' ? 'active' : '' }}">
+                                            Od najlacnejších
+                                        </a>
+                                        <a href="{{ request()->fullUrlWithQuery(['sort' => 'cena_desc']) }}"
+                                        class="{{ request('sort') == 'cena_desc' ? 'active' : '' }}">
+                                            Od najdrahších
+                                        </a>
+                                        <a href="{{ request()->fullUrlWithQuery(['sort' => 'najnovsie']) }}"
+                                        class="{{ request('sort') == 'najnovsie' ? 'active' : '' }}">
+                                            Najnovšie
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- FILTER -->
-                            <div class="filter-dropdown">
-                                <button type="button" class="filter-btn">Filter</button>
+                            <!-- filtre -->
+                            <form method="GET" action="{{ route('produkty.index') }}" id="filter-form">
+                                @if(request('kategoria'))
+                                    <input type="hidden" name="kategoria" value="{{ request('kategoria') }}">
+                                @endif
+                                @if(request('sort'))
+                                    <input type="hidden" name="sort" value="{{ request('sort') }}">
+                                @endif
 
-                                <div class="filter-menu">
-                                    <div class="filter-group">
-                                        <span class="filter-title">Podľa veľkosti</span>
-                                        <div class="filter-options">
-                                            <label><input type="checkbox"> XS</label>
-                                            <label><input type="checkbox"> S</label>
-                                            <label><input type="checkbox"> M</label>
-                                            <label><input type="checkbox"> L</label>
-                                            <label><input type="checkbox"> XL</label>
-                                            <label><input type="checkbox"> EU 38</label>
-                                            <label><input type="checkbox"> EU 39</label>
-                                            <label><input type="checkbox"> EU 40</label>
-                                            <label><input type="checkbox"> EU 41</label>
-                                            <label><input type="checkbox"> EU 42</label>
-                                            <label><input type="checkbox"> EU 43</label>
-                                            <label><input type="checkbox"> EU 44</label>
+                                <div class="filter-dropdown">
+                                    <button type="button" class="filter-btn">Filter</button>
+
+                                    <div class="filter-menu">
+                                        <div class="filter-group">
+                                            <span class="filter-title">Podľa veľkosti</span>
+                                            <div class="filter-options">
+                                                @foreach(['XS','S','M','L','XL','EU 38','EU 39','EU 40','EU 41','EU 42','EU 43','EU 44'] as $vel)
+                                                    <label>
+                                                        <input type="checkbox" name="velkost[]" value="{{ $vel }}"
+                                                            {{ in_array($vel, request('velkost', [])) ? 'checked' : '' }}
+                                                            onchange="this.form.submit()">
+                                                        {{ $vel }}
+                                                    </label>
+                                                @endforeach
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="filter-group">
-                                        <span class="filter-title">Podľa ceny</span>
-                                        <div class="filter-options">
-                                            <input type="number" placeholder="Od (€)" class="price-input" id="price-min">
-                                            <span> - </span>
-                                            <input type="number" placeholder="Do (€)" class="price-input" id="price-max">
+                                        <div class="filter-group">
+                                            <span class="filter-title">Podľa ceny</span>
+                                            <div class="filter-options">
+                                                <input type="number" name="min_cena" placeholder="Od (€)"
+                                                    class="price-input" value="{{ request('min_cena') }}">
+                                                <span> - </span>
+                                                <input type="number" name="max_cena" placeholder="Do (€)"
+                                                    class="price-input" value="{{ request('max_cena') }}">
+                                                <button type="submit" class="price-apply-btn">potvrdiť</button>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="filter-group">
-                                        <span class="filter-title">Podľa farby</span>
-                                        <div class="filter-options">
-                                            <label><input type="checkbox"> čierna</label>
-                                            <label><input type="checkbox"> biela</label>
-                                            <label><input type="checkbox"> béžová</label>
-                                            <label><input type="checkbox"> hnedá</label>
-                                            <label><input type="checkbox"> červená</label>
-                                            <label><input type="checkbox"> fialová</label>
-                                            <label><input type="checkbox"> ružová</label>
-                                            <label><input type="checkbox"> modrá</label>
-                                            <label><input type="checkbox"> žltá</label>
-                                            <label><input type="checkbox"> oranžová</label>
-                                            <label><input type="checkbox"> zelená</label>
-                                            
+                                        <div class="filter-group">
+                                            <span class="filter-title">Podľa farby</span>
+                                            <div class="filter-options">
+                                                @foreach(['čierna','biela','béžová','hnedá','červená','fialová','ružová','modrá','žltá','oranžová','zelená'] as $farba)
+                                                    <label>
+                                                        <input type="checkbox" name="farba[]" value="{{ $farba }}"
+                                                            {{ in_array($farba, request('farba', [])) ? 'checked' : '' }}
+                                                            onchange="this.form.submit()">
+                                                        {{ $farba }}
+                                                    </label>
+                                                @endforeach
+                                            </div>
+                                        </div>
+
+                                        <div class="filter-group">
+                                            <a href="{{ route('produkty.index', request()->only('kategoria', 'sort')) }}">Zrušiť filter</a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
 
                     <!-- čísla stránok -->
                     <div class="pagination-top">
-                        <a href="#" class="page-number active">1</a>
-                        <a href="#" class="page-number">2</a>
-                        <a href="#" class="page-number">3</a>
-                        <span class="page-dots">...</span>
-                        <a href="#" class="page-number">6</a>
+                        {{ $produkty->withQueryString()->links('vendor.pagination.pagination') }}
                     </div>
 
                     <div class="row g-4 products-grid">
 
-                        <!-- Produkt 1 -->
+                        @forelse($produkty as $produkt)
                         <div class="col-6 col-lg-4 col-xl-3">
                             <article class="product-card">
                                 <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png') }}" alt="Bunda Zara">
+                                    <a href="{{ route('produkty.show', $produkt->id) }}">
+                                        @if($produkt->hlavnyObrazok)
+                                            <img src="{{ asset($produkt->hlavnyObrazok->url) }}" alt="{{ $produkt->nazov }}">
+                                        @else
+                                            <img src="{{ asset('obrazky/placeholder.png') }}" alt="Bez obrázka">
+                                        @endif
                                     </a>
                                 </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
+                                <h3>{{ $produkt->nazov }}</h3>
+                                <p>Veľkosť {{ $produkt->velkost }} • {{ $produkt->stav }}</p>
                                 <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
+                                    <span>{{ number_format($produkt->cena, 2, ',', ' ') }} €</span>
+                                    <a href="{{ route('produkty.show', $produkt->id) }}">Detail</a>
                                 </div>
                             </article>
                         </div>
-
-                        <!-- Produkt 2 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/tricko_nike.jpg')}}" alt="Tricko Nike">
-                                    </a>
-                                </div>
-                                <h3>Tricko Nike</h3>
-                                <p>Veľkosť L • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>9,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 3 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/saty_H&M.jpg')}}" alt="Sáty H&M">
-                                    </a>
-                                </div>
-                                <h3>Sáty H&M</h3>
-                                <p>Veľkosť S • nové</p>
-                                <div class="product-bottom">
-                                    <span>12,00 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 4 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/mikina_adidas.png')}}" alt="Mikina Adidas">
-                                    </a>
-                                </div>
-                                <h3>Mikina Adidas</h3>
-                                <p>Veľkosť M • veľmi dobré</p>
-                                <div class="product-bottom">
-                                    <span>18,50 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 5 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/rifle_levis.jpg')}}" alt="Rifle Levis">
-                                    </a>
-                                </div>
-                                <h3>Rifle Levis</h3>
-                                <p>Veľkosť L • dobré</p>
-                                <div class="product-bottom">
-                                    <span>22,00 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 6 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/topanky_vans.jpg')}}" alt="Topanky Vans">
-                                    </a>
-                                </div>
-                                <h3>Topanky Vans</h3>
-                                <p>Veľkosť 42 • OK</p>
-                                <div class="product-bottom">
-                                    <span>15,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 7 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 8 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 9 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 10 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 11 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 12 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 13 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 14 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 15 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 16 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 17 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 18 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 19 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 20 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 21 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 22 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 23 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Produkt 24 -->
-                        <div class="col-6 col-lg-4 col-xl-3">
-                            <article class="product-card">
-                                <div class="product-image">
-                                    <a href="{{ url('/produkt') }}">
-                                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
-                                    </a>
-                                </div>
-                                <h3>Bunda Zara</h3>
-                                <p>Veľkosť M • ako nové</p>
-                                <div class="product-bottom">
-                                    <span>14,90 €</span>
-                                    <a href="{{ url('/produkt') }}">Detail</a>
-                                </div>
-                            </article>
-                        </div>
+                        @empty
+                            <p class="text-center">Žiadne produkty neboli nájdené.</p>
+                        @endforelse
 
                     </div>
 
@@ -578,11 +231,7 @@
                     <div class="products-bottom-bar">
                         <a href="#top" class="btn-fill">späť hore ↑</a>
                         <div class="pagination-bottom">
-                            <a href="#" class="page-number active">1</a>
-                            <a href="#" class="page-number">2</a>
-                            <a href="#" class="page-number">3</a>
-                            <span class="page-dots">...</span>
-                            <a href="#" class="page-number">6</a>
+                            {{ $produkty->withQueryString()->links('vendor.pagination.pagination') }}
                         </div>
                     </div>
 

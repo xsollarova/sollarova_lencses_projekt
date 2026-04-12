@@ -360,7 +360,7 @@ body {
 .summary-item {
   display: flex;
   justify-content: space-between;
-  font-size: 26px;
+  font-size: 23px;
   gap: 16px;
   color: black;
 }

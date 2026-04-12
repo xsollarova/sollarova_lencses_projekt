@@ -6,7 +6,7 @@
     <meta name="author" content="Kristína Sollárová, David Lencsés">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/produkt.css', 'resources/css/prihlasenie.css', 'resources/js/prihlasenie.js', 'resources/js/produkt.js'])
-    <title>Bunda Zara</title>
+    <title>{{ $produkt->nazov }}</title>
 </head>
 
 <body id="top">
@@ -18,26 +18,55 @@
                 <a href="{{ url('/') }}"><img src="{{ asset('obrazky/logo_obrazky/logo.png')}}" alt="Logo"></a>
             </div>
 
-            <div class="search-bar">
-                <input type="text" placeholder="Čo hľadáte?">
+            <form method="GET" action="{{ route('produkty.hladat') }}" class="search-bar">
+                <input type="text" name="search" 
+                      placeholder="Čo hľadáte?" 
+                      value="{{ request('search') }}">
                 <button type="submit">HĽADAŤ</button>
-            </div>
+            </form>
 
             <div class="right-side">
                 <div class="icons">
-                    <img src="{{ asset('obrazky/logo_obrazky/user_logo.png')}}" alt="Profil" id="profileBtn">
+                    @auth
+                        <div class="user-menu" id="userMenu">
+                            <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                                alt="Profil" id="profileBtn">
+                            <div class="user-dropdown" id="userDropdown">
+                                <span class="user-name">{{ Auth::user()->meno }}</span>
+                                <span class="user-since">Člen od: {{ Auth::user()->created_at->format('d.m.Y') }}</span>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="logout-btn">Odhlásiť sa</button>
+                                </form>
+                            </div>
+                        </div>
+                    @else
+                        <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                            alt="Profil" id="profileBtn">
+                    @endauth
                 </div>
 
-                <div id="popup-container"></div>
+                @guest
+                    @include('components.auth-popup')
+                @endguest
 
-                <div class="icons">
-                    <a href="{{ url('/kosik') }}">
-                        <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png')}}" alt="Košík">
+                <div class="icons cart-icon-wrapper">
+                    <a href="{{ route('kosik.index') }}">
+                        <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png') }}" alt="Košík">
                     </a>
+                    @php
+                        if (auth()->check()) {
+                            $kosikModel = \App\Models\Kosik::where('user_id', auth()->id())->first();
+                            $pocetVKosiku = $kosikModel ? $kosikModel->polozky->sum('mnozstvo') : 0;
+                        } else {
+                            $pocetVKosiku = array_sum(array_column(session()->get('kosik', []), 'mnozstvo'));
+                        }
+                    @endphp
+                    @if($pocetVKosiku > 0)
+                        <span class="cart-badge">{{ $pocetVKosiku }}</span>
+                    @endif
                 </div>
             </div>
-
-        </div>
 
         </div>
     </header>
@@ -46,82 +75,68 @@
         <section class="progress">
             <ul>
                 <li><a href="{{ url('/') }}">Domov</a></li>
-                <li><a href="{{ url('/zoznam_produktov') }}">Kategória</a></li>
-                <li class="current"><a href="{{ url('/produkt') }}">Produkt</a></li>
+                <li><a href="{{ route('produkty.index', ['kategoria' => $produkt->kategoria_id]) }}">{{ $produkt->kategoria->nazov }}</a></li>
+                <li class="current"><a href="#">{{ $produkt->nazov }}</a></li>
             </ul>
         </section>
+
         <section class="product-detail">
 
             <div class="product-gallery">
                 <div class="primary-picture">
-                    <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Hlavný obrázok produktu">
+                    @if($produkt->hlavnyObrazok)
+                        <img src="{{ asset($produkt->hlavnyObrazok->url) }}" alt="{{ $produkt->nazov }}">
+                    @else
+                        <img src="{{ asset('obrazky/placeholder.png') }}" alt="Bez obrázka">
+                    @endif
                 </div>
 
                 <div class="miniatures">
-                    <div class="miniature">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara_mini_01.jpg')}}" alt="Miniatúra 1">
-                    </div>
-                    <div class="miniature">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara_mini_02.jpg')}}" alt="Miniatúra 2">
-                    </div>
-                    <div class="miniature">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara_mini_03.jpg')}}" alt="Miniatúra 3">
-                    </div>
-                    <div class="miniature">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara_mini_04.jpg')}}" alt="Miniatúra 4">
-                    </div>
+                    @foreach($produkt->obrazky->where('hlavny', false) as $obrazok)
+                        <div class="miniature">
+                            <img src="{{ asset($obrazok->url) }}" alt="Miniatúra">
+                        </div>
+                    @endforeach
                 </div>
             </div>
 
             <!-- INFO O PRODUKTE -->
             <div class="product-info">
-                <h1>Bunda Zara – béžová</h1>
+                <h1>{{ $produkt->nazov }}</h1>
 
                 <div class="product-features">
                     <div class="feature">
                         <span class="nazov">veľkosť</span>
-                        <span class="hodnota">M</span>
+                        <span class="hodnota">{{ $produkt->velkost }}</span>
                     </div>
                     <div class="feature">
                         <span class="nazov">farba</span>
-                        <span class="hodnota">béžová</span>
+                        <span class="hodnota">{{ $produkt->farba }}</span>
                     </div>
                     <div class="feature">
                         <span class="nazov">stav</span>
-                        <span class="hodnota">ako nové</span>
+                        <span class="hodnota">{{ $produkt->stav }}</span>
                     </div>
                     <div class="feature">
                         <span class="nazov">značka</span>
-                        <span class="hodnota">Zara</span>
+                        <span class="hodnota">{{ $produkt->znacka }}</span>
                     </div>
                 </div>
 
-                <p class="cena">14,90 €</p>
+                <p class="cena">{{ number_format($produkt->cena, 2, ',', ' ') }} €</p>
 
                 <div style="text-align: center;">
-                    <a href="{{ url('/kosik') }}" class="btn-cart">vložiť do košíka</a>
+                    <form method="POST" action="{{ route('kosik.pridat', $produkt->id) }}">
+                        @csrf
+                        <button type="submit" class="btn-cart">vložiť do košíka</button>
+                    </form>
                 </div>
 
+                @if($produkt->popis)
                 <div class="produkt-popis">
-                    <p>
-                        Elegantná béžová bunda značky <strong>Zara</strong> je ideálnym kúskom do <strong>prechodného
-                            obdobia</strong>. Vďaka svojmu
-                        minimalistickému dizajnu sa ľahko kombinuje s rôznymi outfitmi - či už do mesta, do školy alebo
-                        na bežné nosenie.</br></br>
-
-                        Bunda je vyrobená z príjemného a kvalitného materiálu, ktorý poskytuje pohodlie počas celého
-                        dňa. Má klasický strih, ktorý lichotí postave a neutrálnu béžovú farbu, ktorá nikdy nevyjde z
-                        módy.</br></br>
-
-                        Je vybavená praktickými vreckami a zapínaním na zips, čo z nej robí funkčný kúsok do vášho
-                        šatníka.
-                        Je vhodná najmä na prechodné obdobia jeseň a jar, keď potrebujete ľahkú vrstvu na ochranu pred
-                        chladom a vetrom.</br></br>
-
-                        Ide o second hand kúsok vo veľmi dobrom stave - bez viditeľných poškodení, pripravený na ďalšie
-                        nosenie.
-                    </p>
+                    <p>{{ $produkt->popis }}</p>
                 </div>
+                @endif
             </div>
 
         </section>
@@ -133,88 +148,101 @@
             <div class="products-grid">
                 <article class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
+                        <a href="{{ route('produkty.show', 3) }}">
+                            <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
+                        </a>
                     </div>
                     <h3>Bunda Zara</h3>
                     <p>Veľkosť M • ako nové</p>
                     <div class="product-bottom">
                         <span>14,90 €</span>
-                        <a href="{{ url('/produkt') }}">Detail</a>
+                        <a href="{{ route('produkty.show', 3) }}">Detail</a>
                     </div>
                 </article>
 
                 <article class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/tricko_nike.jpg')}}" alt="Nike tričko">
+                        <a href="{{ route('produkty.show', 1) }}">
+                            <img src="{{ asset('obrazky/oblecenie_obrazky/tricko_nike.jpg')}}" alt="Nike tričko">
+                        </a>
                     </div>
                     <h3>Nike tričko</h3>
                     <p>Veľkosť L • top stav</p>
                     <div class="product-bottom">
                         <span>9,90 €</span>
-                        <a href="{{ url('/produkt') }}">Detail</a>
+                        <a href="{{ route('produkty.show', 1) }}">Detail</a>
                     </div>
                 </article>
 
                 <article class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/saty_H&M.jpg')}}" alt="Šaty H&M">
+                        <a href="{{ route('produkty.show', 6) }}">
+                            <img src="{{ asset('obrazky/oblecenie_obrazky/saty_H&M.jpg')}}" alt="Šaty H&M">
+                        </a>
                     </div>
                     <h3>Šaty H&M</h3>
                     <p>Veľkosť S • nové</p>
                     <div class="product-bottom">
                         <span>12,00 €</span>
-                        <a href="{{ url('/produkt') }}">Detail</a>
+                        <a href="{{ route('produkty.show', 6) }}">Detail</a>
                     </div>
                 </article>
 
                 <article class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/mikina_adidas.png')}}" alt="Mikina Adidas">
+                        <a href="{{ route('produkty.show', 7) }}">
+                            <img src="{{ asset('obrazky/oblecenie_obrazky/mikina_adidas.png')}}" alt="Mikina Adidas">
+                        </a>
                     </div>
                     <h3>Mikina Adidas</h3>
                     <p>Veľkosť M • veľmi dobré</p>
                     <div class="product-bottom">
                         <span>18,50 €</span>
-                        <a href="{{ url('/produkt') }}">Detail</a>
+                        <a href="{{ route('produkty.show', 7) }}">Detail</a>
                     </div>
                 </article>
 
                 <article class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/kabat_mango.png')}}" alt="Kabát Mango">
+                        <a href="{{ route('produkty.show', 4) }}">
+                            <img src="{{ asset('obrazky/oblecenie_obrazky/kabat_mango.png')}}" alt="Kabát Mango">
+                        </a>
                     </div>
                     <h3>Kabát Mango</h3>
                     <p>Veľkosť S • veľmi dobré</p>
                     <div class="product-bottom">
-                        <span>22,00 €</span>
-                        <a href="{{ url('/produkt') }}">Detail</a>
+                        <span>25,00 €</span>
+                        <a href="{{ route('produkty.show', 4) }}">Detail</a>
                     </div>
                 </article>
 
                 <article class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/rifle_levis.jpg')}}" alt="Rifle Levi's">
+                        <a href="{{ route('produkty.show', 5) }}">
+                            <img src="{{ asset('obrazky/oblecenie_obrazky/rifle_levis.jpg')}}" alt="Rifle Levi's">
+                        </a>
                     </div>
                     <h3>Rifle Levi's</h3>
-                    <p>Veľkosť M • top stav</p>
+                    <p>Veľkosť M • ako nové</p>
                     <div class="product-bottom">
-                        <span>16,90 €</span>
-                        <a href="{{ url('/produkt') }}">Detail</a>
+                        <span>22,00 €</span>
+                        <a href="{{ route('produkty.show', 5) }}">Detail</a>
                     </div>
                 </article>
 
                 <article class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('obrazky/oblecenie_obrazky/sveter_reserved.png')}}" alt="Sveter Reserved">
+                        <a href="{{ route('produkty.show', 2) }}">
+                            <img src="{{ asset('obrazky/oblecenie_obrazky/sveter_reserved.png')}}" alt="Sveter Reserved">
+                        </a>
                     </div>
                     <h3>Sveter Reserved</h3>
-                    <p>Veľkosť L • nové</p>
+                    <p>Veľkosť M • dobré</p>
                     <div class="product-bottom">
-                        <span>11,50 €</span>
-                        <a href="{{ url('/produkt') }}">Detail</a>
+                        <span>11,00 €</span>
+                        <a href="{{ route('produkty.show', 2) }}">Detail</a>
                     </div>
                 </article>
-
             </div>
         </section>
 
@@ -222,6 +250,7 @@
             <a href="#top" class="btn-fill">späť hore ↑</a>
         </section>
     </main>
+
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-grid">

@@ -27,13 +27,17 @@
             <p>Skontrolujte si svoju objednávku pred dokončením.</p>
 
             <div class="summary">
-                <p><span>Bunda Zara</span><span>14,90 €</span></p>
-                <p><span>Kabát Mango</span><span>22,00 €</span></p>
-                <p><span>Mikina Adidas</span><span>18,50 €</span></p>
-                <p><span>Doprava</span><span>4,50 €</span></p>
+                @foreach($kosik as $polozka)
+                    @if($polozka['mnozstvo'] > 0)
+                    <p>
+                        <span>{{ $polozka['nazov'] }}@if($polozka['mnozstvo'] > 1) ({{ $polozka['mnozstvo'] }}x)@endif</span>
+                        <span>{{ number_format($polozka['cena'] * $polozka['mnozstvo'], 2, ',', ' ') }} €</span>
+                    </p>
+                    @endif
+                @endforeach
             </div>
 
-            <h2>Spolu: 59,90 €</h2>
+            <h2>Spolu: {{ number_format($celkova_cena, 2, ',', ' ') }} €</h2>
 
             <div class="confirm-buttons">
                 <a href="{{ url('/platba') }}" class="btn secondary">späť</a>

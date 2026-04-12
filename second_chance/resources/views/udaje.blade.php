@@ -20,16 +20,44 @@
 
             <div class="right-side-without-search">
                 <div class="icons">
-                    <img src="{{ asset('obrazky/logo_obrazky/user_logo.png')}}" alt="Profil" id="profileBtn">
+                    @auth
+                        <div class="user-menu" id="userMenu">
+                            <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                                alt="Profil" id="profileBtn">
+                            <div class="user-dropdown" id="userDropdown">
+                                <span class="user-name">{{ Auth::user()->meno }}</span>
+                                <span class="user-since">Člen od: {{ Auth::user()->created_at->format('d.m.Y') }}</span>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="logout-btn">Odhlásiť sa</button>
+                                </form>
+                            </div>
+                        </div>
+                    @else
+                        <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                            alt="Profil" id="profileBtn">
+                    @endauth
                 </div>
 
-                <div id="popup-container"></div>
+                @guest
+                    @include('components.auth-popup')
+                @endguest
 
-                <div class="icons cart-icon">
-                    <a href="{{ url('/kosik') }}">
-                        <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png')}}" alt="Košík">
+                <div class="icons cart-icon-wrapper">
+                    <a href="{{ route('kosik.index') }}">
+                        <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png') }}" alt="Košík">
                     </a>
-                    <span class="cart-badge">3</span>
+                    @php
+                        if (auth()->check()) {
+                            $kosikModel = \App\Models\Kosik::where('user_id', auth()->id())->first();
+                            $pocetVKosiku = $kosikModel ? $kosikModel->polozky->sum('mnozstvo') : 0;
+                        } else {
+                            $pocetVKosiku = array_sum(array_column(session()->get('kosik', []), 'mnozstvo'));
+                        }
+                    @endphp
+                    @if($pocetVKosiku > 0)
+                        <span class="cart-badge">{{ $pocetVKosiku }}</span>
+                    @endif
                 </div>
             </div>
 
@@ -95,27 +123,22 @@
                 <h2>Zhrnutie</h2>
 
                 <div class="summary-items">
-                    <div class="summary-item">
-                        <span>Bunda Zara</span>
-                        <span>14,90 €</span>
-                    </div>
-                    <div class="summary-item">
-                        <span>Kabát Mango</span>
-                        <span>22,00 €</span>
-                    </div>
-                    <div class="summary-item">
-                        <span>Mikina Adidas</span>
-                        <span>18,50 €</span>
-                    </div>
+                    @foreach($kosik as $polozka)
+                        @if($polozka['mnozstvo'] > 0)
+                        <div class="summary-item">
+                            <span>{{ $polozka['nazov'] }}</span>
+                            <span>{{ number_format($polozka['cena'] * $polozka['mnozstvo'], 2, ',', ' ') }} €</span>
+                        </div>
+                        @endif
+                    @endforeach
                 </div>
 
                 <div class="summary-total">
                     <span>spolu</span>
-                    <span>55,40 €</span>
+                    <span>{{ number_format($celkova_cena, 2, ',', ' ') }} €</span>
                 </div>
 
                 <a href="{{ url('/platba') }}" class="continue-btn">pokračovať</a>
-
             </section>
 
             

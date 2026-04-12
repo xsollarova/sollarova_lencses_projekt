@@ -21,16 +21,44 @@
 
             <div class="right-side-without-search">
                 <div class="icons">
-                    <img src="{{ asset('obrazky/logo_obrazky/user_logo.png')}}" alt="Profil" id="profileBtn">
+                    @auth
+                        <div class="user-menu" id="userMenu">
+                            <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                                alt="Profil" id="profileBtn">
+                            <div class="user-dropdown" id="userDropdown">
+                                <span class="user-name">{{ Auth::user()->meno }}</span>
+                                <span class="user-since">Člen od: {{ Auth::user()->created_at->format('d.m.Y') }}</span>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="logout-btn">Odhlásiť sa</button>
+                                </form>
+                            </div>
+                        </div>
+                    @else
+                        <img src="{{ asset('obrazky/logo_obrazky/user_logo.png') }}" 
+                            alt="Profil" id="profileBtn">
+                    @endauth
                 </div>
 
-                <div id="popup-container"></div>
+                @guest
+                    @include('components.auth-popup')
+                @endguest
 
-                <div class="icons cart-icon">
-                    <a href="{{ url('/kosik') }}">
-                        <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png')}}" alt="Košík">
+                <div class="icons cart-icon-wrapper">
+                    <a href="{{ route('kosik.index') }}">
+                        <img src="{{ asset('obrazky/logo_obrazky/cart_logo.png') }}" alt="Košík">
                     </a>
-                    <span class="cart-badge">3</span>
+                    @php
+                        if (auth()->check()) {
+                            $kosikModel = \App\Models\Kosik::where('user_id', auth()->id())->first();
+                            $pocetVKosiku = $kosikModel ? $kosikModel->polozky->sum('mnozstvo') : 0;
+                        } else {
+                            $pocetVKosiku = array_sum(array_column(session()->get('kosik', []), 'mnozstvo'));
+                        }
+                    @endphp
+                    @if($pocetVKosiku > 0)
+                        <span class="cart-badge">{{ $pocetVKosiku }}</span>
+                    @endif
                 </div>
             </div>
 
@@ -51,97 +79,57 @@
             <div class="cart-layout">
 
                 <section class="cart-items">
-                    
-                    <!-- 1. produkt -->
+
+                    @forelse($kosik as $id => $polozka)
                     <article class="cart-item">
                         <div class="cart-item-image">
-                            <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Zara bunda">
+                            @if($polozka['obrazok'])
+                                <img src="{{ asset($polozka['obrazok']) }}" alt="{{ $polozka['nazov'] }}">
+                            @else
+                                <img src="{{ asset('obrazky/placeholder.png') }}" alt="Bez obrázka">
+                            @endif
                         </div>
 
                         <div class="cart-item-info">
-                            <h2 class="product-name">Zara bunda - béžová</h2>
-                            <p class="product-brand">značka: Zara</p>
-                            <p class="product-size">veľkost: M</p>
+                            <h2 class="product-name">{{ $polozka['nazov'] }}</h2>
+                            <p class="product-brand">značka: {{ $polozka['znacka'] }}</p>
+                            <p class="product-size">veľkosť: {{ $polozka['velkost'] }}</p>
 
+                            @if(!empty($polozka['je_merch']))
+                                <div class="quantity-controls">
+                                    <span class="quantity-label">množstvo: {{ $polozka['mnozstvo'] }}</span>
+
+                                    
+                                    <form method="POST" action="{{ route('kosik.odobrat', $id) }}">
+                                        @csrf
+                                        <button type="submit" class="quantity-btn">−</button>
+                                    </form>
+
+                                    <form method="POST" action="{{ route('kosik.pridat', $id) }}">
+                                        @csrf
+                                        <button type="submit" class="quantity-btn">+</button>
+                                    </form>
+                                </div>
+                            @else
+                                <p style="margin-top: 16px; font-size: 18px;">množstvo: 1</p>
+                            @endif
                         </div>
 
                         <div class="cart-item-price">
-                            <p>14,90 €</p>
+                            <p>{{ number_format($polozka['cena'] * $polozka['mnozstvo'], 2, ',', ' ') }} €</p>
                         </div>
 
                         <div class="cart-item-remove">
-                            <button type="button" class="remove-btn">X</button>
+                            <form method="POST" action="{{ route('kosik.odstranit', $id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="remove-btn">X</button>
+                            </form>
                         </div>
                     </article>
-
-                    <!-- 2. produkt -->
-                    <article class="cart-item">
-                        <div class="cart-item-image">
-                            <img src="{{ asset('obrazky/oblecenie_obrazky/kabat_mango.png')}}" alt="Mango kabát">
-                        </div>
-
-                        <div class="cart-item-info">
-                            <h2 class="product-name">Kabát Mango</h2>
-                            <p class="product-brand">značka: Mango</p>
-                            <p class="product-size">veľkosť: S</p>
-
-                        </div>
-
-                        <div class="cart-item-price">
-                            <p>22,00 €</p>
-                        </div>
-
-                        <div class="cart-item-remove">
-                            <button type="button" class="remove-btn">X</button>
-                        </div>
-                    </article>
-
-                    <!-- 3. produkt -->
-                    <article class="cart-item">
-                        <div class="cart-item-image">
-                            <img src="{{ asset('obrazky/oblecenie_obrazky/mikina_adidas.png')}}" alt="Adidas mikina">
-                        </div>
-
-                        <div class="cart-item-info">
-                            <h2 class="product-name">Mikina Adidas</h2>
-                            <p class="product-brand">značka: Adidas</p>
-                            <p class="product-size">veľkosť: M</p>
-                        </div>
-
-                        <div class="cart-item-price">
-                            <p>18,50 €</p>
-                        </div>
-
-                        <div class="cart-item-remove">
-                            <button type="button" class="remove-btn">X</button>
-                        </div>
-                    </article>
-
-                    <article class="cart-item">
-                        <div class="cart-item-image">
-                            <img src="{{ asset('obrazky/oblecenie_obrazky/merch.png')}}" alt="Merch">
-                        </div>
-
-                        <div class="cart-item-info">
-                            <h2 class="product-name">Second Chance plátenka</h2>
-                            <p class="product-brand">značka: Second Chance</p>
-                            <p class="product-size">veľkosť: universal</p>
-
-                            <div class="quantity-controls">
-                                <span class="quantity-label">množstvo: <span class="quantity-value">1</span></span>
-                                <button type="button" class="quantity-btn">−</button>
-                                <button type="button" class="quantity-btn">+</button>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-price">
-                            <p>2 €</p>
-                        </div>
-
-                        <div class="cart-item-remove">
-                            <button type="button" class="remove-btn">X</button>
-                        </div>
-                    </article>
+                    @empty
+                        <p>Košík je prázdny.</p>
+                    @endforelse
 
                     <section class="discount-code">
                         <label for="discount">uplatniť kód:</label>
@@ -154,27 +142,20 @@
                     <h2>Zhrnutie</h2>
 
                     <div class="summary-items">
+                        @foreach($kosik as $polozka)
                         <div class="summary-item">
-                            <span>Bunda Zara</span>
-                            <span>14,90 €</span>
+                            <span>{{ $polozka['nazov'] }}</span>
+                            <span>{{ number_format($polozka['cena'] * $polozka['mnozstvo'], 2, ',', ' ') }} €</span>
                         </div>
-                        <div class="summary-item">
-                            <span>Kabát Mango</span>
-                            <span>22,00 €</span>
-                        </div>
-                        <div class="summary-item">
-                            <span>Mikina Adidas</span>
-                            <span>18,50 €</span>
-                        </div>
+                        @endforeach
                     </div>
 
                     <div class="summary-total">
                         <span>spolu</span>
-                        <span>55,40 €</span>
+                        <span>{{ number_format($celkova_cena, 2, ',', ' ') }} €</span>
                     </div>
 
                     <a href="{{ url('/udaje') }}" class="continue-btn">pokračovať</a>
-
                 </section>
 
             </div>
