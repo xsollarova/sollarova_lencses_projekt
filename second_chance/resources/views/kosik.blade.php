@@ -63,11 +63,6 @@
                             <p class="product-brand">značka: Zara</p>
                             <p class="product-size">veľkost: M</p>
 
-                            <div class="quantity-controls">
-                                <span class="quantity-label">množstvo: <span class="quantity-value">1</span></span>
-                                <button type="button" class="quantity-btn">−</button>
-                                <button type="button" class="quantity-btn">+</button>
-                            </div>
                         </div>
 
                         <div class="cart-item-price">
@@ -90,11 +85,6 @@
                             <p class="product-brand">značka: Mango</p>
                             <p class="product-size">veľkosť: S</p>
 
-                            <div class="quantity-controls">
-                                <span class="quantity-label">množstvo: <span class="quantity-value">1</span></span>
-                                <button type="button" class="quantity-btn">−</button>
-                                <button type="button" class="quantity-btn">+</button>
-                            </div>
                         </div>
 
                         <div class="cart-item-price">
@@ -116,12 +106,6 @@
                             <h2 class="product-name">Mikina Adidas</h2>
                             <p class="product-brand">značka: Adidas</p>
                             <p class="product-size">veľkosť: M</p>
-
-                            <div class="quantity-controls">
-                                <span class="quantity-label">množstvo: <span class="quantity-value">1</span></span>
-                                <button type="button" class="quantity-btn">−</button>
-                                <button type="button" class="quantity-btn">+</button>
-                            </div>
                         </div>
 
                         <div class="cart-item-price">
@@ -133,14 +117,35 @@
                         </div>
                     </article>
 
+                    <article class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="{{ asset('obrazky/oblecenie_obrazky/merch.png')}}" alt="Merch">
+                        </div>
+
+                        <div class="cart-item-info">
+                            <h2 class="product-name">Second Chance plátenka</h2>
+                            <p class="product-brand">značka: Second Chance</p>
+                            <p class="product-size">veľkosť: universal</p>
+
+                            <div class="quantity-controls">
+                                <span class="quantity-label">množstvo: <span class="quantity-value">1</span></span>
+                                <button type="button" class="quantity-btn">−</button>
+                                <button type="button" class="quantity-btn">+</button>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-price">
+                            <p>2 €</p>
+                        </div>
+
+                        <div class="cart-item-remove">
+                            <button type="button" class="remove-btn">X</button>
+                        </div>
+                    </article>
 
                     <section class="discount-code">
                         <label for="discount">uplatniť kód:</label>
                         <input type="text" id="discount" name="discount" placeholder="........">
-                    </section>
-
-                    <section class="back-to-top-kosik">
-                        <a href="#top" class="btn-fill">späť hore ↑</a>
                     </section>
 
                 </section>
@@ -179,11 +184,14 @@
         </section>
 
         
-
+        <section class="back-to-top-kosik">
+            <a href="#top" class="btn-fill">späť hore ↑</a>
+        </section>
     </main>
 
 
     <footer class="footer">
+        
         <div class="footer-inner">
             <div class="footer-grid">
 

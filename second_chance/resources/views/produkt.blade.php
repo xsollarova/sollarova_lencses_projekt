@@ -218,9 +218,9 @@
             </div>
         </section>
 
-        <div class="back-to-top-kosik">
-            <a href="#" class="btn-fill">spat hore ↑</a>
-        </div>
+        <section class="back-to-top-kosik">
+            <a href="#top" class="btn-fill">späť hore ↑</a>
+        </section>
     </main>
     <footer class="footer">
         <div class="footer-inner">

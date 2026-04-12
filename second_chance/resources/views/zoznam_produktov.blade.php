@@ -125,11 +125,9 @@
                                     <div class="filter-group">
                                         <span class="filter-title">Podľa ceny</span>
                                         <div class="filter-options">
-                                            <label><input type="checkbox"> do 5 €</label>
-                                            <label><input type="checkbox"> 5 € - 10 €</label>
-                                            <label><input type="checkbox"> 10 € - 15 €</label>
-                                            <label><input type="checkbox"> 15 € - 20 €</label>
-                                            <label><input type="checkbox"> 20 €+</label>
+                                            <input type="number" placeholder="Od (€)" class="price-input" id="price-min">
+                                            <span> - </span>
+                                            <input type="number" placeholder="Do (€)" class="price-input" id="price-max">
                                         </div>
                                     </div>
 

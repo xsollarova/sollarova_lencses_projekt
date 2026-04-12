@@ -88,10 +88,6 @@
                     </div>
 
                 </form>
-
-                <section class="back-to-top-kosik">
-                    <a href="#top" class="btn-fill">späť hore ↑</a>
-                </section>
             </section>
 
 
@@ -122,8 +118,12 @@
 
             </section>
 
+            
         </section>
-
+        
+        <section class="back-to-top-kosik">
+            <a href="#top" class="btn-fill">späť hore ↑</a>
+        </section>
     </main>
 
 
