@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('polozky_kosika', function (Blueprint $table) {
+        Schema::create('polozka_kosika', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kosik_id')->constrained('kosiky')->cascadeOnDelete(); //ak sa košík zmaže, zmažú sa aj jeho položky
-            $table->foreignId('produkt_id')->nullable()->constrained('produkty')->cascadeOnDelete();
+            $table->foreignId('kosik_id')->constrained('kosik')->cascadeOnDelete(); //ak sa košík zmaže, zmažú sa aj jeho položky
+            $table->foreignId('produkt_id')->nullable()->constrained('produkt')->cascadeOnDelete();
             $table->string('nazov');
             $table->string('znacka')->nullable();
             $table->string('velkost')->nullable();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('polozky_kosika');
+        Schema::dropIfExists('polozka_kosika');
     }
 };

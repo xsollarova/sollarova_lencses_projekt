@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kosiky', function (Blueprint $table) {
+        Schema::create('kosik', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete(); //ak sa zmaže používateľ, zmaže sa aj jeho košík
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kosiky');
+        Schema::dropIfExists('kosik');
     }
 };

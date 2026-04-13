@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('obrazok', function (Blueprint $table) {
+        Schema::create('platba', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('produkt_id')->constrained('produkt')->cascadeOnDelete(); //ak sa produkt zmaže, zmažú sa aj jeho obrázky
-            $table->string('url');
-            $table->boolean('hlavny')->default(false);
-            $table->integer('poradie')->default(0);
+            $table->foreignId('objednavka_id')->constrained('objednavka')->cascadeOnDelete();
+            $table->string('typPlatby');
+            $table->string('stavPlatby')->default('ocakavanie');
+            $table->timestamp('paid_at')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('obrazok');
+        Schema::dropIfExists('platba');
     }
 };

@@ -86,7 +86,7 @@
 
                         @foreach(['žena', 'muž'] as $pohlavie)
                         <div class="category-group">
-                            <h2>{{ $pohlavie }}</h2>
+                            <h2><a href="{{ route('produkty.index', ['pohlavie' => $pohlavie]) }}">{{ $pohlavie }}</a></h2>
                             <ul>
                                 @foreach($kategorie->where('pohlavie', $pohlavie) as $kat)
                                 <li>

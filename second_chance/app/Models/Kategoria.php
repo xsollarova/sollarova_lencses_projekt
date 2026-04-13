@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategoria extends Model
 {
-    protected $table = 'kategorie';
+    protected $table = 'kategoria';
     protected $fillable = ['parent_id', 'nazov', 'pohlavie', 'popis'];
 
     //vráti podkategórie danej kategórie

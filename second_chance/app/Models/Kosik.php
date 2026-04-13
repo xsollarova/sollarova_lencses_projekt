@@ -9,7 +9,7 @@ class Kosik extends Model
 {
     use HasFactory;
 
-    protected $table = 'kosiky';
+    protected $table = 'kosik';
     protected $fillable = ['user_id'];
 
     //vráti všetky položky v košíku

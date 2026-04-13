@@ -179,6 +179,22 @@ body {
   transform: translateX(4px);
 }
 
+/* zena a muz vyzor */
+.category-group h2 a {
+  display: inline;
+  background: none;
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.category-group h2 a:hover {
+  background: none;
+  transform: none;
+  color: #b48d7d;
+}
+
 /* BACK TO TOP */
 .back-to-top {
   padding: 0;

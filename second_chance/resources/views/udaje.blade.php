@@ -76,48 +76,58 @@
 
         <section class="udaje-layout">
             <section class="customer-info">
-                <form class="customer-form">
+                <form id="udaje-form" class="customer-form" method="POST" action="{{ route('udaje.store') }}">
+                    @csrf
+
+                    @if(session('error'))
+                        <div class="form-error">{{ session('error') }}</div>
+                    @endif
 
                     <div class="form-group">
                         <label>Meno</label>
-                        <input type="text" name="meno">
+                        <input type="text" name="meno" value="{{ old('meno', $udaje['meno'] ?? '') }}" required>
+                        @error('meno')<span class="field-error">{{ $message }}</span>@enderror
                     </div>
 
                     <div class="form-group">
                         <label>Priezvisko</label>
-                        <input type="text" name="priezvisko">
+                        <input type="text" name="priezvisko" value="{{ old('priezvisko', $udaje['priezvisko'] ?? '') }}" required>
+                        @error('priezvisko')<span class="field-error">{{ $message }}</span>@enderror
                     </div>
 
                     <div class="form-group">
                         <label>Telefónne číslo</label>
-                        <input type="tel" name="telefon">
+                        <input type="text" name="telefon" pattern="[0-9+\-\s\(\)]+" value="{{ old('telefon', $udaje['telefon'] ?? '') }}" required>
+                        @error('telefon')<span class="field-error">{{ $message }}</span>@enderror
                     </div>
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" name="email">
+                        <input type="email" name="email" value="{{ old('email', $udaje['email'] ?? '') }}" required>
+                        @error('email')<span class="field-error">{{ $message }}</span>@enderror
                     </div>
 
                     <div class="form-group mesto-group">
                         <label>Mesto</label>
-                        <input type="text" name="mesto">
+                        <input type="text" name="mesto" value="{{ old('mesto', $udaje['mesto'] ?? '') }}" required>
+                        @error('mesto')<span class="field-error">{{ $message }}</span>@enderror
                     </div>
 
                     <div class="form-row">
                         <div class="form-group small">
                             <label>PSČ</label>
-                            <input type="text" name="psc">
+                            <input type="text" name="psc" pattern="^\d{5}$" inputmode="numeric" maxlength="5" value="{{ old('psc', $udaje['psc'] ?? '') }}" required>
+                            @error('psc')<span class="field-error">{{ $message }}</span>@enderror
                         </div>
 
                         <div class="form-group small">
                             <label>Číslo domu</label>
-                            <input type="text" name="cislo_domu">
+                            <input type="number" name="cislo_domu" min="1" value="{{ old('cislo_domu', $udaje['cislo_domu'] ?? '') }}" required>
+                            @error('cislo_domu')<span class="field-error">{{ $message }}</span>@enderror
                         </div>
                     </div>
-
                 </form>
             </section>
-
 
             <section class="order-summary">
                 <h2>Zhrnutie</h2>
@@ -138,10 +148,8 @@
                     <span>{{ number_format($celkova_cena, 2, ',', ' ') }} €</span>
                 </div>
 
-                <a href="{{ url('/platba') }}" class="continue-btn">pokračovať</a>
+                <button type="submit" form="udaje-form" class="continue-btn">pokračovať</button>
             </section>
-
-            
         </section>
         
         <section class="back-to-top-kosik">

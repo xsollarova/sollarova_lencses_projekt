@@ -7,9 +7,10 @@ use App\Http\Controllers\UdajeController;
 use App\Http\Controllers\PlatbaController;
 use App\Http\Controllers\KosikController;
 use App\Http\Controllers\PotvrdenieController;
+use App\Http\Controllers\IndexController;
 
 //statické stránky
-Route::get('/', fn() => view('index'));
+Route::get('/', [IndexController::class, 'index']);
 Route::get('/prihlasenie', fn() => view('prihlasenie'));
 Route::get('/uspech', fn() => view('uspech'));
 
@@ -31,5 +32,8 @@ Route::delete('/kosik/odstranit/{id}', [KosikController::class, 'odstranit'])->n
 
 //košík - kroky 
 Route::get('/udaje', [UdajeController::class, 'index'])->name('udaje.index');
+Route::post('/udaje', [UdajeController::class, 'store'])->name('udaje.store');
 Route::get('/platba', [PlatbaController::class, 'index'])->name('platba.index');
+Route::post('/platba', [PlatbaController::class, 'store'])->name('platba.store');
 Route::get('/potvrdenie', [PotvrdenieController::class, 'index'])->name('potvrdenie.index');
+Route::post('/potvrdenie', [PotvrdenieController::class, 'store'])->name('potvrdenie.store');

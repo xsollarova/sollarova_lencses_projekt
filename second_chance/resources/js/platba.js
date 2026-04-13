@@ -30,7 +30,19 @@ function aktualizujCenu() {
 
     const total = zakladnaCena + dopravaCena + platbaCena;
     document.getElementById('total-cena').textContent = total.toFixed(2).replace('.', ',') + ' €';
+    aktualizujTlacidlo();
+}
+
+function aktualizujTlacidlo() {
+    const continueBtn = document.getElementById('continue-btn');
+    if (!continueBtn) return;
+
+    const doprava = document.querySelector('input[name="shipping"]:checked');
+    const platba = document.querySelector('input[name="payment"]:checked');
+    continueBtn.disabled = !(doprava && platba);
 }
 
 document.querySelectorAll('input[name="shipping"]').forEach(r => r.addEventListener('change', aktualizujCenu));
 document.querySelectorAll('input[name="payment"]').forEach(r => r.addEventListener('change', aktualizujCenu));
+    
+aktualizujCenu();

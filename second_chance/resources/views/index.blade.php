@@ -77,24 +77,24 @@
     <main class="category">
       <aside class="sidebar">
           <div class="category-group">
-              <h2>žena</h2>
+              <h2><a href="{{ route('produkty.index', ['pohlavie' => 'žena']) }}">žena</a></h2>
               <ul>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 1]) }}">topy</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 2]) }}">nohavice</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 3]) }}">šaty</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 4]) }}">mikiny</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 5]) }}">topánky</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 1]) }}">Topy</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 2]) }}">Nohavice</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 3]) }}">Šaty</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 4]) }}">Mikiny</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 5]) }}">Topánky</a></li>
               </ul>
           </div>
 
           <div class="category-group">
-              <h2>muž</h2>
+              <h2><a href="{{ route('produkty.index', ['pohlavie' => 'muž']) }}">muž</a></h2>
               <ul>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 6]) }}">tričká</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 7]) }}">košele</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 8]) }}">nohavice</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 9]) }}">mikiny</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 10]) }}">topánky</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 6]) }}">Tričká</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 7]) }}">Košele</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 8]) }}">Nohavice</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 9]) }}">Mikiny</a></li>
+                  <li><a href="{{ route('produkty.index', ['kategoria' => 10]) }}">Topánky</a></li>
               </ul>
           </div>
       </aside>
@@ -102,7 +102,9 @@
       <section class="content">
 
         <section class="promo">
-          <img src="{{ asset('obrazky/reklamny_banner_1.png')}}" alt="Promo">
+          <a href=#products>
+            <img src="{{ asset('obrazky/reklamny_banner_1.png')}}" alt="Promo">
+          </a>
         </section>
 
         <section class="brands">
@@ -113,145 +115,67 @@
           <div class="row g-3" id="brandsGrid">
             <!-- viditeľné -->
             <div class="col-6 col-md-4 col-lg-2">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/zara_logo.jpg')}}" alt="Zara" class="brand-img"></a>
+              <a class="brand-card"><img src="{{ asset('obrazky/znacky_obrazky/zara_logo.jpg')}}" alt="Zara" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/tommy_hilfiger_logo.jpg')}}" alt="Tommy Hilfiger" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/tommy_hilfiger_logo.jpg')}}" alt="Tommy Hilfiger" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/vans_logo.jpg')}}" alt="Vans" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/vans_logo.jpg')}}" alt="Vans" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/under_armour_logo.jpg')}}" alt="Under Armour" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/under_armour_logo.jpg')}}" alt="Under Armour" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/nike_logo.jpg')}}" alt="Nike" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/nike_logo.jpg')}}" alt="Nike" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/H&M_logo.jpg')}}" alt="H&M" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/H&M_logo.jpg')}}" alt="H&M" class="brand-img"></a>
             </div>
 
             
             <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/adidas_logo.jpg')}}" alt="Adidas" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/adidas_logo.jpg')}}" alt="Adidas" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/levis_logo.jpg')}}" alt="Levi's" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/levis_logo.jpg')}}" alt="Levi's" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/mango_logo.jpg')}}" alt="Mango" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/mango_logo.jpg')}}" alt="Mango" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/reserved_logo.jpg')}}" alt="Reserved" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/reserved_logo.jpg')}}" alt="Reserved" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/puma_logo.jpg')}}" alt="Puma" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/puma_logo.jpg')}}" alt="Puma" class="brand-img"></a>
             </div>
             <div class="col-6 col-md-4 col-lg-2 brand-extra hidden">
-              <a class="brand-card" href="#"><img src="{{ asset('obrazky/znacky_obrazky/new_balance_logo.jpg')}}" alt="New Balance" class="brand-img"></a>
+              <a class="brand-card" ><img src="{{ asset('obrazky/znacky_obrazky/new_balance_logo.jpg')}}" alt="New Balance" class="brand-img"></a>
             </div>
           </div>
         </section>
 
-        <section class="products">
+        <section class="products" id = "products">
             <div class="row g-3">
                 <h3>Novinky</h3>
 
+                @foreach($novinky as $produkt)
                 <div class="col-6 col-md-4 col-lg-2">
                     <article class="product-card">
                         <div class="product-image">
-                            <a href="{{ route('produkty.show', 3) }}">
-                                <img src="{{ asset('obrazky/oblecenie_obrazky/bunda_zara.png')}}" alt="Bunda Zara">
+                            <a href="{{ route('produkty.show', $produkt->id) }}">
+                                <img src="{{ asset($produkt->hlavnyObrazok->url ?? 'obrazky/default.jpg') }}" alt="{{ $produkt->nazov }}">
                             </a>
                         </div>
-                        <h3>Bunda Zara</h3>
-                        <p>Veľkosť M • ako nové</p>
+                        <h3>{{ $produkt->nazov }}</h3>
+                        <p>Veľkosť {{ $produkt->velkost }} • {{ $produkt->stav }}</p>
                         <div class="product-bottom">
-                            <span>14,90 €</span>
-                            <a href="{{ route('produkty.show', 3) }}">Detail</a>
+                            <span>{{ number_format($produkt->cena, 2, ',', ' ') }} €</span>
+                            <a href="{{ route('produkty.show', $produkt->id) }}">Detail</a>
                         </div>
                     </article>
                 </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <a href="{{ route('produkty.show', 1) }}">
-                                <img src="{{ asset('obrazky/oblecenie_obrazky/tricko_nike.jpg')}}" alt="Nike tričko">
-                            </a>
-                        </div>
-                        <h3>Nike tričko</h3>
-                        <p>Veľkosť XS • OK</p>
-                        <div class="product-bottom">
-                            <span>7,90 €</span>
-                            <a href="{{ route('produkty.show', 1) }}">Detail</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <a href="{{ route('produkty.show', 6) }}">
-                                <img src="{{ asset('obrazky/oblecenie_obrazky/saty_H&M.jpg')}}" alt="H&M šaty">
-                            </a>
-                        </div>
-                        <h3>Šaty H&M</h3>
-                        <p>Veľkosť S • nové</p>
-                        <div class="product-bottom">
-                            <span>12,00 €</span>
-                            <a href="{{ route('produkty.show', 6) }}">Detail</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <a href="{{ route('produkty.show', 7) }}">
-                                <img src="{{ asset('obrazky/oblecenie_obrazky/mikina_adidas.png')}}" alt="Adidas mikina">
-                            </a>
-                        </div>
-                        <h3>Mikina Adidas</h3>
-                        <p>Veľkosť S • použité</p>
-                        <div class="product-bottom">
-                            <span>8,50 €</span>
-                            <a href="{{ route('produkty.show', 7) }}">Detail</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <a href="{{ route('produkty.show', 5) }}">
-                                <img src="{{ asset('obrazky/oblecenie_obrazky/rifle_levis.jpg')}}" alt="Levi's rifle">
-                            </a>
-                        </div>
-                        <h3>Rifle Levis</h3>
-                        <p>Veľkosť M • ako nové</p>
-                        <div class="product-bottom">
-                            <span>22,00 €</span>
-                            <a href="{{ route('produkty.show', 5) }}">Detail</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <a href="{{ route('produkty.show', 8) }}">
-                                <img src="{{ asset('obrazky/oblecenie_obrazky/topanky_vans.jpg')}}" alt="Vans topánky">
-                            </a>
-                        </div>
-                        <h3>Topánky Vans</h3>
-                        <p>EU 38 • ok</p>
-                        <div class="product-bottom">
-                            <span>15,90 €</span>
-                            <a href="{{ route('produkty.show', 8) }}">Detail</a>
-                        </div>
-                    </article>
-                </div>
+                @endforeach
 
             </div>
         </section>

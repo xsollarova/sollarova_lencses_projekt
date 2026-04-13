@@ -22,7 +22,7 @@
     <main class="confirm-container">
 
         <div class="confirm-box">
-            <h1>Objednávka č.1247585 bola úspešne dokončená! 🎉</h1>
+            <h1>Objednávka č.{{ $cisloObjednavky }} bola úspešne dokončená! 🎉</h1>
 
             <p>Ďakujeme za váš nákup.</p>
 

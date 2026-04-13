@@ -9,7 +9,7 @@ class PolozkaKosika extends Model
 {
     use HasFactory;
 
-    protected $table = 'polozky_kosika';
+    protected $table = 'polozka_kosika';
     protected $fillable = [
         'kosik_id', 'produkt_id', 'nazov', 'znacka',
         'velkost', 'cena', 'mnozstvo', 'je_merch', 'obrazok'

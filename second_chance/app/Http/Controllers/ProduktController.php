@@ -50,7 +50,28 @@ class ProduktController extends Controller
     public function show($id)
     {
         $produkt = Produkt::with('obrazky', 'kategoria')->findOrFail($id);
-        return view('produkt', compact('produkt'));
+
+        $podobneProdukty = Produkt::where('id', '!=', $produkt->id)
+            ->where('dostupnost', true)
+            ->where(function($q) use ($produkt) {
+                $q->where('kategoria_id', $produkt->kategoria_id)
+                  ->orWhere('velkost', $produkt->velkost)
+                  ->orWhere('farba', $produkt->farba);
+            })
+            ->with('hlavnyObrazok')
+            ->get()
+            ->map(function($p) use ($produkt) {
+                $matches = 0;
+                if ($p->kategoria_id == $produkt->kategoria_id) $matches++;
+                if ($p->velkost == $produkt->velkost) $matches++;
+                if ($p->farba == $produkt->farba) $matches++;
+                $p->matches = $matches;
+                return $p;
+            })
+            ->sortByDesc('matches')
+            ->take(7);
+
+        return view('produkt', compact('produkt', 'podobneProdukty'));
     }
 
     //vyhľadanie produktov podľa názvu, značky, popisu alebo farby

@@ -76,45 +76,60 @@
         </section>
 
         <div class="checkout-layout">
-
             <section class="payment-options">
+                <form id="platba-form" method="POST" action="{{ route('platba.store') }}">
+                    @csrf
 
-                <section class="shipping-method">
-                    <h2>Zvoľte spôsob dopravy:</h2>
+                    @if(session('error'))
+                        <div class="form-error">{{ session('error') }}</div>
+                    @endif
 
-                    <label class="option">
-                        <input type="radio" name="shipping" value="predajna">
-                        <span>na predajňu</span>
-                        <span class="price">0€</span>
-                    </label>
+                    @if($errors->any())
+                        <div class="form-error">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
-                    <label class="option">
-                        <input type="radio" name="shipping" value="kurier">
-                        <span>kuriér</span>
-                        <span class="price">4,5€</span>
-                    </label>
-                </section>
+                    <section class="shipping-method">
+                        <h2>Zvoľte spôsob dopravy:</h2>
 
+                        <label class="option">
+                            <input type="radio" name="shipping" value="predajna" {{ old('shipping', $platba['shipping'] ?? '') === 'predajna' ? 'checked' : '' }}>
+                            <span>na predajňu</span>
+                            <span class="price">0€</span>
+                        </label>
 
-                <section class="payment-method">
-                    <h2>Zvoľte spôsob platby:</h2>
+                        <label class="option">
+                            <input type="radio" name="shipping" value="kurier" {{ old('shipping', $platba['shipping'] ?? '') === 'kurier' ? 'checked' : '' }}>
+                            <span>kuriér</span>
+                            <span class="price">4,5€</span>
+                        </label>
+                    </section>
 
-                    <label class="option">
-                        <input type="radio" name="payment" value="dobierka">
-                        <span>dobierku pri vyzdvihnutí</span>
-                        <span class="price">0,5€</span>
-                    </label>
+                    <section class="payment-method">
+                        <h2>Zvoľte spôsob platby:</h2>
 
-                    <label class="option">
-                        <input type="radio" name="payment" value="karta">
-                        <span>kartou online</span>
-                    </label>
+                        <label class="option">
+                            <input type="radio" name="payment" value="dobierka" {{ old('payment', $platba['payment'] ?? '') === 'dobierka' ? 'checked' : '' }}>
+                            <span>dobierku pri vyzdvihnutí</span>
+                            <span class="price">0,5€</span>
+                        </label>
 
-                    <label class="option">
-                        <input type="radio" name="payment" value="prevod">
-                        <span>prevodom na účet</span>
-                    </label>
-                </section>
+                        <label class="option">
+                            <input type="radio" name="payment" value="karta" {{ old('payment', $platba['payment'] ?? '') === 'karta' ? 'checked' : '' }}>
+                            <span>kartou online</span>
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="payment" value="prevod" {{ old('payment', $platba['payment'] ?? '') === 'prevod' ? 'checked' : '' }}>
+                            <span>prevodom na účet</span>
+                        </label>
+                    </section>
+                </form>
             </section>
 
             <span id="zakladna-cena" data-cena="{{ $celkova_cena }}" style="display:none"></span>
@@ -147,7 +162,7 @@
                     <span id="total-cena">{{ number_format($celkova_cena, 2, ',', ' ') }} €</span>
                 </div>
 
-                <a href="{{ url('/potvrdenie') }}" class="continue-btn">pokračovať s povinnosťou platby</a>
+                <button type="submit" id="continue-btn" form="platba-form" class="continue-btn">pokračovať s povinnosťou platby</button>
             </section>
         </div>
 

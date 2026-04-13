@@ -41,7 +41,10 @@
 
             <div class="confirm-buttons">
                 <a href="{{ url('/platba') }}" class="btn secondary">späť</a>
-                <a href="{{ url('/uspech') }}" class="btn primary">potvrdiť objednávku</a>
+                <form method="POST" action="{{ route('potvrdenie.store') }}" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="btn primary">potvrdiť objednávku</button>
+                </form>
             </div>
         </div>
 

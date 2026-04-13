@@ -9,7 +9,7 @@ class Produkt extends Model
 {
     use HasFactory;
 
-    protected $table = 'produkty';
+    protected $table = 'produkt';
     protected $fillable = ['kategoria_id', 'nazov', 'znacka', 
                            'popis', 'cena', 'velkost', 'farba', 'stav', 'dostupnost'];
 
@@ -26,5 +26,10 @@ class Produkt extends Model
     //vráti iba hlavný obrázok produktu
     public function hlavnyObrazok() {
         return $this->hasOne(Obrazok::class, 'produkt_id')->where('hlavny', true);
+    }
+
+    public function polozkyObjednavky()
+    {
+        return $this->hasMany(PolozkaObjednavky::class, 'produkt_id');
     }
 }
