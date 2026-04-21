@@ -8,6 +8,7 @@ use App\Http\Controllers\PlatbaController;
 use App\Http\Controllers\KosikController;
 use App\Http\Controllers\PotvrdenieController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AdminController;
 
 //statické stránky
 Route::get('/', [IndexController::class, 'index']);
@@ -37,3 +38,13 @@ Route::get('/platba', [PlatbaController::class, 'index'])->name('platba.index');
 Route::post('/platba', [PlatbaController::class, 'store'])->name('platba.store');
 Route::get('/potvrdenie', [PotvrdenieController::class, 'index'])->name('potvrdenie.index');
 Route::post('/potvrdenie', [PotvrdenieController::class, 'store'])->name('potvrdenie.store');
+
+//admin
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/pridat', [AdminController::class, 'create'])->name('admin.create');
+    Route::post('/pridat', [AdminController::class, 'store'])->name('admin.store');
+    Route::get('/upravit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::put('/upravit/{id}', [AdminController::class, 'update'])->name('admin.update');
+    Route::delete('/vymazat/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+});

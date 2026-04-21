@@ -59,6 +59,11 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
+
+            if (Auth::user()->rola === 'admin') {
+                return redirect()->route('admin.index');
+            }
+
             return redirect()->back()->with('success', 'Prihlásenie úspešné!');
         }
 
