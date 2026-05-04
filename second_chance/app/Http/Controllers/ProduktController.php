@@ -40,10 +40,15 @@ class ProduktController extends Controller
             default     => $query->orderBy('created_at', 'desc'),
         };
 
-        $produkty  = $query->paginate(24)->withQueryString();
+        $produkty  = $query->paginate(12)->withQueryString();
         $kategorie = Kategoria::whereNull('parent_id')->with('podkategorie')->get();
+        
+        // Získanie min a max ceny z dostupných produktov
+        $cenyStats = Produkt::where('dostupnost', true)->selectRaw('MIN(cena) as min_cena, MAX(cena) as max_cena')->first();
+        $min_cena = $cenyStats->min_cena ?? 0;
+        $max_cena = $cenyStats->max_cena ?? 0;
 
-        return view('zoznam_produktov', compact('produkty', 'kategorie'));
+        return view('zoznam_produktov', compact('produkty', 'kategorie', 'min_cena', 'max_cena'));
     }
 
     //zobrazenie detailného popisu o produkte podľa ID
@@ -87,11 +92,16 @@ class ProduktController extends Controller
                     ->orWhere('popis', 'like', '%' . $search . '%')
                     ->orWhere('farba', 'like', '%' . $search . '%');
             })
-            ->paginate(24)
+            ->paginate(12)
             ->withQueryString();
 
         $kategorie = Kategoria::whereNull('parent_id')->with('podkategorie')->get();
+        
+        // Získanie min a max ceny z dostupných produktov
+        $cenyStats = Produkt::where('dostupnost', true)->selectRaw('MIN(cena) as min_cena, MAX(cena) as max_cena')->first();
+        $min_cena = $cenyStats->min_cena ?? 0;
+        $max_cena = $cenyStats->max_cena ?? 0;
 
-        return view('zoznam_produktov', compact('produkty', 'kategorie'));
+        return view('zoznam_produktov', compact('produkty', 'kategorie', 'min_cena', 'max_cena'));
     }
 }

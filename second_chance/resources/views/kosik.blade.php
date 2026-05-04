@@ -131,11 +131,6 @@
                         <p>Košík je prázdny.</p>
                     @endforelse
 
-                    <section class="discount-code">
-                        <label for="discount">uplatniť kód:</label>
-                        <input type="text" id="discount" name="discount" placeholder="........">
-                    </section>
-
                 </section>
 
                 <section class="order-summary">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produkt;
+use App\Models\Kategoria;
 
 class IndexController extends Controller
 {
@@ -16,6 +17,8 @@ class IndexController extends Controller
             ->take(6)
             ->get();
 
-        return view('index', compact('novinky'));
+        $kategorie = Kategoria::all();
+
+        return view('index', compact('novinky', 'kategorie')); 
     }
 }

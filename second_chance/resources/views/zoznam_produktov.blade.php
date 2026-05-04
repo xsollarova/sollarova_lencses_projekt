@@ -148,7 +148,7 @@
                                         <div class="filter-group">
                                             <span class="filter-title">Podľa veľkosti</span>
                                             <div class="filter-options">
-                                                @foreach(['XS','S','M','L','XL','EU 38','EU 39','EU 40','EU 41','EU 42','EU 43','EU 44'] as $vel)
+                                                @foreach(['XS','S','M','L','XL'] as $vel)
                                                     <label>
                                                         <input type="checkbox" name="velkost[]" value="{{ $vel }}"
                                                             {{ in_array($vel, request('velkost', [])) ? 'checked' : '' }}
@@ -161,12 +161,15 @@
 
                                         <div class="filter-group">
                                             <span class="filter-title">Podľa ceny</span>
+                                            <div class="price-range-info">
+                                                <small>Dostupné: {{ number_format($min_cena, 2, ',', ' ') }} € - {{ number_format($max_cena, 2, ',', ' ') }} €</small>
+                                            </div>
                                             <div class="filter-options">
-                                                <input type="number" name="min_cena" placeholder="Od (€)"
-                                                    class="price-input" value="{{ request('min_cena') }}">
+                                                <input type="number" name="min_cena" placeholder="Od ({{ request('min_cena', $min_cena) }}€)" step="0.01"
+                                                    class="price-input" value="{{ request('min_cena', $min_cena) }}" min="{{ $min_cena }}" max="{{ $max_cena }}">
                                                 <span> - </span>
-                                                <input type="number" name="max_cena" placeholder="Do (€)"
-                                                    class="price-input" value="{{ request('max_cena') }}">
+                                                <input type="number" name="max_cena" placeholder="Do ({{ request('max_cena', $max_cena) }}€)" step="0.01"
+                                                    class="price-input" value="{{ request('max_cena', $max_cena) }}" min="{{ $min_cena }}" max="{{ $max_cena }}">
                                                 <button type="submit" class="price-apply-btn">potvrdiť</button>
                                             </div>
                                         </div>
@@ -174,7 +177,7 @@
                                         <div class="filter-group">
                                             <span class="filter-title">Podľa farby</span>
                                             <div class="filter-options">
-                                                @foreach(['čierna','biela','béžová','hnedá','červená','fialová','ružová','modrá','žltá','oranžová','zelená'] as $farba)
+                                                @foreach(['čierna','biela','hnedá','modrá','červená'] as $farba)
                                                     <label>
                                                         <input type="checkbox" name="farba[]" value="{{ $farba }}"
                                                             {{ in_array($farba, request('farba', [])) ? 'checked' : '' }}

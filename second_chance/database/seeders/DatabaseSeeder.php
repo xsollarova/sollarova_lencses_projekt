@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(KategoriaSeeder::class);
 
         $produkty = [
-            //žena - topy 1
+            //žena - topy - kategória 1
             ['nazov' => 'Tričko Nike', 'znacka' => 'Nike', 'kategoria_id' => 1, 'cena' => 7.90, 'velkost' => 'XS', 'farba' => 'biela', 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/tricko_nike.jpg',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/tricko_nike_mini_01.jpg',
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Štýlový hnedý kabát značky Mango s klasickým rovným strihom, ktorý nikdy nevyjde z módy. Kvalitný huňatý materiál poskytuje príjemné teplo aj v chladnejších dňoch bez toho, aby ste sa cítili stiesnene. Kabát má dvojradové zapínanie na gombíky, dve priestranné bočné vrecká a jemne štruktúrovaný povrch, ktorý pôsobí luxusným dojmom. Hodí sa rovnako dobre do práce aj na víkendový výlet. Nosený len niekoľkokrát, stav ako nový – bez akýchkoľvek poškodení, škvŕn či deformácií.'],
 
-            //žena - nohavice 2
+            //žena - nohavice - kategória 2
             ['nazov' => 'Rifle Levis', 'znacka' => 'Levis', 'kategoria_id' => 2, 'cena' => 22.00, 'velkost' => 'M', 'farba' => 'modrá', 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/rifle_levis.jpg',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/rifle_levis_mini_01.jpg',
@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Dámske maskáčové nohavice Pull&Bear sú štýlový a pohodlný kúsok na každodenné nosenie. Príjemný materiál spolu s moderným strihom poskytuje komfort počas celého dňa. Nohavice majú praktické vrecká a maskáčový vzor dodáva outfitu trendy streetwear vzhľad. Jednoducho sa kombinujú s tričkom, mikinou alebo bundou. Používané, ale zachovalé vo veľmi dobrom stave – bez dier, fľakov alebo výrazného opotrebovania.'],
 
-            //žena - šaty 3
+            //žena - šaty - kategória 3
             ['nazov' => 'Šaty H&M', 'znacka' => 'H&M', 'kategoria_id' => 3, 'cena' => 12.00, 'velkost' => 'S', 'farba' => 'čierna', 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/saty_H&M.jpg',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/saty_H&M_mini_01.jpg',
@@ -105,37 +105,8 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Dámske červené šaty H&M sú elegantný a výrazný kúsok vhodný na spoločenské udalosti aj bežné nosenie počas teplejších dní. Ľahký a príjemný materiál sa pohodlne nosí, zatiaľ čo ženský strih pekne zvýrazní postavu. Jednoduchý dizajn dopĺňa sýta červená farba, ktorá pôsobí štýlovo a ľahko sa kombinuje s doplnkami. Šaty sú používané, ale vo veľmi dobrom stave – bez dier, fľakov alebo výrazného opotrebovania.'],
 
-            //žena - mikiny 4
-            ['nazov' => 'Mikina Adidas', 'znacka' => 'Adidas', 'kategoria_id' => 4, 'cena' => 8.50, 'velkost' => 'S', 'farba' => 'modrá', 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/mikina_adidas.png',
-            'miniatury' => [
-                'obrazky/oblecenie_obrazky/mikina_adidas_mini_01.jpg',
-                'obrazky/oblecenie_obrazky/mikina_adidas_mini_02.jpg',
-                'obrazky/oblecenie_obrazky/mikina_adidas_mini_03.jpg',
-                'obrazky/oblecenie_obrazky/mikina_adidas_mini_04.jpg',
-            ],
-            'popis' => 'Pohodlná modrá mikina značky Adidas s charakteristickými troma pruhmi na rukávoch. Mäkký flísový materiál zvnútra zahreje a zároveň je dostatočne priedušný na aktívne nosenie počas celého dňa. Mikina má praktické vrecko vpredu a stahovateľnú kapucňu. Voľnejší strih umožňuje pohodlný pohyb pri športe aj relaxe. Modrá farba je svieža a ľahko sa kombinuje s čiernou, bielou aj sivou. Použitá, ale starostlivo udržiavaná – bez poškodení, dier ani vybliednutia.'],
-
-            ['nazov' => 'Mikina Reserved', 'znacka' => 'Reserved', 'kategoria_id' => 4, 'cena' => 10.90, 'velkost' => 'M', 'farba' => 'žltá', 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/mikina_reserved_zlta.png',
-            'miniatury' => [
-                'obrazky/oblecenie_obrazky/mikina_reserved_zlta_mini_01.png',
-                'obrazky/oblecenie_obrazky/mikina_reserved_zlta_mini_02.png',
-                'obrazky/oblecenie_obrazky/mikina_reserved_zlta_mini_03.png',
-                'obrazky/oblecenie_obrazky/mikina_reserved_zlta_mini_04.png',
-            ],
-            'popis' => 'Dámska žltá mikina Reserved je pohodlný a štýlový kúsok vhodný na každodenné nosenie. Mäkký materiál príjemne zahreje a zároveň poskytuje dostatok komfortu počas celého dňa. Mikina má klasický strih s kapucňou a predným vreckom, čo ju robí praktickou aj funkčnou. Výrazná žltá farba oživí každý outfit a ľahko sa kombinuje s džínsami alebo legínami. Používaná, ale zachovalá vo veľmi dobrom stave – bez dier, fľakov alebo výrazného opotrebovania.'],
-
-            //žena - topánky 5
-            ['nazov' => 'Topánky Vans', 'znacka' => 'Vans', 'kategoria_id' => 5, 'cena' => 15.90, 'velkost' => 'EU 38', 'farba' => 'zelená', 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/topanky_vans.jpg',
-            'miniatury' => [
-                'obrazky/oblecenie_obrazky/topanky_vans_mini_01.jpg',
-                'obrazky/oblecenie_obrazky/topanky_vans_mini_02.jpg',
-                'obrazky/oblecenie_obrazky/topanky_vans_mini_03.jpg',
-                'obrazky/oblecenie_obrazky/topanky_vans_mini_04.jpg',
-            ],
-            'popis' => 'Ikonické zelené tenisky značky Vans v klasickom modeli Old Skool s charakteristickým bočným pruhom. Pevná plátená časť a odolná gumová podrážka zaručujú dlhú životnosť a pohodlie pri každodennom nosení. Tenisky majú univerzálny streetwear štýl, ktorý sa hodí k rifľam, šatám, šortkám aj sukni. Zelená farba je originálna a vyčnieva z davu. Vnútorná stielka poskytuje príjemné tlmenie pri chôdzi. Použité v dobrom stave – podrážka neopotrebovaná.'],
-
-            //muž - tričká 6
-            ['nazov' => 'Tričko Nike', 'znacka' => 'Nike', 'kategoria_id' => 6, 'cena' => 9.90, 'velkost' => 'L', 'farba' => 'biela', 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/tricko_nike.jpg',
+            //muž - tričká - kategória 4
+            ['nazov' => 'Tričko Nike', 'znacka' => 'Nike', 'kategoria_id' => 4, 'cena' => 9.90, 'velkost' => 'L', 'farba' => 'biela', 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/tricko_nike.jpg',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/tricko_nike_mini_01.jpg',
                 'obrazky/oblecenie_obrazky/tricko_nike_mini_02.jpg',
@@ -144,27 +115,8 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Pánske biele tričko Nike s veľkým logom na hrudi – klasický kúsok, ktorý nechýba v šatníku žiadneho muža. Ľahký priedušný materiál odvádza vlhkosť od tela čo ho robí ideálnym na šport aj bežné nosenie. Strih regular fit poskytuje dostatok priestoru pre pohodlný pohyb bez toho, aby tričko pôsobilo príliš voľne. Okrúhly výstrih je klasický a vždy moderný. Hodí sa k akýmkoľvek nohaviciam – rifľam, teplákom aj kraťasom. Stav ako nové – minimálne nosené, bez akýchkoľvek poškodení alebo vybliednutia.'],
 
-            //muž - košele 7
-            ['nazov' => 'Tričko Nike', 'znacka' => 'Nike', 'kategoria_id' => 7, 'cena' => 7.90, 'velkost' => 'M', 'farba' => 'biela', 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/tricko_nike.jpg',
-            'miniatury' => [
-                'obrazky/oblecenie_obrazky/tricko_nike_mini_01.jpg',
-                'obrazky/oblecenie_obrazky/tricko_nike_mini_02.jpg',
-                'obrazky/oblecenie_obrazky/tricko_nike_mini_03.jpg',
-                'obrazky/oblecenie_obrazky/tricko_nike_mini_04.jpg',
-            ],
-            'popis' => 'Jednoduché biele tričko Nike vhodné na každodenné nosenie aj ľahký šport. Kvalitná bavlna je mäkká na dotyk a zároveň odolná voči opakovanému praniu bez straty tvaru či farby. Klasický strih s okrúhlym výstrihom a krátkymi rukávmi je nadčasový a hodí sa ku všetkému. Malé logo Nike na hrudi pôsobí diskrétne a elegantne. Neutrálna biela farba je vždy vhodná a ľahko sa kombinuje s čímkoľvek v šatníku. Zachovaný v OK stave – po vypraní bez škvŕn alebo poškodení.'],
-
-            ['nazov' => 'Košeľa Zara Man', 'znacka' => 'Zara Man', 'kategoria_id' => 7, 'cena' => 8.90, 'velkost' => 'M', 'farba' => 'biela', 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/kosela_zara_man.png',
-            'miniatury' => [
-                'obrazky/oblecenie_obrazky/kosela_zara_man_mini_01.png',
-                'obrazky/oblecenie_obrazky/kosela_zara_man_mini_02.png',
-                'obrazky/oblecenie_obrazky/kosela_zara_man_mini_03.png',
-                'obrazky/oblecenie_obrazky/kosela_zara_man_mini_04.png',
-            ],
-            'popis' => 'Pánska biela košeľa Zara Man s dlhým rukávom je univerzálny kúsok vhodný na formálnejšie aj bežné nosenie. Príjemný materiál sa pohodlne nosí počas celého dňa a klasický strih dobre sedí na postave. Jednoduchý dizajn dopĺňa golier a zapínanie na gombíky, vďaka čomu sa ľahko kombinuje s nohavicami aj džínsami. Košeľa je používaná, ale zachovalá v dobrom stave – bez dier, fľakov alebo výrazného poškodenia.'],
-
-            //muž - nohavice 8
-            ['nazov' => 'Rifle Levis', 'znacka' => 'Levis', 'kategoria_id' => 8, 'cena' => 15.50, 'velkost' => 'XL', 'farba' => 'modrá', 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/rifle_levis.jpg',
+            //muž - nohavice - kategória 5
+            ['nazov' => 'Rifle Levis', 'znacka' => 'Levis', 'kategoria_id' => 5, 'cena' => 15.50, 'velkost' => 'XL', 'farba' => 'modrá', 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/rifle_levis.jpg',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/rifle_levis_mini_01.jpg',
                 'obrazky/oblecenie_obrazky/rifle_levis_mini_02.jpg',
@@ -173,7 +125,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Pánske modré rifle Levis vo veľkosti XL s rovným klasickým strihom, ktorý poskytuje dostatok priestoru pre pohodlný pohyb počas celého dňa. Odolný denim materiál je zárukou dlhej životnosti a charakteristického štýlu tejto legendárnej značky. Kovové nity a charakteristický kožený štítok Levis sú znakom kvality. Modrá farba je univerzálna a hodí sa k akémukoľvek vrchnému oblečeniu. Nosené, ale zachované v dobrom stave – bez výrazného opotrebovania, trhlín alebo škvŕn.'],
 
-            ['nazov' => 'Nohavice Pull&Bear', 'znacka' => 'Pull&Bear', 'kategoria_id' => 8, 'cena' => 11.50, 'velkost' => 'M', 'farba' => 'zelená', 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/nohavice_pullbear_maskac.png',
+            ['nazov' => 'Nohavice Pull&Bear', 'znacka' => 'Pull&Bear', 'kategoria_id' => 5, 'cena' => 11.50, 'velkost' => 'M', 'farba' => 'zelená', 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/nohavice_pullbear_maskac.png',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/nohavice_pullbear_maskac_mini_01.png',
                 'obrazky/oblecenie_obrazky/nohavice_pullbear_maskac_mini_02.png',
@@ -182,8 +134,8 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Pánske maskáčové nohavice Pull&Bear sú štýlový a pohodlný kúsok na každodenné nosenie. Odolný materiál spolu s praktickým strihom poskytuje dostatok komfortu aj pri dlhšom nosení. Nohavice majú viacero vreciek, čo zvyšuje ich praktickosť, a moderný maskáčový vzor dodáva outfitu výrazný streetwear vzhľad. Používané, ale zachovalé v dobrom stave – bez dier, fľakov alebo výrazného opotrebovania.'],
 
-            //muž - mikiny 9
-            ['nazov' => 'Mikina Adidas', 'znacka' => 'Adidas', 'kategoria_id' => 9, 'cena' => 10.50, 'velkost' => 'L', 'farba' => 'modrá', 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/mikina_adidas.png',
+            //muž - mikiny - kategória 6
+            ['nazov' => 'Mikina Adidas', 'znacka' => 'Adidas', 'kategoria_id' => 6, 'cena' => 10.50, 'velkost' => 'L', 'farba' => 'modrá', 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/mikina_adidas.png',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/mikina_adidas_mini_01.jpg',
                 'obrazky/oblecenie_obrazky/mikina_adidas_mini_02.jpg',
@@ -192,7 +144,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Pánska modrá mikina Adidas s predným zipsom a kapucňou – praktický kúsok na každú príležitosť. Teplý materiál s mäkkou vnútornou stranou zahreje v chladnejšom počasí a zároveň umožňuje pohodlný pohyb. Predné vrecko je praktické na každodenné nosenie. Charakteristické tri pruhy Adidas dodávajú mikine športový štýl. Použitá a udržiavaná v dobrom stave – bez poškodení, dier alebo výrazného opotrebovania.'],
 
-            ['nazov' => 'Mikina Reserved', 'znacka' => 'Reserved', 'kategoria_id' => 9, 'cena' => 10.90, 'velkost' => 'M', 'farba' => 'žltá', 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/mikina_reserved_zlta.png',
+            ['nazov' => 'Mikina Reserved', 'znacka' => 'Reserved', 'kategoria_id' => 6, 'cena' => 10.90, 'velkost' => 'M', 'farba' => 'žltá', 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/mikina_reserved_zlta.png',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/mikina_reserved_zlta_mini_01.png',
                 'obrazky/oblecenie_obrazky/mikina_reserved_zlta_mini_02.png',
@@ -200,16 +152,6 @@ class DatabaseSeeder extends Seeder
                 'obrazky/oblecenie_obrazky/mikina_reserved_zlta_mini_04.png',
             ],
             'popis' => 'Pánska žltá mikina Reserved je pohodlný a praktický kúsok vhodný na každodenné nosenie. Príjemný materiál poskytuje komfort počas celého dňa a zároveň dobre drží tvar. Mikina má klasický strih s kapucňou a predným vreckom, čo zvyšuje jej funkčnosť. Výrazná žltá farba dodáva outfitu energiu a ľahko sa kombinuje s džínsami alebo teplákmi. Používaná, ale zachovalá vo veľmi dobrom stave – bez dier, fľakov alebo výrazného opotrebovania.'],
-
-            //muž - topánky 10
-            ['nazov' => 'Topánky Vans', 'znacka' => 'Vans', 'kategoria_id' => 10, 'cena' => 15.90, 'velkost' => 'EU 42', 'farba' => 'zelená', 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/topanky_vans.jpg',
-            'miniatury' => [
-                'obrazky/oblecenie_obrazky/topanky_vans_mini_01.jpg',
-                'obrazky/oblecenie_obrazky/topanky_vans_mini_02.jpg',
-                'obrazky/oblecenie_obrazky/topanky_vans_mini_03.jpg',
-                'obrazky/oblecenie_obrazky/topanky_vans_mini_04.jpg',
-            ],
-            'popis' => 'Pánske zelené tenisky Vans v obľúbenom modeli s plochou gumovou podrážkou – symbol skateboardovej kultúry, ktorý sa stal módnou ikonou po celom svete. Odolná podrážka zaručujú spoľahlivosť pri každodennom nosení. Univerzálny streetwear štýl sa hodí k rifľam, teplákom aj šortkám. Zelená farba je originálna voľba, ktorá oživí akýkoľvek outfit. Klasické šnurovanie umožňuje prispôsobiť tesnosť podľa potreby. Použité v OK stave – podrážka funkčná.'],
         ];
 
         //pre každý produkt sa vytvorí záznam v databáze

@@ -110,25 +110,6 @@
   font-size: 15px;
 }
 
-.discount-code {
-  margin-top: 30px;
-  padding: 0 8px;
-  font-weight: bold;
-}
-
-.discount-code label {
-  margin-right: 8px;
-}
-
-.discount-code input {
-  background-color: #efece9b1;
-  border: 1px solid black;
-  min-height: 40px;
-  padding: 0 12px;
-  border-radius: 8px;
-  max-width: 220px;
-  width: 100%;
-}
 
 /* TABLET */
 @media (max-width: 1420px) {
@@ -213,13 +194,4 @@
     font-size: 16px;
   }
 
-  .discount-code {
-    padding: 0;
-  }
-
-  .discount-code input {
-    display: block;
-    max-width: 100%;
-    margin-top: 10px;
-  }
 }

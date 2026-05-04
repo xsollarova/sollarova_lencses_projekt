@@ -76,27 +76,20 @@
 
     <main class="category">
       <aside class="sidebar">
+          @foreach(['žena', 'muž'] as $pohlavie)
           <div class="category-group">
-              <h2><a href="{{ route('produkty.index', ['pohlavie' => 'žena']) }}">žena</a></h2>
+              <h2><a href="{{ route('produkty.index', ['pohlavie' => $pohlavie]) }}">{{ $pohlavie }}</a></h2>
               <ul>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 1]) }}">Topy</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 2]) }}">Nohavice</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 3]) }}">Šaty</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 4]) }}">Mikiny</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 5]) }}">Topánky</a></li>
+                  @foreach($kategorie->where('pohlavie', $pohlavie) as $kat)
+                  <li>
+                      <a href="{{ route('produkty.index', ['kategoria' => $kat->id]) }}">
+                          {{ $kat->nazov }}
+                      </a>
+                  </li>
+                  @endforeach
               </ul>
           </div>
-
-          <div class="category-group">
-              <h2><a href="{{ route('produkty.index', ['pohlavie' => 'muž']) }}">muž</a></h2>
-              <ul>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 6]) }}">Tričká</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 7]) }}">Košele</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 8]) }}">Nohavice</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 9]) }}">Mikiny</a></li>
-                  <li><a href="{{ route('produkty.index', ['kategoria' => 10]) }}">Topánky</a></li>
-              </ul>
-          </div>
+          @endforeach
       </aside>
 
       <section class="content">
