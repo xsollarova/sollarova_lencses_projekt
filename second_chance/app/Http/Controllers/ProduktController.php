@@ -30,7 +30,11 @@ class ProduktController extends Controller
             $query->whereIn('velkost', $request->velkost);
         }
         if ($request->filled('farba')) {
-            $query->whereIn('farba', $request->farba);
+            $query->where(function($q) use ($request) {
+                foreach ($request->farba as $farba) {
+                    $q->orWhereJsonContains('farba', $farba);
+                }
+            });
         }
 
         //radenie produktov podľa zvoleného parametra
@@ -67,9 +71,9 @@ class ProduktController extends Controller
             ->get()
             ->map(function($p) use ($produkt) {
                 $matches = 0;
-                if ($p->kategoria_id == $produkt->kategoria_id) $matches++;
-                if ($p->velkost == $produkt->velkost) $matches++;
-                if ($p->farba == $produkt->farba) $matches++;
+                if ($p->kategoria_id == $produkt->kategoria_id) $matches += 5;
+                if ($p->velkost == $produkt->velkost) $matches+=3;
+                if ($p->farba == $produkt->farba) $matches += 2;
                 $p->matches = $matches;
                 return $p;
             })

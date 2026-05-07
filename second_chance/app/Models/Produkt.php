@@ -12,6 +12,9 @@ class Produkt extends Model
     protected $table = 'produkt';
     protected $fillable = ['kategoria_id', 'nazov', 'znacka', 
                            'popis', 'cena', 'velkost', 'farba', 'stav', 'dostupnost'];
+    protected $casts = [
+        'farba' => 'array',
+    ];
 
     //vráti kategórie, kde produkt patrí
     public function kategoria() {

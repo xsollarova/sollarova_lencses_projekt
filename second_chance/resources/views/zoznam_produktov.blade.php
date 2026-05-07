@@ -148,7 +148,7 @@
                                         <div class="filter-group">
                                             <span class="filter-title">Podľa veľkosti</span>
                                             <div class="filter-options">
-                                                @foreach(['XS','S','M','L','XL'] as $vel)
+                                                @foreach(['S','M','L'] as $vel)
                                                     <label>
                                                         <input type="checkbox" name="velkost[]" value="{{ $vel }}"
                                                             {{ in_array($vel, request('velkost', [])) ? 'checked' : '' }}
@@ -177,7 +177,7 @@
                                         <div class="filter-group">
                                             <span class="filter-title">Podľa farby</span>
                                             <div class="filter-options">
-                                                @foreach(['čierna','biela','hnedá','modrá','červená'] as $farba)
+                                                @foreach(['čierna','biela','hnedá','farebná'] as $farba)
                                                     <label>
                                                         <input type="checkbox" name="farba[]" value="{{ $farba }}"
                                                             {{ in_array($farba, request('farba', [])) ? 'checked' : '' }}

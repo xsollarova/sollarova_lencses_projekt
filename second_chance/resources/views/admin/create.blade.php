@@ -45,7 +45,7 @@
         <div class="mb-3">
             <label>Veľkosť</label>
             <select name="velkost" class="form-control">
-                @foreach(['XS','S','M','L','XL','EU 38','EU 39','EU 40','EU 41','EU 42','EU 43','EU 44'] as $v)
+                @foreach(['S','M','L'] as $v)
                     <option>{{ $v }}</option>
                 @endforeach
             </select>
@@ -54,7 +54,7 @@
         <div class="mb-3">
             <label>Farba</label>
             <select name="farba" class="form-control">
-                @foreach(['čierna','biela','béžová','hnedá','červená','fialová','ružová','modrá','žltá','oranžová','zelená'] as $f)
+                @foreach(['čierna','biela','béžová','farebná'] as $f)
                     <option>{{ $f }}</option>
                 @endforeach
             </select>

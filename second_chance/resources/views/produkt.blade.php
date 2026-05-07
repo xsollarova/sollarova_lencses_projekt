@@ -111,7 +111,7 @@
                     </div>
                     <div class="feature">
                         <span class="nazov">farba</span>
-                        <span class="hodnota">{{ $produkt->farba }}</span>
+                        <span class="hodnota">{{ implode(', ', $produkt->farba ?? []) }}</span>
                     </div>
                     <div class="feature">
                         <span class="nazov">stav</span>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('popis')->nullable();
             $table->decimal('cena', 8, 2);
             $table->string('velkost')->nullable();
-            $table->string('farba')->nullable();
+            $table->json('farba')->nullable();
             $table->string('stav');
             $table->boolean('dostupnost')->default(true);
             $table->date('datumPridania')->nullable();

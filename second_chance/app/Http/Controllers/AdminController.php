@@ -49,7 +49,8 @@ class AdminController extends Controller
 
         //uloženie obrázku
         if ($request->hasFile('obrazok')) {
-            $path = $request->file('obrazok')->store('obrazky/produkty', 'public');
+            $path = $request->file('obrazok')->store('obrazky/oblecenie_obrazky', 'public');
+
             Obrazok::create([
                 'produkt_id' => $produkt->id,
                 'url'        => 'storage/' . $path,
