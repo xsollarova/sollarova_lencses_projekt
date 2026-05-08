@@ -41,7 +41,7 @@ class ProduktController extends Controller
         match($request->get('sort', 'najnovsie')) {
             'cena_asc'  => $query->orderBy('cena', 'asc'),
             'cena_desc' => $query->orderBy('cena', 'desc'),
-            default     => $query->orderBy('created_at', 'desc'),
+            default     => $query->orderBy('created_at', 'asc'),
         };
 
         $produkty  = $query->paginate(12)->withQueryString();

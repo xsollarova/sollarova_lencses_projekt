@@ -11,7 +11,8 @@ class Produkt extends Model
 
     protected $table = 'produkt';
     protected $fillable = ['kategoria_id', 'nazov', 'znacka', 
-                           'popis', 'cena', 'velkost', 'farba', 'stav', 'dostupnost'];
+                           'popis', 'cena', 'velkost', 'farba', 'stav', 'dostupnost',
+                           'created_at', 'updated_at'];
     protected $casts = [
         'farba' => 'array',
     ];
