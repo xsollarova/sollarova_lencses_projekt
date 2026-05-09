@@ -255,6 +255,83 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Pánske oversized čierne tričko s hnedým dizajnom v modernom streetwear štýle vhodné na každodenné nosenie. Voľnejší strih poskytuje maximálne pohodlie a dobre sa kombinuje s rifľami, cargo nohavicami aj kraťasmi. Príjemný materiál zabezpečuje komfort počas celého dňa. Tričko je vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
 
+            ['nazov' => 'Zelené tričko', 'znacka' => 'Under Armour', 'kategoria_id' => 4, 'cena' => 4.90, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/zelene_tricko.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/zelene_tricko_mini_01.png',
+                'obrazky/oblecenie_obrazky/zelene_tricko_mini_02.png'
+                ],
+            'popis' => 'Pánske olivové tričko s klasickým okrúhlym výstrihom a textúrou materiálu, ktorý mu dodáva prirodzený vintage charakter. Drobné detaily – kovový gombík pri výstrihu a jemné distressed miesta na prednom diele – robia z tohto trička niečo viac ako len basic kúsok. Voľnejší strih je pohodlný na celý deň a olivová farba sa kombinuje s čím chceš – rifľami, cargo nohavicami aj šortkami. Zachované v dobrom stave. '],
+
+            ['nazov' => 'Pólo tričko', 'znacka' => 'Reserved', 'kategoria_id' => 4, 'cena' => 3.90, 'velkost' => 'L', 'farba' => ['biela','farebná'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/polo_tricko.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/polo_tricko_mini_01.png',
+                'obrazky/oblecenie_obrazky/polo_tricko_mini_02.png'
+                ],
+            'popis' => 'Pánske biele polo tričko s kontrastným červeným golierom a lemami rukávov, ktoré mu dodávajú športový a svieži charakter. Klasický polo strih s trojgombíkovým zapínaním sa hodí na bežné nosenie aj neformálne príležitosti. Na prednom diele sú viditeľné menšie škvrny – cena to plne zohľadňuje. Materiál je inak bez poškodení, trhlín alebo deformácií. '],
+
+            ['nazov' => 'Čierne tričko s farebnou potlačou', 'znacka' => 'Neznáma', 'kategoria_id' => 4, 'cena' => 9.90, 'velkost' => 'S', 'farba' => ['čierna','farebná'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/cierno_farebne_tricko.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/cierno_farebne_tricko_mini_01.png',
+                'obrazky/oblecenie_obrazky/cierno_farebne_tricko_mini_02.png'
+                ],
+            'popis' => 'Pánske čierne polo tričko s výraznou geometrickou potlačou na prednom diele – hexagóny, trojuholníky a neonové línie v tyrkysovej, ružovej, oranžovej a modrej farbe. Červený golier a lemy rukávov dopĺňajú farebný kontrast a zabraňujú tomu, aby outfit vyzeral len ako tričko. Zadný diel je čistý a minimalistický, čo dáva potlači priestor vyniknúť. Kúsok pre tých, čo sa neboja byť videní. '],
+
+            ['nazov' => 'Modré tričko s dlhým rukávom', 'znacka' => 'New Balance', 'kategoria_id' => 4, 'cena' => 5.50, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/modre_dlhe_tricko.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/modre_dlhe_tricko_mini_01.png',
+                'obrazky/oblecenie_obrazky/modre_dlhe_tricko_mini_02.png'
+                ],
+            'popis' => 'Pánske modré tričko s dlhým rukávom a okrúhlym výstrihom – ten typ základného kúsku, ktorý v šatníku vždy chýba, kým ho nemáš. Sýta kráľovská modrá farba je výrazná, no stále univerzálna – hodí sa pod bundu, k cargo nohaviciam aj ako vrstvenie pod košeľu. Príjemný materiál sa pohodlne nosí celý deň. Zachované v dobrom stave bez poškodení. '],
+
+            ['nazov' => 'Žlté tričko', 'znacka' => 'Mango', 'kategoria_id' => 4, 'cena' => 5.90, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/zlte_tricko.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/zlte_tricko_mini_01.png',
+                'obrazky/oblecenie_obrazky/zlte_tricko_mini_02.png'
+                ],
+            'popis' => 'Pánske horčicovožlté tričko s malým vreckom na hrudi a jemnou slub textúrou materiálu, ktorá dodáva jednoduchému strihu charakter. Malé vyšité logo na vrecku je nenápadný detail, ktorý odlišuje tričko od bežného basic kúsku. Teplá horčicová farba funguje skvele na jeseň aj v lete – hodí sa k olivovým, hnedým aj tmavomodrým nohaviciam. Zachované v dobrom stave bez poškodení. '],
+
+            ['nazov' => 'Šedé športové tričko', 'znacka' => 'Under Armour', 'kategoria_id' => 4, 'cena' => 4.90, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/sede_tricko.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/sede_tricko_mini_01.png',
+                'obrazky/oblecenie_obrazky/sede_tricko_mini_02.png'
+                ],
+            'popis' => 'Pánske šedé športové tričko s funkčným materiálom, kontrastnými bielymi švami na ramenách a bokoch a jemnou textúrou, ktorá odvádza vlhkosť od tela. Anatomický strih sleduje postavu a neobmedzuje pohyb – ideálne na beh, posilňovňu aj outdoorové aktivity. Šedá farba je klasická voľba, ktorá sa nezašpiní na prvý pohľad a dobre vyzerá aj po tréningu. Zachované v dobrom stave bez poškodení. '],
+
+            ['nazov' => 'Denim košeľa', 'znacka' => 'H&M', 'kategoria_id' => 4, 'cena' => 6.90, 'velkost' => 'S', 'farba' => ['farebná'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/kosela_denim.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/kosela_denim_mini_01.png',
+                'obrazky/oblecenie_obrazky/kosela_denim_mini_02.png'
+                ],
+            'popis' => 'Pánska džínsová košeľa s western inšpiráciou – dve náprsné vrecká, kontrastné prešívanie a kovové cvočky namiesto gombíkov robia z nej niečo viac ako len basic kúsok. Strednomodrý denim má prirodzený vintage charakter a materiál je príjemne mäkký na nosenie. Hodí sa na telo ako hlavný kúsok, zastrčená do nohavíc alebo rozopnutá cez tričko. Zachované v dobrom stave bez poškodení. '],
+
+            ['nazov' => 'Palmová košeľa', 'znacka' => 'H&M', 'kategoria_id' => 4, 'cena' => 4.50, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/palmova_kosela.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/palmova_kosela_mini_01.png',
+                'obrazky/oblecenie_obrazky/palmova_kosela_mini_02.png'
+                ],
+            'popis' => 'Pánska krémová košeľa s krátkym rukávom a tropickou potlačou paliem, listov a kvetov – havajský štýl, ktorý nepotrebuje vysvetlenie. Ľahký ľanový materiál je ideálny na teplé dni a krátky rukáv s náprsným vreckom na gombík dodáva kúsku uvoľnený resort charakter. Hodí sa rovnako dobre na pláž, letný festival aj na večeru vonku. Drevené gombíky sú príjemný prírodný detail. Zachované v dobrom stave bez poškodení. '],
+
+            ['nazov' => 'Károvaná košeľa', 'znacka' => 'Levis', 'kategoria_id' => 4, 'cena' => 2.90, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/karovana_kosela.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/karovana_kosela_mini_01.png',
+                'obrazky/oblecenie_obrazky/karovana_kosela_mini_02.png'
+                ],
+            'popis' => 'Pánska flanelová košeľa s červeno-modrým károvaným vzorom a dlhým rukávom – klasický workwear kúsok, ktorý sa nosí rovnako dobre na drevorubačskom výlete aj v meste cez tričko ako alternatíva k bunde. Dvojité náprsné vrecká s gombíkmi a hustý flanelový materiál robia z košele spoľahlivého spoločníka na chladnejšie dni. Teplá kombinácia červenej a nočnej modrej je nadčasová a ľahko sa kombinuje s rifľami aj cargo nohavicami. Zachované v dobrom stave bez poškodení. '],
+
+            ['nazov' => 'Čierne tričko s bielymi bodkami', 'znacka' => 'Reserved', 'kategoria_id' => 4, 'cena' => 10.50, 'velkost' => 'S', 'farba' => ['čierna'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/cierno_biele_tricko.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/cierno_biele_tricko_mini_01.png',
+                'obrazky/oblecenie_obrazky/cierno_biele_tricko_mini_02.png'
+                ],
+            'popis' => 'Pánske čierne tričko s ručne pôsobiacou bielou paint splatter potlačou – ako keby niekto namočil štetec a pustil ho na plátno. Každý kus vyzerá trochu inak, čo z neho robí takmer unikát. Nosí sa skvele samo o sebe k čiernym aj modrým rifľam, alebo ako základ pod otvorenú košeľu. Zachované v dobrom stave bez poškodení. '],
+
+            ['nazov' => 'Hnedé tričko', 'znacka' => 'Neznáma', 'kategoria_id' => 4, 'cena' => 4.90, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/hnede_tricko.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/hnede_tricko_mini_01.png',
+                'obrazky/oblecenie_obrazky/hnede_tricko_mini_02.png'
+                ],
+            'popis' => 'Pánske hnedé tričko s kontrastnými čiernymi pruhmi na ramenách, ktoré mu dodávajú retro športový charakter. Dvojité pruhy siahajúce od goliera po rukávy sú jednoduchý detail, ktorý mení obyčajné tričko na niečo s osobnosťou. Teplá hnedá farba ladí s čiernou, béžovou aj olivovou. Pohodlný klasický strih vhodný na každodenné nosenie. Zachované v dobrom stave bez poškodení. '],
+
             //muž - nohavice - kategória 5
             ['nazov' => 'Rifle Levis', 'znacka' => 'Levis', 'kategoria_id' => 5, 'cena' => 15.50, 'velkost' => 'XL', 'farba' => ['farebná'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/rifle_levis.png',
             'miniatury' => [
