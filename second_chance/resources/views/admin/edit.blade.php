@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Upraviť produkt</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    @vite(['resources/js/admin.js'])
 </head>
 <body>
 <div class="container mt-4">
@@ -56,11 +57,14 @@
 
         <div class="mb-3">
             <label>Farba</label>
-            <select name="farba" class="form-control">
-                @foreach(['čierna','biela','béžová','farebná'] as $f)
-                    <option {{ $produkt->farba == $f ? 'selected' : '' }}>{{ $f }}</option>
-                @endforeach
-            </select>
+            @foreach(['čierna','biela','hnedá','farebná'] as $f)
+                <div class="form-check">
+                    <input type="checkbox" name="farba[]" value="{{ $f }}"
+                        class="form-check-input" id="farba_{{ $f }}"
+                        {{ in_array($f, $produkt->farba ?? []) ? 'checked' : '' }}>
+                    <label class="form-check-label" for="farba_{{ $f }}">{{ $f }}</label>
+                </div>
+            @endforeach
         </div>
 
         <div class="mb-3">
@@ -72,17 +76,58 @@
             </select>
         </div>
 
+        {{-- hlavný obrázok --}}
         <div class="mb-3">
-            <label>Aktuálny obrázok</label><br>
+            <label>Hlavný obrázok</label>
             @if($produkt->hlavnyObrazok)
-                <img src="{{ asset($produkt->hlavnyObrazok->url) }}" width="100" class="mb-2">
+                <div class="mb-2 d-flex align-items-center gap-2">
+                    <img src="{{ asset($produkt->hlavnyObrazok->url) }}" width="80" style="border-radius:6px;object-fit:cover;height:80px">
+                    <button type="button" class="btn btn-danger btn-sm"
+                        onclick="document.getElementById('zmazat-hlavny').submit()">
+                        X vymazať
+                    </button>
+                </div>
             @endif
-            <input type="file" name="obrazok" class="form-control">
-            <small>Nový obrázok nahradí aktuálny obrázok</small>
+ 
+            <input type="file" name="obrazok" class="form-control" id="hlavnyInput" accept="image/*">
+            <div id="hlavnyPreview" class="mt-2"></div>
+        </div>
+
+        {{-- miniatúry --}}
+        <div class="mb-3">
+            <label>Miniatúry</label> 
+            <div class="d-flex flex-wrap gap-2 mb-2">
+                @foreach($produkt->obrazky->where('hlavny', false) as $obrazok)
+                <div style="position:relative;display:inline-block">
+                    <img src="{{ asset($obrazok->url) }}" width="80" style="border-radius:6px;object-fit:cover;height:80px">
+                    <button type="button"
+                        onclick="document.getElementById('zmazat-{{ $obrazok->id }}').submit()"
+                        style="position:absolute;top:2px;right:2px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:14px;line-height:1;padding:0">×</button>
+                </div>
+                @endforeach
+            </div>
+ 
+            <input type="file" name="miniobrazky[]" class="form-control" id="miniInput" accept="image/*" multiple>
+            <div id="miniPreview" class="mt-2 d-flex flex-wrap gap-2"></div>
         </div>
 
         <button type="submit" class="btn btn-warning">Uložiť zmeny</button>
     </form>
+
+    @if($produkt->hlavnyObrazok)
+    <form id="zmazat-hlavny" method="POST" action="{{ route('admin.obrazok.zmazat', $produkt->hlavnyObrazok->id) }}">
+        @csrf
+        @method('DELETE')
+    </form>
+    @endif
+
+    @foreach($produkt->obrazky->where('hlavny', false) as $obrazok)
+    <form id="zmazat-{{ $obrazok->id }}" method="POST" action="{{ route('admin.obrazok.zmazat', $obrazok->id) }}">
+        @csrf
+        @method('DELETE')
+    </form>
+    @endforeach
+
 </div>
 </body>
 </html>

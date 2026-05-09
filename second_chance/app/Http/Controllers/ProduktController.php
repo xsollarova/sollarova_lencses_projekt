@@ -48,7 +48,8 @@ class ProduktController extends Controller
         $kategorie = Kategoria::whereNull('parent_id')->with('podkategorie')->get();
         
         // Získanie min a max ceny z dostupných produktov
-        $cenyStats = Produkt::where('dostupnost', true)->selectRaw('MIN(cena) as min_cena, MAX(cena) as max_cena')->first();
+        $cenyStats = clone $query;
+        $cenyStats = $cenyStats->selectRaw('MIN(cena) as min_cena, MAX(cena) as max_cena')->first();
         $min_cena = $cenyStats->min_cena ?? 0;
         $max_cena = $cenyStats->max_cena ?? 0;
 

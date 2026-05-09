@@ -140,6 +140,9 @@
                                 @if(request('sort'))
                                     <input type="hidden" name="sort" value="{{ request('sort') }}">
                                 @endif
+                                @if(request('pohlavie'))
+                                    <input type="hidden" name="pohlavie" value="{{ request('pohlavie') }}">
+                                @endif
 
                                 <div class="filter-dropdown">
                                     <button type="button" class="filter-btn">Filter</button>

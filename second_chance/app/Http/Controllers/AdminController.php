@@ -42,21 +42,39 @@ class AdminController extends Controller
             'popis'        => $request->popis,
             'cena'         => $request->cena,
             'velkost'      => $request->velkost,
-            'farba'        => $request->farba,
+            'farba'        => $request->input('farba', []),
             'stav'         => $request->stav,
             'dostupnost'   => true,
         ]);
 
-        //uloženie obrázku
+        //uloženie hlavného obrázku
         if ($request->hasFile('obrazok')) {
-            $path = $request->file('obrazok')->store('obrazky/oblecenie_obrazky', 'public');
+            $file = $request->file('obrazok');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('obrazky/oblecenie_obrazky'), $filename);
 
             Obrazok::create([
                 'produkt_id' => $produkt->id,
-                'url'        => 'storage/' . $path,
+                'url'        => 'obrazky/oblecenie_obrazky/' . $filename,
                 'hlavny'     => true,
                 'poradie'    => 1,
             ]);
+        }
+
+        //uloženie miniatúr
+        if ($request->hasFile('miniobrazky')) {
+            $poradie = 2;
+            foreach ($request->file('miniobrazky') as $file) {
+                $filename = time() . '_' . $poradie . '_' . $file->getClientOriginalName();
+                $file->move(public_path('obrazky/oblecenie_obrazky'), $filename);
+                Obrazok::create([
+                    'produkt_id' => $produkt->id,
+                    'url'        => 'obrazky/oblecenie_obrazky/' . $filename,
+                    'hlavny'     => false,
+                    'poradie'    => $poradie,
+                ]);
+                $poradie++;
+            }
         }
 
         return redirect()->route('admin.index')->with('uspech', 'Produkt bol pridaný!');
@@ -81,20 +99,45 @@ class AdminController extends Controller
             'popis'        => $request->popis,
             'cena'         => $request->cena,
             'velkost'      => $request->velkost,
-            'farba'        => $request->farba,
+            'farba'        => $request->input('farba', []),
             'stav'         => $request->stav,
         ]);
 
         //nahradenie starého obrázku
         if ($request->hasFile('obrazok')) {
-            $produkt->obrazky()->delete();
-            $path = $request->file('obrazok')->store('obrazky/produkty', 'public');
+
+            $produkt->obrazky()->where('hlavny', true)->each(function($o) {
+                $path = public_path($o->url);
+                if (file_exists($path)) unlink($path);
+            });
+            $produkt->obrazky()->where('hlavny', true)->delete();
+
+            $file = $request->file('obrazok');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('obrazky/oblecenie_obrazky'), $filename);
+            
             Obrazok::create([
                 'produkt_id' => $produkt->id,
-                'url'        => 'storage/' . $path,
+                'url'        => 'obrazky/oblecenie_obrazky/' . $filename,
                 'hlavny'     => true,
                 'poradie'    => 1,
             ]);
+        }
+
+        //nahradenie miniatúr
+        if ($request->hasFile('miniobrazky')) {
+            $poradie = $produkt->obrazky()->max('poradie') + 1;
+            foreach ($request->file('miniobrazky') as $file) {
+                $filename = time() . '_' . $poradie . '_' . $file->getClientOriginalName();
+                $file->move(public_path('obrazky/oblecenie_obrazky'), $filename);
+                Obrazok::create([
+                    'produkt_id' => $produkt->id,
+                    'url'        => 'obrazky/oblecenie_obrazky/' . $filename,
+                    'hlavny'     => false,
+                    'poradie'    => $poradie,
+                ]);
+                $poradie++;
+            }
         }
 
         return redirect()->route('admin.index')->with('uspech', 'Produkt bol upravený!');
@@ -103,7 +146,29 @@ class AdminController extends Controller
     //vymazanie produktu
     public function destroy($id)
     {
-        Produkt::findOrFail($id)->delete();
+        $produkt = Produkt::with('obrazky')->findOrFail($id);
+
+        foreach ($produkt->obrazky as $obrazok) {
+            $path = public_path($obrazok->url);
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+
+        $produkt->delete();
         return redirect()->route('admin.index')->with('uspech', 'Produkt bol vymazaný!');
+    }
+
+    //vymažeme obrázok pri edite
+    public function zmazatObrazok($id)
+    {
+        $obrazok = Obrazok::findOrFail($id);
+        
+        $path = public_path($obrazok->url);
+        if (file_exists($path)) {
+            unlink($path);
+        }
+        $obrazok->delete();
+        return back()->with('uspech', 'Obrázok bol vymazaný.');
     }
 }

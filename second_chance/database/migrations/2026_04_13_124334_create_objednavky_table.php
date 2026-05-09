@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->foreignId('adresa_id')->constrained('adresa')->cascadeOnDelete();
-            $table->foreignId('doprava_id')->constrained('doprava')->cascadeOnDelete();
+            $table->string('typ_dopravy');
             $table->string('cisloObjednavky')->unique();
             $table->dateTime('datumVytvorenia')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('stav')->default('nova');

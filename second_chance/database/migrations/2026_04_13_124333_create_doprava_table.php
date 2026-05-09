@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('doprava', function (Blueprint $table) {
-            $table->id();
-            $table->string('typDopravy');
-            $table->decimal('cena', 8, 2)->default(0);
-            $table->boolean('aktivna')->default(true);
-            $table->timestamps();
-        });
+        //v priebehu implementácia sme sa rozhodli nahradiť tabuľku doprava priamo
+        //stĺpcom typ_dopravy v tabuľke objednavka
     }
 
     /**
@@ -25,6 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('doprava');
+        
     }
 };

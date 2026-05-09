@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Pridať produkt</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    @vite(['resources/js/admin.js'])
 </head>
 <body>
 <div class="container mt-4">
@@ -53,11 +54,13 @@
 
         <div class="mb-3">
             <label>Farba</label>
-            <select name="farba" class="form-control">
-                @foreach(['čierna','biela','béžová','farebná'] as $f)
-                    <option>{{ $f }}</option>
-                @endforeach
-            </select>
+            @foreach(['čierna','biela','hnedá','farebná'] as $f)
+                <div class="form-check">
+                    <input type="checkbox" name="farba[]" value="{{ $f }}"
+                        class="form-check-input" id="farba_{{ $f }}">
+                    <label class="form-check-label" for="farba_{{ $f }}">{{ $f }}</label>
+                </div>
+            @endforeach
         </div>
 
         <div class="mb-3">
@@ -69,9 +72,18 @@
             </select>
         </div>
 
+        {{-- hlavný obrázok --}}
         <div class="mb-3">
-            <label>Obrázok</label>
-            <input type="file" name="obrazok" class="form-control">
+            <label>Hlavný obrázok</label>
+            <input type="file" name="obrazok" class="form-control" id="hlavnyInput" accept="image/*">
+            <div id="hlavnyPreview" class="mt-2"></div>
+        </div>
+
+        {{-- miniatúry --}}
+        <div class="mb-3">
+            <label>Miniatúry</label>
+            <input type="file" name="miniobrazky[]" class="form-control" id="miniInput" accept="image/*" multiple>
+            <div id="miniPreview" class="mt-2 d-flex flex-wrap gap-2"></div>
         </div>
 
         <button type="submit" class="btn btn-success">Pridať produkt</button>

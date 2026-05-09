@@ -134,7 +134,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Nadčasové modré rifle značky Levis v obľúbenom strihu straight fit, ktorý sluší každej postave. Kvalitný pevný denim materiál, ktorý vydrží roky nosenia a s každým praním získava krajší vintage charakter. Rifle majú kovové nity na namáhaných miestach a charakteristický kožený štítok Levis na zadnom páse. Hodí sa ku každému outfitu – tričku, svetru, košeli aj saku. Minimálne nosené, bez akýchkoľvek poškodení alebo výrazného opotrebovania. Second hand kúsok, ktorý vyzerá takmer ako nový.'],
 
-            ['nazov' => 'Maskáčové nohavice', 'znacka' => 'Pull&Bear', 'kategoria_id' => 2, 'cena' => 9.90, 'velkost' => 'S', 'farba' => ['zelená'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/maskac_nohavice.png',
+            ['nazov' => 'Maskáčové nohavice', 'znacka' => 'Pull&Bear', 'kategoria_id' => 2, 'cena' => 9.90, 'velkost' => 'S', 'farba' => ['farebná'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/maskac_nohavice.png',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/maskac_nohavice_mini_01.png',
                 'obrazky/oblecenie_obrazky/maskac_nohavice_mini_02.png',
@@ -143,7 +143,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Dámske maskáčové nohavice Pull&Bear sú štýlový a pohodlný kúsok na každodenné nosenie. Príjemný materiál spolu s moderným strihom poskytuje komfort počas celého dňa. Nohavice majú praktické vrecká a maskáčový vzor dodáva outfitu trendy streetwear vzhľad. Jednoducho sa kombinujú s tričkom, mikinou alebo bundou. Používané, ale zachovalé vo veľmi dobrom stave – bez dier, fľakov alebo výrazného opotrebovania.'],
 
-            ['nazov' => 'Tyrkysové nohavice', 'znacka' => 'Mango', 'kategoria_id' => 2, 'cena' => 8.90, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/tyrkysove_nohavice.png',
+            ['nazov' => 'Tyrkysové nohavice', 'znacka' => 'Mango', 'kategoria_id' => 2, 'cena' => 8.90, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/tyrkysove_nohavice.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/tyrkysove_nohavice_mini_01.png',
                 'obrazky/oblecenie_obrazky/tyrkysove_nohavice_mini_02.png'
@@ -164,7 +164,7 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Šedé cargo nohavice so širokým strihom a výraznými bočnými vreckami, ktoré spájajú praktickosť so streetwear štýlom. Vintage nádych a regulovateľné spodné lemy umožňujú prispôsobiť dĺžku podľa chuti. Ideálne k crop topu, oversized mikine alebo jednoduchému tričku. Nosené, viditeľné znaky používania – bez poškodení alebo dier. '],
 
-            ['nazov' => 'Svetlomodré rifle', 'znacka' => 'H&M', 'kategoria_id' => 2, 'cena' => 3.50, 'velkost' => 'S', 'farba' => ['farebná'], 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/damske_rifle.png',
+            ['nazov' => 'Svetlomodré rifle', 'znacka' => 'H&M', 'kategoria_id' => 2, 'cena' => 3.50, 'velkost' => 'S', 'farba' => ['farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/damske_rifle.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/damske_rifle_mini_01.png',
                 'obrazky/oblecenie_obrazky/damske_rifle_mini_02.png'
@@ -178,7 +178,7 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Dámske modré rifle s ručne vyšívanými kvetmi – ruže, sedmokrásky a lístky pokrývajú predný diel od stehna až po podkolenie a robia z každého kroku malú výstavu. Slim strih s podhrnutými koncami pekne zvýrazní postavu a výšivka hovorí sama za seba, takže stačí jednoduchý biely top. Rifle sú zachované v dobrom stave, výšivka nepoškodená. '],
 
-            ['nazov' => 'Červeno-žlté tepláky', 'znacka' => 'Nike', 'kategoria_id' => 2, 'cena' => 4.90, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/cerveno_zlte_teplaky.png',
+            ['nazov' => 'Červeno-žlté tepláky', 'znacka' => 'Nike', 'kategoria_id' => 2, 'cena' => 4.90, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/cerveno_zlte_teplaky.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/cerveno_zlte_teplaky_mini_01.png',
                 'obrazky/oblecenie_obrazky/cerveno_zlte_teplaky_mini_02.png'
@@ -276,14 +276,14 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Pánske čierne polo tričko s výraznou geometrickou potlačou na prednom diele – hexagóny, trojuholníky a neonové línie v tyrkysovej, ružovej, oranžovej a modrej farbe. Červený golier a lemy rukávov dopĺňajú farebný kontrast a zabraňujú tomu, aby outfit vyzeral len ako tričko. Zadný diel je čistý a minimalistický, čo dáva potlači priestor vyniknúť. Kúsok pre tých, čo sa neboja byť videní. '],
 
-            ['nazov' => 'Modré tričko s dlhým rukávom', 'znacka' => 'New Balance', 'kategoria_id' => 4, 'cena' => 5.50, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/modre_dlhe_tricko.png',
+            ['nazov' => 'Modré tričko s dlhým rukávom', 'znacka' => 'New Balance', 'kategoria_id' => 4, 'cena' => 5.50, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/modre_dlhe_tricko.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/modre_dlhe_tricko_mini_01.png',
                 'obrazky/oblecenie_obrazky/modre_dlhe_tricko_mini_02.png'
                 ],
             'popis' => 'Pánske modré tričko s dlhým rukávom a okrúhlym výstrihom – ten typ základného kúsku, ktorý v šatníku vždy chýba, kým ho nemáš. Sýta kráľovská modrá farba je výrazná, no stále univerzálna – hodí sa pod bundu, k cargo nohaviciam aj ako vrstvenie pod košeľu. Príjemný materiál sa pohodlne nosí celý deň. Zachované v dobrom stave bez poškodení. '],
 
-            ['nazov' => 'Žlté tričko', 'znacka' => 'Mango', 'kategoria_id' => 4, 'cena' => 5.90, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/zlte_tricko.png',
+            ['nazov' => 'Žlté tričko', 'znacka' => 'Mango', 'kategoria_id' => 4, 'cena' => 5.90, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/zlte_tricko.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/zlte_tricko_mini_01.png',
                 'obrazky/oblecenie_obrazky/zlte_tricko_mini_02.png'
@@ -333,12 +333,12 @@ class DatabaseSeeder extends Seeder
             'popis' => 'Pánske hnedé tričko s kontrastnými čiernymi pruhmi na ramenách, ktoré mu dodávajú retro športový charakter. Dvojité pruhy siahajúce od goliera po rukávy sú jednoduchý detail, ktorý mení obyčajné tričko na niečo s osobnosťou. Teplá hnedá farba ladí s čiernou, béžovou aj olivovou. Pohodlný klasický strih vhodný na každodenné nosenie. Zachované v dobrom stave bez poškodení. '],
 
             //muž - nohavice - kategória 5
-            ['nazov' => 'Rifle Levis', 'znacka' => 'Levis', 'kategoria_id' => 5, 'cena' => 15.50, 'velkost' => 'XL', 'farba' => ['farebná'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/rifle_levis.png',
+            ['nazov' => 'Rifle Levis', 'znacka' => 'Levis', 'kategoria_id' => 5, 'cena' => 15.50, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/rifle_levis.png',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/rifle_levis_mini_01.png',
                 'obrazky/oblecenie_obrazky/rifle_levis_mini_02.png',
             ],
-            'popis' => 'Pánske modré rifle Levis vo veľkosti XL s rovným klasickým strihom, ktorý poskytuje dostatok priestoru pre pohodlný pohyb počas celého dňa. Odolný denim materiál je zárukou dlhej životnosti a charakteristického štýlu tejto legendárnej značky. Kovové nity a charakteristický kožený štítok Levis sú znakom kvality. Modrá farba je univerzálna a hodí sa k akémukoľvek vrchnému oblečeniu. Nosené, ale zachované v dobrom stave – bez výrazného opotrebovania, trhlín alebo škvŕn.'],
+            'popis' => 'Pánske modré rifle Levis vo veľkosti L s rovným klasickým strihom, ktorý poskytuje dostatok priestoru pre pohodlný pohyb počas celého dňa. Odolný denim materiál je zárukou dlhej životnosti a charakteristického štýlu tejto legendárnej značky. Kovové nity a charakteristický kožený štítok Levis sú znakom kvality. Modrá farba je univerzálna a hodí sa k akémukoľvek vrchnému oblečeniu. Nosené, ale zachované v dobrom stave – bez výrazného opotrebovania, trhlín alebo škvŕn.'],
 
             ['nazov' => 'Nohavice Pull&Bear', 'znacka' => 'Pull&Bear', 'kategoria_id' => 5, 'cena' => 11.50, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/maskac_nohavice.png',
             'miniatury' => [
@@ -384,7 +384,7 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Pánske tmavomodré oblekové nohavice s klasickým tailored strihom a spodným lemom – detail, ktorý okamžite prezradí dôraz na kvalitu. Štruktúrovaný materiál drží tvar počas celého dňa a tmavomodrá farba je univerzálna voľba, ktorá funguje rovnako s bielou košeľou a sakom ako s polo tričkom v business casual outfite. Do kancelárie, na svadbu alebo na pohovor. Zachované vo veľmi dobrom stave, bez záhybov alebo poškodení. '],
 
-            ['nazov' => 'Žlto-biele pásikaté nohavice', 'znacka' => 'Neznáma', 'kategoria_id' => 5, 'cena' => 9.90, 'velkost' => 'L', 'farba' => ['biela','farebná'], 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/pasikate_nohavice.png',
+            ['nazov' => 'Žlto-biele pásikaté nohavice', 'znacka' => 'Neznáma', 'kategoria_id' => 5, 'cena' => 9.90, 'velkost' => 'L', 'farba' => ['biela','farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/pasikate_nohavice.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/pasikate_nohavice_mini_01.png',
                 'obrazky/oblecenie_obrazky/pasikate_nohavice_mini_02.png'
@@ -405,7 +405,7 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Pánske olivové cargo nohavice s baggy strihom a pohodlnou šnúrkou v páse namiesto tuhého opasku – na celodennné nosenie stvorené. Bočné vrecká zvládnu všetko od peňaženky po telefón a podhrnutý spodný lem s kontrastným švom je ten typ detailu, ktorý si všimnú ľudia čo rozumejú veci. Kombinujú sa bez námahy s bielym tričkom alebo fleece mikinou. Zachované v dobrom stave. '],
 
-            ['nazov' => 'Semišové nohavice', 'znacka' => 'Mango', 'kategoria_id' => 5, 'cena' => 9.50, 'velkost' => 'S', 'farba' => ['hnedá'], 'stav' => 'OK', 'obrazok' => 'obrazky/oblecenie_obrazky/semisove_nohavice.png',
+            ['nazov' => 'Semišové nohavice', 'znacka' => 'Mango', 'kategoria_id' => 5, 'cena' => 9.50, 'velkost' => 'S', 'farba' => ['hnedá'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/semisove_nohavice.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/semisove_nohavice_mini_01.png',
                 'obrazky/oblecenie_obrazky/semisove_nohavice_mini_02.png'
@@ -551,7 +551,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Pánska hnedá mikina s pohodlným strihom a mäkkým materiálom vhodná na každodenné nosenie. Jednoduchý dizajn sa ľahko kombinuje s rôznymi outfitmi. Mikina je vo veľmi dobrom stave bez viditeľných poškodení.'],
 
-            ['nazov' => 'Biela mikina na zips', 'znacka' => 'Levis', 'kategoria_id' => 6, 'cena' => 17.90, 'velkost' => 'S', 'farba' => 'biela', 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/biela_zips_mikina.png',
+            ['nazov' => 'Biela mikina na zips', 'znacka' => 'Levis', 'kategoria_id' => 6, 'cena' => 17.90, 'velkost' => 'S', 'farba' => ['biela'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/biela_zips_mikina.png',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/biela_zips_mikina_mini_01.png',
                 'obrazky/oblecenie_obrazky/biela_zips_mikina_mini_02.png'

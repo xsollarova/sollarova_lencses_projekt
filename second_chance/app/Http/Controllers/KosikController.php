@@ -160,4 +160,18 @@ class KosikController extends Controller
         $this->ulozKosik($kosik);
         return redirect()->route('kosik.index');
     }
+
+    //manuálne nastavenie množstva v košíku
+    public function nastavit(Request $request, $id)
+    {
+        $kosik = $this->nacitajKosik();
+        $mnozstvo = max(0, (int) $request->mnozstvo);
+
+        if (isset($kosik[$id])) {
+            $kosik[$id]['mnozstvo'] = $mnozstvo;
+        }
+
+        $this->ulozKosik($kosik);
+        return redirect()->route('kosik.index');
+    }
 }

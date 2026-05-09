@@ -30,6 +30,7 @@ Route::get('/kosik', [KosikController::class, 'index'])->name('kosik.index');
 Route::post('/kosik/pridat/{id}', [KosikController::class, 'pridat'])->name('kosik.pridat')->where('id', '.*');
 Route::post('/kosik/odobrat/{id}', [KosikController::class, 'odobrat'])->name('kosik.odobrat')->where('id', '.*');
 Route::delete('/kosik/odstranit/{id}', [KosikController::class, 'odstranit'])->name('kosik.odstranit')->where('id', '.*');
+Route::post('/kosik/nastavit/{id}', [KosikController::class, 'nastavit'])->name('kosik.nastavit')->where('id', '.*');
 
 //košík - kroky 
 Route::get('/udaje', [UdajeController::class, 'index'])->name('udaje.index');
@@ -47,4 +48,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/upravit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
     Route::put('/upravit/{id}', [AdminController::class, 'update'])->name('admin.update');
     Route::delete('/vymazat/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+    Route::delete('/obrazok/{id}', [AdminController::class, 'zmazatObrazok'])->name('admin.obrazok.zmazat');
 });

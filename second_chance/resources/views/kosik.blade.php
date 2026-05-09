@@ -97,12 +97,16 @@
 
                             @if(!empty($polozka['je_merch']))
                                 <div class="quantity-controls">
-                                    <span class="quantity-label">množstvo: {{ $polozka['mnozstvo'] }}</span>
-
-                                    
                                     <form method="POST" action="{{ route('kosik.odobrat', $id) }}">
                                         @csrf
                                         <button type="submit" class="quantity-btn">−</button>
+                                    </form>
+
+                                    <form method="POST" action="{{ route('kosik.nastavit', $id) }}">
+                                        @csrf
+                                        <input type="number" name="mnozstvo" value="{{ $polozka['mnozstvo'] }}" 
+                                            min="0" class="quantity-input" style="width:50px;text-align:center"
+                                            onchange="this.form.submit()">
                                     </form>
 
                                     <form method="POST" action="{{ route('kosik.pridat', $id) }}">

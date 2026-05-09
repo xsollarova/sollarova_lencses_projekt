@@ -11,7 +11,7 @@ class Objednavka extends Model
 
     protected $table = 'objednavka';
     protected $fillable = [
-        'user_id', 'adresa_id', 'doprava_id', 'cisloObjednavky',
+        'user_id', 'adresa_id', 'typ_dopravy', 'cisloObjednavky',
         'datumVytvorenia', 'stav', 'celkovaSuma', 'cenaDopravy',
     ];
 
@@ -23,11 +23,6 @@ class Objednavka extends Model
     public function adresa()
     {
         return $this->belongsTo(Adresa::class, 'adresa_id');
-    }
-
-    public function doprava()
-    {
-        return $this->belongsTo(Doprava::class, 'doprava_id');
     }
 
     public function platba()

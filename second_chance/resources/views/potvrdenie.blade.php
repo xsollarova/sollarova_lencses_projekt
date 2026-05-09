@@ -35,6 +35,21 @@
                     </p>
                     @endif
                 @endforeach
+
+                @if($cenaDopravy > 0)
+                    <p>
+                        <span>doprava</span>
+                        <span>{{ number_format($cenaDopravy, 2, ',', ' ') }} €</span>
+                    </p>
+                @endif
+
+                @if($cenaPlatby > 0)
+                    <p>
+                        <span>platba</span>
+                        <span>{{ number_format($cenaPlatby, 2, ',', ' ') }} €</span>
+                    </p>
+                @endif
+
             </div>
 
             <h2>Spolu: {{ number_format($celkova_cena, 2, ',', ' ') }} €</h2>
