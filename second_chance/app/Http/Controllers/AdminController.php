@@ -35,6 +35,19 @@ class AdminController extends Controller
     //uloženie nového produktu do databázy
     public function store(Request $request)
     {
+
+        $request->validate([
+            'nazov'        => 'required|string|max:255',
+            'kategoria_id' => 'required|exists:kategoria,id',
+            'cena'         => 'required|numeric|min:0',
+            'velkost'      => 'required',
+            'stav'         => 'required',
+            'farba'        => 'required|array|min:1',
+            'obrazok'      => 'required|image|max:2048',
+            'miniobrazky'  => 'required|array|min:2',
+            'miniobrazky.*'=> 'image|max:2048',
+        ]);
+
         $produkt = Produkt::create([
             'kategoria_id' => $request->kategoria_id,
             'nazov'        => $request->nazov,

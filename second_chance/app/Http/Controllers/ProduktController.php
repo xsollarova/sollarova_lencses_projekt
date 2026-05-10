@@ -44,14 +44,15 @@ class ProduktController extends Controller
             default     => $query->orderBy('created_at', 'asc'),
         };
 
-        $produkty  = $query->paginate(12)->withQueryString();
-        $kategorie = Kategoria::whereNull('parent_id')->with('podkategorie')->get();
-        
         // Získanie min a max ceny z dostupných produktov
         $cenyStats = clone $query;
         $cenyStats = $cenyStats->selectRaw('MIN(cena) as min_cena, MAX(cena) as max_cena')->first();
         $min_cena = $cenyStats->min_cena ?? 0;
         $max_cena = $cenyStats->max_cena ?? 0;
+
+        $produkty  = $query->paginate(12)->withQueryString();
+        $kategorie = Kategoria::whereNull('parent_id')->with('podkategorie')->get();
+        
 
         return view('zoznam_produktov', compact('produkty', 'kategorie', 'min_cena', 'max_cena'));
     }

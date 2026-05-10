@@ -111,10 +111,8 @@ class DatabaseSeeder extends Seeder
 
             ['nazov' => 'Béžová bunda', 'znacka' => 'Zara', 'kategoria_id' => 1, 'cena' => 7.90, 'velkost' => 'M', 'farba' => ['hnedá'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/bunda_zara.png',
             'miniatury' => [
-                'obrazky/oblecenie_obrazky/bunda_zara_mini_01.jpg',
-                'obrazky/oblecenie_obrazky/bunda_zara_mini_02.jpg',
-                'obrazky/oblecenie_obrazky/bunda_zara_mini_03.jpg',
-                'obrazky/oblecenie_obrazky/bunda_zara_mini_04.jpg',
+                'obrazky/oblecenie_obrazky/bunda_zara_mini_01.png',
+                'obrazky/oblecenie_obrazky/bunda_zara_mini_02.png',
             ],
             'popis' => 'Elegantná hnedá bunda značky Zara je ideálnym kúskom do prechodného obdobia. Vďaka svojmu minimalistickému dizajnu sa ľahko kombinuje s rôznymi outfitmi – či už do mesta, do školy alebo na bežné každodenné nosenie. Bunda je vyrobená z príjemného a kvalitného materiálu, ktorý poskytuje pohodlie počas celého dňa. Má klasický strih, ktorý lichotí postave a teplú hnedú farbu, ktorá je v posledných sezónach veľmi trendy. Je vybavená praktickými bočnými vreckami a zapínaním na zips. Ide o second hand kúsok vo veľmi dobrom stave – bez viditeľných poškodení, pripravený na ďalšie nosenie.'],
             
@@ -143,7 +141,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Dámske maskáčové nohavice Pull&Bear sú štýlový a pohodlný kúsok na každodenné nosenie. Príjemný materiál spolu s moderným strihom poskytuje komfort počas celého dňa. Nohavice majú praktické vrecká a maskáčový vzor dodáva outfitu trendy streetwear vzhľad. Jednoducho sa kombinujú s tričkom, mikinou alebo bundou. Používané, ale zachovalé vo veľmi dobrom stave – bez dier, fľakov alebo výrazného opotrebovania.'],
 
-            ['nazov' => 'Tyrkysové nohavice', 'znacka' => 'Mango', 'kategoria_id' => 2, 'cena' => 8.90, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/tyrkysove_nohavice.png',
+            ['nazov' => 'Tyrkysové nohavice', 'znacka' => 'Mango', 'kategoria_id' => 2, 'cena' => 8.90, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/tyrkysove_nohavice.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/tyrkysove_nohavice_mini_01.png',
                 'obrazky/oblecenie_obrazky/tyrkysove_nohavice_mini_02.png'
@@ -178,7 +176,7 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Dámske modré rifle s ručne vyšívanými kvetmi – ruže, sedmokrásky a lístky pokrývajú predný diel od stehna až po podkolenie a robia z každého kroku malú výstavu. Slim strih s podhrnutými koncami pekne zvýrazní postavu a výšivka hovorí sama za seba, takže stačí jednoduchý biely top. Rifle sú zachované v dobrom stave, výšivka nepoškodená. '],
 
-            ['nazov' => 'Červeno-žlté tepláky', 'znacka' => 'Nike', 'kategoria_id' => 2, 'cena' => 4.90, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/cerveno_zlte_teplaky.png',
+            ['nazov' => 'Červeno-žlté tepláky', 'znacka' => 'Nike', 'kategoria_id' => 2, 'cena' => 4.90, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/cerveno_zlte_teplaky.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/cerveno_zlte_teplaky_mini_01.png',
                 'obrazky/oblecenie_obrazky/cerveno_zlte_teplaky_mini_02.png'
@@ -213,20 +211,47 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Dámske hnedé semišové cargo nohavice s uvoľneným strihom a sťahovacou šnúrkou v páse – jesenný kúsok, ktorý kombinuje praktickosť s materiálovou zaujímavosťou. Jemný semišový povrch je príjemný na dotyk a dodáva hnedej farbe hĺbku a teplo. Bočné cargo vrecká sú priestranné, obrúbené lemy zakončujú strih s workwear detailom. Skvele ladia s krémovým tričkom, oversized bundou alebo koženou bundou. Zachované v dobrom stave. '],
 
-            ['nazov' => 'Smokingové nohavice', 'znacka' => 'Reserved', 'kategoria_id' => 2, 'cena' => 15.50, 'velkost' => 'S', 'farba' => ['čierna'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/damske_nohavice.png',
+            ['nazov' => 'Smokingové nohavice', 'znacka' => 'Reserved', 'kategoria_id' => 2, 'cena' => 15.50, 'velkost' => 'M', 'farba' => ['čierna'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/damske_nohavice.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/damske_nohavice_mini_01.png',
                 'obrazky/oblecenie_obrazky/damske_nohavice_mini_02.png'
                 ],
             'popis' => 'Dámske čierne smokingové nohavice s vysokým pásom, záložkami na prednom diele a širokým palazzo strihom, ktorý splýva elegantne pri každom kroku. Čierna farba a štruktúrovaný materiál robia z týchto nohavíc ideálnu voľbu na večerné udalosti, divadlo alebo firemné večierky – no zvládnu aj business look s klasickou blúzkou. Kombinujú sa skvele so saténovým topom, bielou košeľou aj výrazným blazerom. Zachované v dobrom stave.'],
 
+            ['nazov' => 'Čierne rifle', 'znacka' => 'Mango', 'kategoria_id' => 2, 'cena' => 5.50, 'velkost' => 'L', 'farba' => ['čierna'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/cierne_rifle.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/cierne_rifle_mini_01.png',
+                'obrazky/oblecenie_obrazky/cierne_rifle_mini_02.png'
+                ],
+            'popis' => 'Dámske čierne skinny rifle s výraznými trhlinami na stehnách a kolenách. Vysoký pás zvýrazňuje postavu a úzky strih predlžuje siluetu. Tmavá čierna farba drží outfit tmavý a výrazný zároveň. Trhliny sú zámerný dizajn, nie poškodenie. Hodia sa k čiernemu tričku, oversized mikine alebo koženej bunde. Zachované v dobrom stave. '],
+
+            ['nazov' => 'Biele tepláky s hnedou potlačou', 'znacka' => 'Under Armour', 'kategoria_id' => 2, 'cena' => 11.90, 'velkost' => 'M', 'farba' => ['biela','hnedá'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/bielo_hnede_teplaky.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/bielo_hnede_teplaky_mini_01.png',
+                'obrazky/oblecenie_obrazky/bielo_hnede_teplaky_mini_02.png'
+                ],
+            'popis' => 'Dámske biele tepláky s hnedou grafickou potlačou slnka, tŕňov, pavučiny a atramentových škvŕn. Každý motív je umiestnený inak, takže potlač pôsobí ako ručne maľovaná. Elastický pás so šnúrkou a stiahnuté lemy zabezpečujú pohodlie celý deň, doma aj vonku. Hodia sa k bielemu alebo hnedému crop topu. Zachované v dobrom stave. '],
+
+            ['nazov' => 'Čierno-biele šachovnicové nohavice', 'znacka' => 'H&M', 'kategoria_id' => 2, 'cena' => 11.90, 'velkost' => 'L', 'farba' => ['biela','čierna'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/checkered_nohavice.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/checkered_nohavice_mini_01.png',
+                'obrazky/oblecenie_obrazky/checkered_nohavice_mini_02.png'
+                ],
+            'popis' => 'Dámske čierno-biele šachovnicové nohavice z lesklého materiálu – kúsok, ktorý vstúpi do miestnosti skôr ako ty. Rovný strih s vysokým pásom a päťvreckový dizajn balansujú medzi statement módou a nositeľnosťou. Lesklý povrch zdôrazňuje vzor a robí outfit okamžite fotografický. Stačí čierne tielko alebo biely crop top – nohavice urobia zvyšok. Zachované v dobrom stave. '],
+
+            ['nazov' => 'Zvonové nohavice', 'znacka' => 'Mango', 'kategoria_id' => 2, 'cena' => 10.90, 'velkost' => 'L', 'farba' => ['biela','hnedá'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/zvonove_nohavice.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/zvonove_nohavice_mini_01.png',
+                'obrazky/oblecenie_obrazky/zvonove_nohavice_mini_02.png'
+                ],
+            'popis' => 'Dámske krémové flare rifle s hnedou tribal potlačou – zvíjajúce sa línie, iskry a plameňové motívy stekajú po rozšírenom spodnom diele ako tetovanie na džínse. Vysoký pás a zvonový strih predlžujú postavu a odkazujú na Y2K estetiku, ktorá je momentálne späť naplno. Kontrastné hnedé prešívanie dotvára celý look. Hodia sa k crop topu alebo jednoduchému tielku. Zachované v dobrom stave. '],
+
+
             //žena - šaty - kategória 3
-            ['nazov' => 'Čierne šaty', 'znacka' => 'H&M', 'kategoria_id' => 3, 'cena' => 12.00, 'velkost' => 'S', 'farba' => ['čierna'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/cierne_saty.jpg',
+            ['nazov' => 'Čierne šaty', 'znacka' => 'H&M', 'kategoria_id' => 3, 'cena' => 12.00, 'velkost' => 'S', 'farba' => ['čierna'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/cierne_saty.png',
             'miniatury' => [
-                'obrazky/oblecenie_obrazky/cierne_saty_mini_01.jpg',
-                'obrazky/oblecenie_obrazky/cierne_saty_mini_02.jpg',
-                'obrazky/oblecenie_obrazky/cierne_saty_mini_03.jpg',
-                'obrazky/oblecenie_obrazky/cierne_saty_mini_04.jpg',
+                'obrazky/oblecenie_obrazky/cierne_saty_mini_01.png',
+                'obrazky/oblecenie_obrazky/cierne_saty_mini_02.png',
             ],
             'popis' => 'Elegantné čierne šaty značky H&M, ktoré sú vhodné na rôzne príležitosti – od pracovných stretnutí cez rodinné večere až po večerné vychádzky s priateľmi. Čierna farba je nadčasová a vždy pôsobí elegantne. Šaty majú lichotivý áčkový strih, ktorý zvýrazňuje pás a opticky predlžuje postavu. Príjemný materiál s miernym leskom dodáva šatám slávnostný nádych. Dĺžka po kolená je praktická a elegantná zároveň. Predávané ako nové – nikdy nosené, so všetkými visačkami.'],
 
@@ -405,12 +430,20 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Pánske čierne tričko s ručne pôsobiacou bielou paint splatter potlačou – ako keby niekto namočil štetec a pustil ho na plátno. Každý kus vyzerá trochu inak, čo z neho robí takmer unikát. Nosí sa skvele samo o sebe k čiernym aj modrým rifľam, alebo ako základ pod otvorenú košeľu. Zachované v dobrom stave bez poškodení. '],
 
-            ['nazov' => 'Hnedé tričko', 'znacka' => 'Neznáma', 'kategoria_id' => 4, 'cena' => 4.90, 'velkost' => 'L', 'farba' => ['čierna','hnedá'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/hnede_tricko.png',
+            ['nazov' => 'Hnedé tričko', 'znacka' => 'Neznáma', 'kategoria_id' => 4, 'cena' => 4.90, 'velkost' => 'M', 'farba' => ['čierna','hnedá'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/hnede_tricko.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/hnede_tricko_mini_01.png',
                 'obrazky/oblecenie_obrazky/hnede_tricko_mini_02.png'
                 ],
             'popis' => 'Pánske hnedé tričko s kontrastnými čiernymi pruhmi na ramenách, ktoré mu dodávajú retro športový charakter. Dvojité pruhy siahajúce od goliera po rukávy sú jednoduchý detail, ktorý mení obyčajné tričko na niečo s osobnosťou. Teplá hnedá farba ladí s čiernou, béžovou aj olivovou. Pohodlný klasický strih vhodný na každodenné nosenie. Zachované v dobrom stave bez poškodení. '],
+
+            ['nazov' => 'Hnedé tričko s bielom potlačou', 'znacka' => 'New Balance', 'kategoria_id' => 4, 'cena' => 6.90, 'velkost' => 'S', 'farba' => ['hnedá'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/hnedo_biele_tricko.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/hnedo_biele_tricko_mini_01.png',
+                'obrazky/oblecenie_obrazky/hnedo_biele_tricko_mini_02.png'
+                ],
+            'popis' => 'Pánske hnedé tričko s bielou potlačou kompasu obklopeného horami a jedľami a nápisom "Urban Exploration Est. 2024" – pre tých, čo majú radi prírodu aj mesto zároveň. Grafika má čistý outdoorový charakter a teplá hnedá farba sa hodí k rifľam, cargo nohaviciam aj šortkám. Príjemný bavlnený materiál je pohodlný celý deň. Zachované v dobrom stave bez poškodení. '],
+
 
             //muž - nohavice - kategória 5
             ['nazov' => 'Rifle Levis', 'znacka' => 'Levis', 'kategoria_id' => 5, 'cena' => 15.50, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/rifle_levis.png',
@@ -429,7 +462,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Pánske maskáčové nohavice Pull&Bear sú štýlový a pohodlný kúsok na každodenné nosenie. Odolný materiál spolu s praktickým strihom poskytuje dostatok komfortu aj pri dlhšom nosení. Nohavice majú viacero vreciek, čo zvyšuje ich praktickosť, a moderný maskáčový vzor dodáva outfitu výrazný streetwear vzhľad. Používané, ale zachovalé v dobrom stave – bez dier, fľakov alebo výrazného opotrebovania.'],
 
-            ['nazov' => 'Hnedé nohavice', 'znacka' => 'Zara', 'kategoria_id' => 5, 'cena' => 7.50, 'velkost' => 'M', 'farba' => ['hnedá'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/hnede_nohavice.png',
+            ['nazov' => 'Hnedé nohavice', 'znacka' => 'Zara', 'kategoria_id' => 5, 'cena' => 7.50, 'velkost' => 'L', 'farba' => ['hnedá'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/hnede_nohavice.png',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/hnede_nohavice_mini_01.png',
                 'obrazky/oblecenie_obrazky/hnede_nohavice_mini_02.png'
@@ -505,6 +538,41 @@ class DatabaseSeeder extends Seeder
                 'obrazky/oblecenie_obrazky/pracovne_nohavice_mini_02.png'
                 ],
             'popis' => 'Pánske tmavomodré pracovné nohavice s dvojitým predným dielom na kolenách, kovovými nitmi a robustným denim materiálom – stavané na výdrž, nie na výstavu. Charakteristický carpenter strih s bočným vreckom na náradie a zosilnenými švami hovorí o tom, že tieto nohavice vedia, čo je práca. Viditeľné znaky používania dodávajú autentický workwear charakter, materiál zostal pevný a bez poškodení. Fungujú rovnako dobre na stavbe aj v streetwear outfite. '],
+
+            ['nazov' => 'Čierne roztrhané rifle', 'znacka' => 'H&M', 'kategoria_id' => 5, 'cena' => 8.90, 'velkost' => 'S', 'farba' => ['čierna'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/cierne_rifle.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/cierne_rifle_mini_01.png',
+                'obrazky/oblecenie_obrazky/cierne_rifle_mini_02.png'
+                ],
+            'popis' => 'Pánske čierne distressed rifle s trhlinami na stehnách a kolenách a slim strihom, ktorý drží tvar. Tmavá čierna je ideálna pre tých, čo chcú výraz bez výkričníka – outfit zostane temný a konzistentný. Hodia sa k čiernemu tričku, hoodie aj k flanelke uviazenej okolo pása. Trhliny sú súčasťou dizajnu. Zachované v dobrom stave. '],
+
+            ['nazov' => 'Bielo-hnedé tepláky', 'znacka' => 'Reserved', 'kategoria_id' => 5, 'cena' => 4.90, 'velkost' => 'S', 'farba' => ['biela','hnedá'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/bielo_hnede_teplaky.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/bielo_hnede_teplaky_mini_01.png',
+                'obrazky/oblecenie_obrazky/bielo_hnede_teplaky_mini_02.png'
+                ],
+            'popis' => 'Pánske biele tepláky s výraznou hnedou potlačou – slnko, tŕne, pavučina a rozstrieknutý atrament pokrývajú predný diel ako street art na plátne. Voľný strih so stiahnutými lemami a elastickým pásom je maximálne pohodlný a zároveň výrazný. Kúsok pre tých, čo berú streetwear vážne. Kombinuje sa s bielym alebo čiernym oversized tričkom. Zachované v dobrom stave. '],
+
+            ['nazov' => 'Checkered nohavice', 'znacka' => 'Reserved', 'kategoria_id' => 5, 'cena' => 18.90, 'velkost' => 'L', 'farba' => ['biela','čierna'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/checkered_nohavice.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/checkered_nohavice_mini_01.png',
+                'obrazky/oblecenie_obrazky/checkered_nohavice_mini_02.png'
+                ],
+            'popis' => 'Pánske čierno-biele šachovnicové nohavice z lesklého materiálu – nie pre každého, ale pre tých správnych sú to najlepší kúsok v šatníku. Rovný strih s klasickým päťvreckovým dizajnom drží siluetu čistú aj napriek výraznému vzoru. Kombinujú sa jedine s čiernym alebo bielym tričkom – nič iné nepotrebujú. Zachované v dobrom stave. '],
+
+            ['nazov' => 'Bielo-čierne maskáče', 'znacka' => 'H&M', 'kategoria_id' => 5, 'cena' => 5.90, 'velkost' => 'M', 'farba' => ['biela','čierna'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/bielo_cierne_maskace.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/bielo_cierne_maskace_mini_01.png',
+                'obrazky/oblecenie_obrazky/bielo_cierne_maskace_mini_02.png'
+                ],
+            'popis' => 'Pánske bielo-čierne maskáčové jogger nohavice s urban camo vzorom – nie klasický vojenský maskáč, ale jeho mestská, kontrastnejšia verzia. Bočné cargo vrecká na patentky, čierny opasok a stiahnuté spodné lemy robia z nich funkčný aj štýlový kúsok zároveň. Hodia sa k čiernemu alebo bielemu tričku, hoodie aj k taktickej bunde. Zachované v dobrom stave bez poškodení. '],
+
+            ['nazov' => 'Čierne nohavice s červenými prvkami', 'znacka' => 'H&M', 'kategoria_id' => 5, 'cena' => 19.90, 'velkost' => 'L', 'farba' => ['čierna'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/cierno_cervene_nohavice.png',
+                'miniatury' => [
+                'obrazky/oblecenie_obrazky/cierno_cervene_nohavice_mini_01.png',
+                'obrazky/oblecenie_obrazky/cierno_cervene_nohavice_mini_02.png'
+                ],
+            'popis' => 'Pánske čierne nohavice s červenými kontrastnými lemami vreciek a bočným zipsom – subtílny detail, ktorý posúva základný čierny outfit o level vyššie. Slim strih drží siluetu čistú a červená linka ho oživí bez toho, aby outfit pôsobil prehnane. Hodia sa k čiernemu tričku, červenej mikine alebo čiernej koženej bunde. Zachované v dobrom stave bez poškodení. '],
 
             //muž - mikiny - kategória 6
 

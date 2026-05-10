@@ -11,12 +11,23 @@
     @foreach ($elements as $element)
         @if (is_array($element))
 
+            {{-- prvá stránka je vždy zobrazená --}}
+            <a href="{{ $paginator->url(1) }}"
+               class="page-number {{ $paginator->currentPage() == 1 ? 'active' : '' }}">
+                1
+            </a>
+
+            {{-- bodky medzi prvou a aktuálnymi --}}
+            @if($paginator->currentPage() > 3)
+                <span class="page-dots">...</span>
+            @endif
+
             {{-- zobrazí 3 čísla  --}}
             @foreach ($element as $page => $url)
                 @php
                     $cur = $paginator->currentPage();
                     $last = $paginator->lastPage();
-                    $show = ($page >= $cur && $page <= $cur + 2 && $page != $last);
+                    $show = ($page >= $cur && $page <= $cur + 2 && $page != $last && $page != 1);
                 @endphp
 
                 @if($show)
