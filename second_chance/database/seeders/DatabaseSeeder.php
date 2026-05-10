@@ -134,7 +134,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Nadčasové modré rifle značky Levis v obľúbenom strihu straight fit, ktorý sluší každej postave. Kvalitný pevný denim materiál, ktorý vydrží roky nosenia a s každým praním získava krajší vintage charakter. Rifle majú kovové nity na namáhaných miestach a charakteristický kožený štítok Levis na zadnom páse. Hodí sa ku každému outfitu – tričku, svetru, košeli aj saku. Minimálne nosené, bez akýchkoľvek poškodení alebo výrazného opotrebovania. Second hand kúsok, ktorý vyzerá takmer ako nový.'],
 
-            ['nazov' => 'Maskáčové nohavice', 'znacka' => 'Pull&Bear', 'kategoria_id' => 2, 'cena' => 9.90, 'velkost' => 'S', 'farba' => ['farebná'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/maskac_nohavice.png',
+            ['nazov' => 'Maskáčové nohavice', 'znacka' => 'Pull&Bear', 'kategoria_id' => 2, 'cena' => 9.90, 'velkost' => 'S', 'farba' => ['farebná','hnedá'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/maskac_nohavice.png',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/maskac_nohavice_mini_01.png',
                 'obrazky/oblecenie_obrazky/maskac_nohavice_mini_02.png',
@@ -239,6 +239,86 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Dámske červené šaty H&M sú elegantný a výrazný kúsok vhodný na spoločenské udalosti aj bežné nosenie počas teplejších dní. Ľahký a príjemný materiál sa pohodlne nosí, zatiaľ čo ženský strih pekne zvýrazní postavu. Jednoduchý dizajn dopĺňa sýta červená farba, ktorá pôsobí štýlovo a ľahko sa kombinuje s doplnkami. Šaty sú používané, ale vo veľmi dobrom stave – bez dier, fľakov alebo výrazného opotrebovania.'],
 
+            ['nazov' => 'Kvetové šaty', 'znacka' => 'Reserved', 'kategoria_id' => 3, 'cena' => 15.90, 'velkost' => 'M', 'farba' => ['farebná','biela'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/kvetove_saty.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/kvetove_saty_mini_01.png',
+                'obrazky/oblecenie_obrazky/kvetove_saty_mini_02.png',
+            ],
+            'popis' => 'Dámske kvetové šaty v romantickom štýle vhodné na každodenné nosenie aj spoločenské príležitosti. Ľahký materiál a jemný kvetinový vzor vytvárajú svieži a ženský vzhľad. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Čierne obtiahnuté šaty', 'znacka' => 'Zara', 'kategoria_id' => 3, 'cena' => 7.90, 'velkost' => 'L', 'farba' => ['čierna'], 'stav' => 'ok', 'obrazok' => 'obrazky/oblecenie_obrazky/cierne_obtiahnute.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/cierne_obtiahnute_mini_01.png',
+                'obrazky/oblecenie_obrazky/cierne_obtiahnute_mini_02.png',
+            ],
+            'popis' => 'Dámske čierne obtiahnuté šaty zvýrazňujúce postavu, ideálne na večerné udalosti aj elegantné príležitosti. Elastický materiál sa pohodlne prispôsobí telu a vytvára štýlový vzhľad. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Čierne šaty', 'znacka' => 'Tommy Hilfiger', 'kategoria_id' => 3, 'cena' => 12.90, 'velkost' => 'M', 'farba' => ['čierna'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/cierne_saty2.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/cierne_saty2_mini_01.png',
+                'obrazky/oblecenie_obrazky/cierne_saty2_mini_02.png',
+            ],
+            'popis' => 'Dámske čierne šaty v jednoduchom a elegantnom prevedení vhodné na rôzne spoločenské aj bežné príležitosti. Klasický strih a nadčasová farba z nich robia univerzálny kúsok do každého šatníka. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Čierne čipkované šaty', 'znacka' => 'Mango', 'kategoria_id' => 3, 'cena' => 14.90, 'velkost' => 'S', 'farba' => ['čierna'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/cierne_saty_cipka.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/cierne_saty_cipka_mini_01.png',
+                'obrazky/oblecenie_obrazky/cierne_saty_cipka_mini_02.png',
+                'obrazky/oblecenie_obrazky/cierne_saty_cipka_mini_03.png',
+            ],
+            'popis' => 'Dámske čierne čipkované šaty v elegantnom a ženském štýle vhodné na oslavy, večierky aj formálne udalosti. Jemná čipka dodáva šatám luxusný vzhľad a zvýrazňuje ich výnimočný charakter. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Hnedé čipkované šaty', 'znacka' => 'Mango', 'kategoria_id' => 3, 'cena' => 8.90, 'velkost' => 'M', 'farba' => ['hnedá'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/hnede_saty_cipka.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/hnede_saty_cipka_mini_01.png',
+                'obrazky/oblecenie_obrazky/hnede_saty_cipka_mini_02.png',
+                'obrazky/oblecenie_obrazky/hnede_saty_cipka_mini_03.png',
+            ],
+            'popis' => 'Dámske hnedé čipkované šaty v elegantnom a romantickom štýle vhodné na spoločenské udalosti aj slávnostné príležitosti. Jemná čipka a priliehavý strih vytvárajú sofistikovaný a ženský vzhľad. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Hnedo-biele šaty', 'znacka' => 'H&M', 'kategoria_id' => 3, 'cena' => 16.90, 'velkost' => 'M', 'farba' => ['hnedá', 'biela'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/hnedo_biele_saty.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/hnedo_biele_saty_mini_01.png',
+                'obrazky/oblecenie_obrazky/hnedo_biele_saty_mini_02.png',
+            ],
+            'popis' => 'Dámske hnedo-biele šaty v elegantnom a nadčasovom prevedení vhodné na každodenné nosenie aj špeciálne príležitosti. Kombinácia neutrálnych farieb pôsobí štýlovo a ľahko sa dopĺňa s rôznymi doplnkami. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Hnedé saténové šaty', 'znacka' => 'Zara', 'kategoria_id' => 3, 'cena' => 19.90, 'velkost' => 'S', 'farba' => ['hnedá'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/hnede_saten_saty.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/hnede_saten_saty_mini_01.png',
+                'obrazky/oblecenie_obrazky/hnede_saten_saty_mini_02.png',
+                'obrazky/oblecenie_obrazky/hnede_saten_saty_mini_03.png',
+            ],
+            'popis' => 'Dámske hnedé saténové šaty s jemným leskom, ktoré pôsobia elegantne a luxusne. Ľahký splývavý materiál príjemne sedí na postave a je ideálny na oslavy, večierky či formálne udalosti. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Hnedo-zelené šaty', 'znacka' => 'Zara', 'kategoria_id' => 3, 'cena' => 17.90, 'velkost' => 'L', 'farba' => ['hnedá', 'farebná'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/hneda_zelena_saty.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/hneda_zelena_saty_mini_01.png',
+                'obrazky/oblecenie_obrazky/hneda_zelena_saty_mini_02.png',
+            ],
+            'popis' => 'Dámske hnedo-zelené šaty v originálnom farebnom prevedení vhodné na každodenné nosenie aj výnimočné príležitosti. Zaujímavá kombinácia farieb dodáva outfitu prirodzený a štýlový vzhľad. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Biele šaty', 'znacka' => 'H&M', 'kategoria_id' => 3, 'cena' => 15.90, 'velkost' => 'S', 'farba' => ['biela'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/biele_saty.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/biele_saty_mini_01.png',
+                'obrazky/oblecenie_obrazky/biele_saty_mini_02.png',
+            ],
+            'popis' => 'Dámske biele šaty v jemnom a elegantnom štýle vhodné na letné dni, oslavy aj špeciálne príležitosti. Ľahký a príjemný materiál poskytuje pohodlie počas celého dňa a nadčasový strih sa ľahko dopĺňa s rôznymi doplnkami. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Modré šaty', 'znacka' => 'Vans', 'kategoria_id' => 3, 'cena' => 15.90, 'velkost' => 'S', 'farba' => ['farebná'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/modre_saty.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/modre_saty_mini_01.png',
+                'obrazky/oblecenie_obrazky/modre_saty_mini_02.png',
+            ],
+            'popis' => 'Dámske modré šaty v elegantnom a sviežom prevedení vhodné na každodenné nosenie aj slávnostné príležitosti. Príjemný materiál a pohodlný strih zabezpečujú komfort počas celého dňa, zatiaľ čo modrá farba pôsobí štýlovo a nadčasovo. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
+            ['nazov' => 'Ružovo-biele šaty', 'znacka' => 'Neznáma', 'kategoria_id' => 3, 'cena' => 16.90, 'velkost' => 'L', 'farba' => ['biela', 'farebná'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/ruzova_biela_saty.png',
+            'miniatury' => [
+                'obrazky/oblecenie_obrazky/ruzova_biela_saty_mini_01.png',
+                'obrazky/oblecenie_obrazky/ruzova_biela_saty_mini_02.png',
+            ],
+            'popis' => 'Dámske ružovo-biele šaty v jemnom a romantickom štýle vhodné na letné dni, oslavy aj výnimočné príležitosti. Kombinácia bielej a ružovej farby pôsobí sviežo a žensky, zatiaľ čo pohodlný strih zabezpečuje komfort počas celého dňa. Šaty sú vo veľmi dobrom stave bez poškodení alebo výrazného opotrebovania.'],
+
             //muž - tričká - kategória 4
             ['nazov' => 'Biela košeľa', 'znacka' => 'Zara', 'kategoria_id' => 4, 'cena' => 12.90, 'velkost' => 'M', 'farba' => ['biela'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/biela_kosela.png',
             'miniatury' => [
@@ -304,7 +384,7 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Pánska džínsová košeľa s western inšpiráciou – dve náprsné vrecká, kontrastné prešívanie a kovové cvočky namiesto gombíkov robia z nej niečo viac ako len basic kúsok. Strednomodrý denim má prirodzený vintage charakter a materiál je príjemne mäkký na nosenie. Hodí sa na telo ako hlavný kúsok, zastrčená do nohavíc alebo rozopnutá cez tričko. Zachované v dobrom stave bez poškodení. '],
 
-            ['nazov' => 'Palmová košeľa', 'znacka' => 'H&M', 'kategoria_id' => 4, 'cena' => 4.50, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/palmova_kosela.png',
+            ['nazov' => 'Palmová košeľa', 'znacka' => 'H&M', 'kategoria_id' => 4, 'cena' => 4.50, 'velkost' => 'L', 'farba' => ['farebná','biela','hnedá'], 'stav' => 'nové', 'obrazok' => 'obrazky/oblecenie_obrazky/palmova_kosela.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/palmova_kosela_mini_01.png',
                 'obrazky/oblecenie_obrazky/palmova_kosela_mini_02.png'
@@ -318,14 +398,14 @@ class DatabaseSeeder extends Seeder
                 ],
             'popis' => 'Pánska flanelová košeľa s červeno-modrým károvaným vzorom a dlhým rukávom – klasický workwear kúsok, ktorý sa nosí rovnako dobre na drevorubačskom výlete aj v meste cez tričko ako alternatíva k bunde. Dvojité náprsné vrecká s gombíkmi a hustý flanelový materiál robia z košele spoľahlivého spoločníka na chladnejšie dni. Teplá kombinácia červenej a nočnej modrej je nadčasová a ľahko sa kombinuje s rifľami aj cargo nohavicami. Zachované v dobrom stave bez poškodení. '],
 
-            ['nazov' => 'Čierne tričko s bielymi bodkami', 'znacka' => 'Reserved', 'kategoria_id' => 4, 'cena' => 10.50, 'velkost' => 'S', 'farba' => ['čierna'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/cierno_biele_tricko.png',
+            ['nazov' => 'Čierne tričko s bielymi bodkami', 'znacka' => 'Reserved', 'kategoria_id' => 4, 'cena' => 10.50, 'velkost' => 'S', 'farba' => ['čierna','biela'], 'stav' => 'ako nové', 'obrazok' => 'obrazky/oblecenie_obrazky/cierno_biele_tricko.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/cierno_biele_tricko_mini_01.png',
                 'obrazky/oblecenie_obrazky/cierno_biele_tricko_mini_02.png'
                 ],
             'popis' => 'Pánske čierne tričko s ručne pôsobiacou bielou paint splatter potlačou – ako keby niekto namočil štetec a pustil ho na plátno. Každý kus vyzerá trochu inak, čo z neho robí takmer unikát. Nosí sa skvele samo o sebe k čiernym aj modrým rifľam, alebo ako základ pod otvorenú košeľu. Zachované v dobrom stave bez poškodení. '],
 
-            ['nazov' => 'Hnedé tričko', 'znacka' => 'Neznáma', 'kategoria_id' => 4, 'cena' => 4.90, 'velkost' => 'L', 'farba' => ['farebná'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/hnede_tricko.png',
+            ['nazov' => 'Hnedé tričko', 'znacka' => 'Neznáma', 'kategoria_id' => 4, 'cena' => 4.90, 'velkost' => 'L', 'farba' => ['čierna','hnedá'], 'stav' => 'dobré', 'obrazok' => 'obrazky/oblecenie_obrazky/hnede_tricko.png',
                 'miniatury' => [
                 'obrazky/oblecenie_obrazky/hnede_tricko_mini_01.png',
                 'obrazky/oblecenie_obrazky/hnede_tricko_mini_02.png'
@@ -340,7 +420,7 @@ class DatabaseSeeder extends Seeder
             ],
             'popis' => 'Pánske modré rifle Levis vo veľkosti L s rovným klasickým strihom, ktorý poskytuje dostatok priestoru pre pohodlný pohyb počas celého dňa. Odolný denim materiál je zárukou dlhej životnosti a charakteristického štýlu tejto legendárnej značky. Kovové nity a charakteristický kožený štítok Levis sú znakom kvality. Modrá farba je univerzálna a hodí sa k akémukoľvek vrchnému oblečeniu. Nosené, ale zachované v dobrom stave – bez výrazného opotrebovania, trhlín alebo škvŕn.'],
 
-            ['nazov' => 'Nohavice Pull&Bear', 'znacka' => 'Pull&Bear', 'kategoria_id' => 5, 'cena' => 11.50, 'velkost' => 'M', 'farba' => ['farebná'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/maskac_nohavice.png',
+            ['nazov' => 'Nohavice Pull&Bear', 'znacka' => 'Pull&Bear', 'kategoria_id' => 5, 'cena' => 11.50, 'velkost' => 'M', 'farba' => ['farebná', 'hnedá'], 'stav' => 'použité', 'obrazok' => 'obrazky/oblecenie_obrazky/maskac_nohavice.png',
             'miniatury' => [
                 'obrazky/oblecenie_obrazky/maskac_nohavice_mini_01.png',
                 'obrazky/oblecenie_obrazky/maskac_nohavice_mini_02.png',

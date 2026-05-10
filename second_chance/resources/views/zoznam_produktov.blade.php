@@ -148,6 +148,11 @@
                                     <button type="button" class="filter-btn">Filter</button>
 
                                     <div class="filter-menu">
+                                        
+                                        <div class="filter-group">
+                                            <a href="{{ route('produkty.index', request()->only('kategoria', 'sort')) }}">Zrušiť filter</a>
+                                        </div>
+
                                         <div class="filter-group">
                                             <span class="filter-title">Podľa veľkosti</span>
                                             <div class="filter-options">
@@ -191,9 +196,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="filter-group">
-                                            <a href="{{ route('produkty.index', request()->only('kategoria', 'sort')) }}">Zrušiť filter</a>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </form>
