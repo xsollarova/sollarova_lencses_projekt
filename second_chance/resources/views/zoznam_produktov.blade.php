@@ -133,7 +133,7 @@
                             </div>
 
                             <!-- filtre -->
-                            <form method="GET" action="{{ route('produkty.index') }}" id="filter-form">
+                            <form method="GET" action="{{ request('search') ? route('produkty.hladat') : route('produkty.index') }}">
                                 @if(request('kategoria'))
                                     <input type="hidden" name="kategoria" value="{{ request('kategoria') }}">
                                 @endif
@@ -143,12 +143,15 @@
                                 @if(request('pohlavie'))
                                     <input type="hidden" name="pohlavie" value="{{ request('pohlavie') }}">
                                 @endif
+                                @if(request('search'))
+                                    <input type="hidden" name="search" value="{{ request('search') }}">
+                                @endif
 
                                 <div class="filter-dropdown">
                                     <button type="button" class="filter-btn">Filter</button>
 
                                     <div class="filter-menu">
-                                        
+
                                         <div class="filter-group">
                                             <a href="{{ route('produkty.index', request()->only('kategoria', 'sort')) }}">Zrušiť filter</a>
                                         </div>
